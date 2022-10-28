@@ -1,14 +1,28 @@
-function Footer_bar()
-{
-    return (
-        <div className = "footer_bar_container">
-            <span className = "footer_bar_items" >Privacy-Policy</span>
-            <span className = "footer_bar_items" >Cancellation-And-Refund</span>
-            <span className = "footer_bar_items" >Terms-And-Conditions</span>
+import { useEffect, useState } from "react";
+import { getFooterMenus, getMenusData } from "./http-service";
 
-            <span className = "copyright footer_bar_items">Copyright 2018· Designed & Developed by <span className = "eklakshya"> ekLakshya. </span> All rights reserved</span>
-        </div>
 
-    )
+// import name from "../services/http-service";
+
+function Footer_bar() {
+  const [footerData, setFooter] = useState(null);
+  
+  useEffect(() => {
+    getMenusData().then(() => {
+      setFooter(getFooterMenus())
+    })
+  },[])
+  
+  return (
+    <div className = "footer_bar_container">
+        {
+          footerData?.items.map((footer,i) =>   !footer.hide && (
+            <span href={footer.url} className="footer_bar_items"  key={i}>{footer.title}</span>
+          ))
+        }
+        <span className = "gs-fotter-left">Copyright 2018· Designed & Developed by <span className = "eklakshya"> <a>eklakshya</a>  </span> All rights reserved</span>
+    </div>  
+  ); 
 }
+
 export default Footer_bar;
