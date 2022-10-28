@@ -1,28 +1,70 @@
-function Footer()
-{
-    return (
+import { useEffect, useState } from "react";
+import {
+  getwidgetsData,
+  getWidgetsAbout,
+  getWidgetsLatestNews,
+  getWidgetsWebsiteTags,
+  getWidgetsSocialMediaLinks
+} from "./http-service";
+
+function Footer() {
+  const [aboutWidget, setAboutWidget] = useState(null);
+  const [latestNewsWidget, setlatestNewsWidget] = useState(null);
+  const [websiteTagsWidget, setwebsiteTagsWidget] = useState(null);
+  const [socialMediaLinkWidget, setsocialMediaLinkWidget] = useState(null);
+
+  useEffect(() => {
+    getwidgetsData().then(() => {
+      setAboutWidget(getWidgetsAbout());
+      setlatestNewsWidget(getWidgetsLatestNews());
+      setwebsiteTagsWidget(getWidgetsWebsiteTags());
+      setsocialMediaLinkWidget(getWidgetsSocialMediaLinks())
+    });
+  }, []);
+
+  return (
+    <div className="waves">
+  
+
+    <div className="footer_container">
+      
+      <div className="about">
+        <h5 style={{color:'whitesmoke'}}>{aboutWidget?.title} </h5>
+        {/* <br/> */}
+        <h4 >eklakshya</h4>
+
+        {aboutWidget?.content.map((d, i) =>    !d.show &&  (
+          <p key={i} dangerouslySetInnerHTML={{ __html: d.description }}></p>
+        ))}
         
-        <div className = "footer_container">
+        <br />
+       <div className="social_media_links">
+       <br />
+        {socialMediaLinkWidget?.content.map((d, i) =>d.show &&  (
+          <a key={i} target="__blank" href="https://google.com/" id="FooterSocialMediaLinks" className={d.icon}></a>
+          
+        ))}
+       </div>
         
-            <div className = "about">
-                <h4>ABOUT</h4> <br/>
-                <p>We create transformational learning environments that will enrich and enhance your life, with an in-depth focus on self development. Training in high end technology domains are uniquely blended with training in behavioral transformations</p>
-            </div>
-
-            <div className = "latest_news">
-                <h4>LATEST NEWS</h4> <br/>
-                <p>Coming Soon: Titan Orator Masterclass in Public Speaking</p>
-                <p>3-Month Introduction to VLSI Design Training at Hubbali</p>
-                <p>Registration to Susandhi Batch 11 Now Open</p>
-            </div>
-
-            <div className = "website_tags">
-                <h4>WEBSITE TAGS</h4> <br/>
-                <span>VLSI</span> &nbsp;
-                <span>IoT</span>
-            </div>
-
-        </div>
-    )
+      </div>
+      <div className="latest_news">
+        <h5 style={{color:'white'}}>{latestNewsWidget?.title} </h5> <br />
+        {latestNewsWidget?.content.map((d, i) => !d.show  &&(
+          <p key={i} dangerouslySetInnerHTML={{ __html: d.description }}></p>
+        ))}
+      </div>
+      <div className="website_tags">
+        <h5 style={{color:'white'}}>{websiteTagsWidget?.title}</h5> <br />
+        {websiteTagsWidget?.content.map((d, i) =>  !d.show &&(
+          <a className="websitelinks" key={i}>
+            {d.title}
+          </a>
+        ))}
+      </div>
+    </div>
+    </div>
+      
+    
+  );
 }
 export default Footer;

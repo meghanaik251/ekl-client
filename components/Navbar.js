@@ -1,4 +1,16 @@
+// import { url } from "inspector";
+import { useEffect, useState } from "react";
+import { getMenusData, getMenusItem } from "./http-service";
+
 function Navbar(props) {
+  const [menuItems, setmenuItems] = useState(null);
+
+  useEffect(() => {
+    getMenusData().then(() => {
+      setmenuItems(getMenusItem());
+    });
+  }, []);
+
   return (
     <div className="sticky-top">
       <div className="navbar-light bg-light">
@@ -12,15 +24,15 @@ function Navbar(props) {
       </div>
 
       <div className="navbar_container">
-        <nav class="navbar navbar-expand-lg py-3 navbar-light bg-light ">
-          <div class="container">
-            <a href="#" class="navbar-brand">
+        <nav className="navbar navbar-expand-lg py-3 navbar-light ">
+          <div className="container">
+            <a href="#" className="navbar-brand">
               <img
                 src={props.src}
                 height={props.height}
                 width={props.width}
                 alt=""
-                class="d-inline-block align-middle mr-2"
+                className="d-inline-block align-middle mr-2"
               />
             </a>
 
@@ -31,33 +43,26 @@ function Navbar(props) {
               aria-controls="navbarSupportedContent"
               aria-expanded="false"
               aria-label="Toggle navigation"
-              class="navbar-toggler"
+              className="navbar-toggler"
             >
-              <span class="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div id="navbarSupportedContent" class="collapse navbar-collapse">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    ABOUT
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    TRAINING
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    CONTACT
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    BLOG
-                  </a>
-                </li>
+            <div
+              id="navbarSupportedContent"
+              className="collapse navbar-collapse"
+            >
+              <ul className="navbar-nav ml-auto">
+                {menuItems?.items.map(
+                  (d, i) =>
+                    !d.hide && (
+                      <li className="nav-item">
+                        <a className="nav-link" key={i} href={d.url}>
+                          {d.title}
+                        </a>
+                      </li>
+                    )
+                )}
               </ul>
             </div>
           </div>
