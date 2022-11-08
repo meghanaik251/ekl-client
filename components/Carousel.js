@@ -1,88 +1,89 @@
-import Link from "next/link";
+import Slider from "react-slick";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import {
+  getTrainingData,
+  getTrainingsList,
+} from "./../components/http-service";
+import { mediaUrl } from "../services/constants";
+
 
 function Offerings() {
-  return (
-    <>
-      <div className="carouselslider">
-        <h4 style={{ color: "black", textAlign: "left", margin: "20px" }}>
-          OFFERINGS{" "}
-          <a className="viewall" href="/training">
-            View all
-          </a>
-        </h4>
 
-        <div className="carouselslides">
-          <br></br>
-          <div id="slides__1" className="carouselslide">
-            {[1, 2, 3, 4].map((data, i) => (
-              <div className="item col-md-3">
-                <div>
-                  <div className="img-date">
-                    <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFG6P_A5kZLZJNRnrMnt162YbkFPGX1kn6oOwXpDORzskzSp1zBK3Y_r9Qympc0Ghpk3I&usqp=CAU"
-                      style={{ width: "100%" }}
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
-            <a
-              className="carouselslide__next"
-              href="#slides__2"
-              title="Next"
-            ></a>
-          </div>
-          <div id="slides__2" className="carouselslide">
-            {[1, 2, 3, 4].map((data, i) => (
-              <div className="item col-md-3">
-                <div>
-                  <div className="img-date">
-                    <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFG6P_A5kZLZJNRnrMnt162YbkFPGX1kn6oOwXpDORzskzSp1zBK3Y_r9Qympc0Ghpk3I&usqp=CAU"
-                      style={{ width: "100%" }}
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
-            <a
-              className="carouselslide__prev"
-              href="#slides__1"
-              title="Prev"
-            ></a>
-            <a
-              className="carouselslide__next"
-              href="#slides__2"
-              title="Next"
-            ></a>
-          </div>
-          <div id="slides__3" className="carouselslide">
-            {[1, 2, 3, 4].map((data, i) => (
-              <div className="item col-md-3">
-                <div>
-                  <div className="img-date">
-                    <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFG6P_A5kZLZJNRnrMnt162YbkFPGX1kn6oOwXpDORzskzSp1zBK3Y_r9Qympc0Ghpk3I&usqp=CAU"
-                      style={{ width: "100%" }}
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
-            <a
-              className="carouselslide__prev"
-              href="#slides__1"
-              title="Prev"
-            ></a>
-            <a
-              className="carouselslide__next"
-              href="#slides__2"
-              title="Next"
-            ></a>
-          </div>
-        </div>
-      </div>
+  const [trainingData, settrainingData] = useState(null);
+
+  useEffect(() => {
+    getTrainingData().then(() => {
+      settrainingData(getTrainingsList());
+    });
+  }, []);
+  
+  // var settings = {
+  //   dots: false,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 4,
+  //   slidesToScroll: 1,
+  // };
+
+  const handleDragStart = (e) => e.preventDefault();
+
+  const responsive = {
+    0: { items: 1 },
+    568: { items: 2 },
+    1024: { items: 3 },
+  };
+
+  const items = [
+    // <img
+    //   src={
+    //     "https://image.shutterstock.com/image-photo/mountains-under-mist-morning-amazing-260nw-1725825019.jpg"
+    //   }
+    //   onDragStart={handleDragStart}
+    //   role="presentation"
+    // />,
+
+<>
+    {trainingData?.map((training) => {
+      return (
+        <a href={training.url} >
+          <img
+            src={mediaUrl + training.thumbnail}
+         
+            onDragStart={handleDragStart}
+            role="presentation"
+          />
+        </a>
+      );
+    })}
     </>
+    
+    
+   
+   
+  ];
+
+  return (
+    <div className="carouselslider">
+      <h4 style={{ color: "black", textAlign: "left", margin: "20px" }}>
+        OFFERINGS{" "}
+        <a className="viewall" href="/training">
+          View all
+        </a>
+      </h4>
+      <div className="p-3">
+        <AliceCarousel
+          autoPlay={true}
+          // infinite={true}
+          mouseTracking
+          items={items}
+          controlsStrategy="alternate"
+          responsive={responsive}
+        />
+      </div>
+    </div>
   );
 }
 
