@@ -51,4 +51,23 @@ const getWidgetsSocialMediaLinks = () => {
     return widgetsData.find(d => d.title == "Social media links");
 }
 
-export { getMenusData,getMenusItem,getWidgetsHomePageSlider, getwidgetsData,getWidgetsWebsiteTags,getWidgetsSocialMediaLinks, getFooterMenus, getWidgetsAbout,getWidgetsLatestNews };
+function getAlltabsCategories()
+{
+    return fetch("https://www.eklakshya.com/api/posts/keyWords/?t=1667971013761&type=category")
+    .then( (response) => response.json() )
+}
+
+function getAllBlogs(filter)
+{
+    return fetch("https://www.eklakshya.com/api/posts/?t=1667979981893" + filter)
+    .then( (response) => response.json() )
+}
+
+function getAllBlogsBySearch(filter)
+{
+    return fetch("https://www.eklakshya.com/api/posts/search/?t=1667979981893" + filter)
+    .then( (response) => response.json() )
+}
+
+
+export { getMenusData,getMenusItem,getWidgetsHomePageSlider, getwidgetsData,getWidgetsWebsiteTags,getWidgetsSocialMediaLinks, getFooterMenus, getWidgetsAbout,getWidgetsLatestNews, getAlltabsCategories, getAllBlogs, getAllBlogsBySearch };
