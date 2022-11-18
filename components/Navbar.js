@@ -56,8 +56,8 @@ function Navbar(props) {
                 {menuItems?.items.map(
                   (d, i) =>
                     !d.hide && (
-                      <li className="nav-item">
-                        <a className="nav-link" key={i} href={d.url}>
+                      <li key={i} className="nav-item">
+                        <a  className="nav-link" key={i+1} href={d.url}>
                           {d.title}
                         </a>
                       </li>
