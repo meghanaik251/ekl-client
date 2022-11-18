@@ -122,14 +122,14 @@ body {
 }
 ol,
 ul {
-  padding-left: 46rem;
-  padding-top: 1rem;
+  // padding-left: 46rem;
+  // padding-top: 1rem;
 }
 ol,
 ul,
 dl {
-  margin-top: 9px;
-  margin-bottom: 1rem;
+  // margin-top: 9px;
+  // margin-bottom: 1rem;
 }
 .ekl_logo {
   width: 135px;
@@ -218,6 +218,11 @@ h4 {
   flex-direction: row;
   background: #1e1e1e;
   /* overflow: hidden; */
+}
+
+.description-block{
+  display:flex;
+  flex-direction: row;
 }
 
 .wave {
@@ -604,13 +609,19 @@ body {
 
 .banner {
   // background: #18649e;
-  min-height: 50vh;
-  padding: 1rem;
-  display: flex;
+  min-height: 0vh;
+  padding: 0rem;
+  // display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   z-index: -1;
+}
+
+.banner img {
+  
+  width:100%;
+  height: auto;
 }
 //training details
 .trainingdetails{
@@ -620,4 +631,271 @@ body {
   flex: 0 0 auto;
   margin-left: 627px;
   width: 25%;
+}
+.img{
+  box-sizing: border-box;
+}
+//thumbnail
+.trainingthumbnail{
+
+}
+//Apply button 
+.btn-orange {
+  height: 37px;
+  border: none;
+  line-height: 37px;
+  background: #d6644a;
+  padding: 0 20px;
+  display: inline-block;
+  font-family: Montserrat;
+  font-size: 11px;
+  border-radius: 3px;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 8px 0 0;
+  cursor: pointer;
+}
+.btn-orange:hover {
+  height: 37px;
+  border: none;
+  line-height: 37px;
+  background: #d6644a;
+  padding: 0 20px;
+  display: inline-block;
+  font-family: Montserrat;
+  font-size: 11px;
+  border-radius: 3px;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 8px 0 0;
+  cursor: pointer;
+}
+.btn-block {
+  display: block;
+  width: 100%;
+}
+//brouchure btn
+.btn-outline-orange {
+  height: 33px;
+  line-height: 33px;
+  background: 0 0;
+  padding: 0 20px;
+  display: inline-block;
+  font-family: Montserrat;
+  font-size: 11px;
+  border-radius: 3px;
+  color: #d6644a;
+  border-color: #d6644a;
+  text-transform: uppercase;
+  margin: 8px 0 0;
+  cursor: pointer;
+}
+.btn-outline-orange:hover{
+  height: 33px;
+  line-height: 33px;
+  background: 0 0;
+  padding: 0 20px;
+  display: inline-block;
+  font-family: Montserrat;
+  font-size: 11px;
+  border-radius: 3px;
+  color: #d6644a;
+  border-color: #d6644a;
+  text-transform: uppercase;
+  margin: 8px 0 0;
+  cursor: pointer;
+}
+
+//application form
+h5.heading {
+  width: 100%;
+  display: table;
+  margin: 20px auto 30px;
+  position: relative;
+}
+h5.heading span{
+  font-family: Montserrat,sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #333;
+    background: #fff;
+    position: relative;
+    z-index: 99;
+    padding: 0 auto;
+    margin: 0 auto;
+    display: table;
+}
+.space-bottom-40 {
+  margin-bottom: 40px;
+}
+.text-center {
+  text-align: center!important;
+}
+// p {
+//   color: #666;
+//   font-size: 13px;
+//   line-height: 22px;
+// }
+.btn-black{
+  height: 33px;
+  border: none;
+  line-height: 33px;
+  background: #333;
+  padding: 0 20px;
+  display: inline-block;
+  font-family: Montserrat;
+  font-size: 11px;
+  border-radius: 3px;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 8px 0 0;
+  cursor: pointer;
+}
+
+.btn-color {
+  height: 33px;
+  border: none;
+  line-height: 33px;
+  background: #d6644a;
+  padding: 0 20px;
+  display: inline-block;
+  font-family: Montserrat;
+  font-size: 11px;
+  border-radius: 3px;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 8px 0 0;
+}
+
+
+// form controlls in application form
+.errorMessage {
+  color: #d36147
+}
+
+.invalid {
+  select,
+  input {
+      border-color: #d36147
+  }
+}
+
+.control-group {
+  width: 100%;
+  padding-bottom: 12px;
+  .control {
+      width: 100%;
+  }
+}
+
+app-controls {
+  width: 100%;
+}
+
+.display-center {
+  display: flex;
+  justify-content: center;
+  .status {
+      padding-left: 10px;
+      font-size: 16px;
+      padding-top: 6px;
+      text-transform: capitalize;
+      color: #d66349;
+  }
+}
+
+
+//training vdos
+
+.vdoslist{
+ display: flex;
+ flex-direction: row ;
+ cursor: pointer;
+}
+.videothumbnail{
+  margin-left: 25px;
+}
+
+.player-placholder-image {
+  opacity: 0.1;
+  position: absolute;
+}
+
+//apk form in trainng
+.errorMessage {
+  color: #d36147
+}
+
+.invalid {
+  select,
+  input {
+      border-color: #d36147
+  }
+}
+
+.control-group {
+  width: 100%;
+  padding-bottom: 12px;
+  .control {
+      width: 100%;
+  }
+}
+
+.container{
+  background-color: #fff;
+}
+
+//contact form 
+
+.media-body {
+  -ms-flex: 1;
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+
+.pull-left.fa {
+  background-color: #ededed;
+  border-radius: 50%;
+  color: #333;
+  display: inline-block;
+  font-size: 16px;
+  height: 35px;
+  line-height: 33px;
+  margin: auto 15px auto auto;
+  padding: 0;
+  text-align: center;
+  width: 35px;
+  margin-top: initial;
+}
+.media {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: start;
+  -webkit-box-align: start;
+  align-items: flex-start;
+}
+
+.media-body a {
+  color: #d6644a;
+  -webkit-transition: .4s;
+  transition: .4s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.row1 {
+  --bs-gutter-x: 2.5rem;
+  --bs-gutter-y: 0;
+  margin: 0;
+  // gap: 2px;
+  justify-content: space-between;
+}
+.disabled {
+  opacity: .4;
+}
+
+.name-container {
+  padding: 0;
 }

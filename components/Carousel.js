@@ -46,9 +46,9 @@ function Offerings() {
     // />,
 
 <>
-    {trainingData?.map((training) => {
+    {trainingData?.map((training,i) => {
       return (
-        <a href={training.url} >
+        <a key={i} href={training.url} >
           <img
             src={mediaUrl + training.thumbnail}
          

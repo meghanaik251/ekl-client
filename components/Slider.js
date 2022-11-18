@@ -17,7 +17,7 @@ console.log(homepagesliderWidget, "sdfffff")
     {homepagesliderWidget?.content.map((homepageslide,i) => {
       return (
         // <a href={homepageslide._id} >
-          <img
+          <img key={i}
           src={mediaUrl + homepageslide.imageUrl}         
             // onDragStart={handleDragStart}
             role="presentation"

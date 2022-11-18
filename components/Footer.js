@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   getwidgetsData,
   getWidgetsAbout,
@@ -56,7 +57,7 @@ function Footer() {
       <div className="website_tags">
         <h5 style={{color:'white'}}>{websiteTagsWidget?.title}</h5> <br />
         {websiteTagsWidget?.content.map((d, i) =>  !d.show &&(
-          <a className="websitelinks" key={i}>
+          <a href={ d.link} className="websitelinks" key={i}>
             {d.title}
           </a>
         ))}

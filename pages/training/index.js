@@ -84,7 +84,7 @@ export default function Training() {
             return (
               <a
               // onClick={() => getTrainingInfo(training.url)}
-              href={"training/" + training.url} className="item col-md-3">
+              href={"training/" + training.url}  className="item col-md-3">
                 <img
                   src={mediaUrl + training.thumbnail}
                   className="training-image"

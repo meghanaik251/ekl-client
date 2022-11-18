@@ -4,6 +4,7 @@ let menusData = null;
 let widgetsData = null;
 let trainingData = null;
 let trainingInfo = null;
+let formData = null;
 
 const getMenusData = () => {
   return fetch(apiUrl + "menus?t=" + new Date().getTime())
@@ -51,6 +52,19 @@ const getTraininginfo =(url) =>{
  
 };
 
+const getFormdata= (url) => {
+  return fetch(apiUrl +"application-form/" +url+"?t=" + new Date().getTime())
+    .then((data) => {
+      return data.json();
+    })
+    .then((data) => {
+      // alert(data);
+      formData = data;
+      console.log(formData,"hhhhhhhhhhhhhhhh")
+      return data ;
+    });
+};
+
 const getMenusItem = () => {
   return menusData.find((d) => d.title == "Navbar main");
 };
@@ -80,10 +94,10 @@ const getWidgetsSocialMediaLinks = () => {
 };
 
 const getTrainingsList = () => {
-    return trainingData?.trainingList.map((training)=>{ return { thumbnail : trainingData?.imagesData[training?.thumbnail]?.imageUrl , title : training.title, url : training.url, description : training.description, banner:training.banner  } })
+    return trainingData?.trainingList.map((training,i)=>{ return { thumbnail : trainingData?.imagesData[training?.thumbnail]?.imageUrl , title : training.title, url : training.url, description : training.description, banner:training.banner  } })
   };
-// const getTrainingdetails =()=>{
-//   return trainingInfo.find((d) => d.title == "Abdul Kalam Susandhi Fellowship Program");
+// const getApplicationFormData =()=>{
+//   return formData.find((d) => d.title == "Abdul Kalam Susandhi Fellowship Program");
 // };
 
 export {
@@ -98,6 +112,7 @@ export {
   getWidgetsAbout,
   getWidgetsLatestNews,
   getTrainingsList,
-  // getTrainingdetails,
-  getTraininginfo
+  getFormdata,
+    getTraininginfo,
+    // getApplicationFormData
 };
