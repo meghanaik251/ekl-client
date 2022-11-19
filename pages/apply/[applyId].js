@@ -19,7 +19,6 @@ function ApplyId() {
 
   return (
     <>
-      <Navbar src="./logo.png" height="20%" width="20%"></Navbar>
       <div className="container">
         <div className="row">
           <div className="col">
@@ -38,8 +37,6 @@ function ApplyId() {
         </div>
       </div>
 
-      <Footer></Footer>
-      <Footer_bar></Footer_bar>
     </>
   );
 }
