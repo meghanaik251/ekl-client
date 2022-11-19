@@ -52,18 +52,18 @@ function Navbar(props) {
               id="navbarSupportedContent"
               className="collapse navbar-collapse"
             >
-              <ul className="navbar-nav ml-auto">
-                {menuItems?.items.map(
-                  (d, i) =>
-                    !d.hide && (
-                      <li key={i} className="nav-item">
-                        <a  className="nav-link" key={i+1} href={d.url}>
-                          {d.title}
-                        </a>
-                      </li>
-                    )
-                )}
-              </ul>
+                <ul className="navbar-nav ml-auto">
+                  {menuItems?.items.map(
+                    (d, i) =>
+                      !d.hide && (
+                        <li key={i} className="nav-item">
+                          <a  className="nav-link" key={i+1} href={d.url}>
+                            {d.title}
+                          </a>
+                        </li>
+                      )
+                  )}
+                </ul>
             </div>
           </div>
         </nav>

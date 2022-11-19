@@ -94,6 +94,7 @@ body {
 
 .navbar-nav {
   margin-bottom: 7px;
+  margin-right: 2%;
 }
 .container-xl,
 .container-lg,
@@ -450,7 +451,7 @@ iframe[sandbox] .read-article {
 }
 
 .py-3 {
-  padding-top: 1rem !important;
+  // padding-top: 1rem !important;
   background-color: white;
   /* padding-bottom: 1rem !important; */
 }
@@ -1352,7 +1353,7 @@ iframe[sandbox] .read-article {
 }
 
 .py-3 {
-  padding-top: 1rem !important;
+  // padding-top: 1rem !important;
   background-color: white;
   /* padding-bottom: 1rem !important; */
 }
@@ -1498,3 +1499,9 @@ iframe[sandbox] .read-article {
   justify-content: space-around;
   text-align: center;
 }
+
+#navbarSupportedContent
+{
+  padding-right: 3%;
+}
+// #818081
