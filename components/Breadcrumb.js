@@ -2,20 +2,26 @@
 // import {
 
 // } from "./http-service";
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Breadcrumbs from 'nextjs-breadcrumbs';
 
-// const Example = () => {
-//   return <Breadcrumbs useDefaultStyle rootLabel="Home" />;
-// };
+
 
 export default function Breadcrumb() {
     // 
+    const [breadcrumbdata, setbreadcrumbdata] = useState([])
+    useEffect(() => {
+      setbreadcrumbdata(location.pathname.split("/"))
+    }, [])
+    
     
   return (
     <>
       <div className="breadcrumb">
-        <h6>Breadcrumb</h6>
+        <a href='/' >home</a>
+        {breadcrumbdata.slice(1,).map((bread) => (
+           <span >/<a href={bread} >{bread}</a></span>
+        ))}
       </div>
     </>
   );

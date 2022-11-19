@@ -444,6 +444,7 @@ iframe[sandbox] .read-article {
   text-decoration: none;
   cursor: pointer;
   margin-left: 1032px;
+  margin-top: 40px;
 }
 
 .breadcrumb {
@@ -511,7 +512,7 @@ iframe[sandbox] .read-article {
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 body {
-  background: #f2f2f2;
+  background: #e4dfdf;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -1496,4 +1497,16 @@ iframe[sandbox] .read-article {
   display: flex;
   justify-content: space-around;
   text-align: center;
+}
+.offerings-heading{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 26px;
+}
+.alice-carousel__stage-item{
+  padding: 17px !important;
+}
+.breadcrumb{
+  color: #000;
 }
