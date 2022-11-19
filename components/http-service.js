@@ -5,6 +5,7 @@ let widgetsData = null;
 let trainingData = null;
 let trainingInfo = null;
 let formData = null;
+let submitedformddata = null;
 
 const getMenusData = () => {
   return fetch(apiUrl + "menus?t=" + new Date().getTime())
@@ -24,7 +25,7 @@ const getwidgetsData = () => {
     })
     .then((data) => {
       widgetsData = data;
-      return data ;
+      return data;
     });
 };
 
@@ -36,32 +37,47 @@ const getTrainingData = () => {
     })
     .then((data) => {
       trainingData = data;
-      return data ;
+      return data;
     });
 };
 
-const getTraininginfo =(url) =>{
-  return fetch(apiUrl + "training/"+ url + '?t=' + new Date().getTime())
-  .then((data) => {
-    return data.json();
-  })
-  .then((data) => {
-    trainingInfo = data;
-    return data;
-  });
- 
-};
-
-const getFormdata= (url) => {
-  return fetch(apiUrl +"application-form/" +url+"?t=" + new Date().getTime())
+const getTraininginfo = (url) => {
+  return fetch(apiUrl + "training/" + url + "?t=" + new Date().getTime())
     .then((data) => {
       return data.json();
     })
     .then((data) => {
-      // alert(data);
+      trainingInfo = data;
+      return data;
+    });
+};
+
+const getFormdata = (url) => {
+  return fetch(
+    apiUrl + "application-form/" + url + "?t=" + new Date().getTime()
+  )
+    .then((data) => {
+      return data.json();
+    })
+    .then((data) => {
       formData = data;
-      console.log(formData,"hhhhhhhhhhhhhhhh")
-      return data ;
+      console.log(formData, "hhhhhhhhhhhhhhhh");
+      return data;
+    });
+};
+
+const getSubmitedformddata = (formdata) => {
+  return fetch(apiUrl + "application" + "?t=" + new Date().getTime(), {
+    method: "POST",
+    body: JSON.stringify(formdata, formId),
+  })
+    .then((data) => {
+      return data.json();
+    })
+    .then((data) => {
+      submitedformddata = data;
+      console.log(submitedformddata, "hhhhhhhhhhhhhhhh");
+      return data;
     });
 };
 
@@ -94,11 +110,16 @@ const getWidgetsSocialMediaLinks = () => {
 };
 
 const getTrainingsList = () => {
-    return trainingData?.trainingList.map((training,i)=>{ return { thumbnail : trainingData?.imagesData[training?.thumbnail]?.imageUrl , title : training.title, url : training.url, description : training.description, banner:training.banner  } })
-  };
-// const getApplicationFormData =()=>{
-//   return formData.find((d) => d.title == "Abdul Kalam Susandhi Fellowship Program");
-// };
+  return trainingData?.trainingList.map((training, i) => {
+    return {
+      thumbnail: trainingData?.imagesData[training?.thumbnail]?.imageUrl,
+      title: training.title,
+      url: training.url,
+      description: training.description,
+      banner: training.banner,
+    };
+  });
+};
 
 export {
   getMenusData,
@@ -113,6 +134,6 @@ export {
   getWidgetsLatestNews,
   getTrainingsList,
   getFormdata,
-    getTraininginfo,
-    // getApplicationFormData
+  getTraininginfo,
+  getSubmitedformddata,
 };

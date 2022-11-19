@@ -7,6 +7,7 @@ import DynamicApplicationForm  from "../../components/application-form/dynamic-a
 
 function ApplyId() {
   const [eachformData, seteachformData] = useState([]);
+  // const [submittedformdata, submittedformdata]
 
   useEffect(() => {
     const url = location.pathname.split("/").at(-1);
