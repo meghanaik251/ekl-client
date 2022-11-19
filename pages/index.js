@@ -8,12 +8,11 @@ import Testimonials from "../components/Testimonials"
 export default function Home() {
   return (
     <div>
-      <Navbar src = "./logo.png" height = "20%" width = "20%"/>
+      
       <Slider />
       <Carousel/>
       <Testimonials />
-      <Footer />
-      <FooterBar />
+     
     </div>
   )
 }

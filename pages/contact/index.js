@@ -7,7 +7,7 @@ import WidgetContactForm from "../../components/widgets/widget-contact-form";
 function Contact(){
     return (
     <div>
-        <Navbar></Navbar>
+ 
        <div className="container">
     <div className="row">
        
@@ -29,8 +29,7 @@ function Contact(){
         </div>
     </div>
 </div>
-<Footer />
-<FooterBar/>
+
 </div>
     )
 }

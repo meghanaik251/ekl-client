@@ -1,18 +1,24 @@
-import { useEffect } from "react";
+// import { useEffect, useState } from "react";
+// import {
 
-export default function Breadcrumb({selectedBreadCrumb,path,breadCrumbs}) {
-    useEffect(() => {
-      console.log("selectedBreadCrumb",selectedBreadCrumb);
-    },[])
+// } from "./http-service";
+import React from 'react';
+import Breadcrumbs from 'nextjs-breadcrumbs';
+
+// const Example = () => {
+//   return <Breadcrumbs useDefaultStyle rootLabel="Home" />;
+// };
+
+export default function Breadcrumb() {
+    // 
+    
   return (
     <>
-{/* {breadCrumbs.map((item, itemIndex) => ( */}
       <div className="breadcrumb">
-      <a className="text-danger" href={path}>{selectedBreadCrumb}</a>
-    </div>
-{/* ))} */}
+        <h6>Breadcrumb</h6>
+      </div>
     </>
   );
 }
 
-
+export {Breadcrumb} 

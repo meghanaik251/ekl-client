@@ -121,10 +121,28 @@ const getTrainingsList = () => {
   });
 };
 
+
+function getAlltabsCategories() {
+  return fetch(
+    "https://www.eklakshya.com/api/posts/keyWords/?t=1667971013761&type=category"
+  ).then((response) => response.json());
+}
+
+function getAllBlogs(filter) {
+  return fetch(
+    "https://www.eklakshya.com/api/posts/?t=1667979981893" + filter
+  ).then((response) => response.json());
+}
+
+function getAllBlogsBySearch(filter) {
+  return fetch(
+    "https://www.eklakshya.com/api/posts/search/?t=1667979981893" + filter
+  ).then((response) => response.json());
+}
+
 export {
   getMenusData,
   getMenusItem,
-  getTrainingData,
   getWidgetsHomePageSlider,
   getwidgetsData,
   getWidgetsWebsiteTags,
@@ -132,8 +150,12 @@ export {
   getFooterMenus,
   getWidgetsAbout,
   getWidgetsLatestNews,
+  getAlltabsCategories,
+  getAllBlogs,
+  getAllBlogsBySearch,
   getTrainingsList,
   getFormdata,
   getTraininginfo,
   getSubmitedformddata,
+  getTrainingData
 };

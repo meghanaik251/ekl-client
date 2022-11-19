@@ -62,7 +62,6 @@ export default function Training() {
 
   return (
     <>
-      <Navbar src="./logo.png" height="20%" width="20%" />
       <Breadcrumb selectedBreadCrumb={breadCrumbs[selectedBreadCrumb].id} breadCrumbs={breadCrumbs} path={breadCrumbs[selectedBreadCrumb].path}/>
       <h4 style={{ color: "black", textAlign: "left", margin: "20px" }}>
         TRAINING{" "}
@@ -94,8 +93,7 @@ export default function Training() {
           })}
         </div>
       </div>
-      <Footer />
-      <FooterBar />
+     
     </>
   );
 }
