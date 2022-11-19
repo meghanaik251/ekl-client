@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import AliceCarousel from "react-alice-carousel";
+import AliceCarousel, {ArrowLeft, ArrowRight} from "react-alice-carousel";
 import { getwidgetsData, getWidgetsHomePageSlider } from "./http-service";
 import { mediaUrl } from "../services/constants";
 
@@ -12,12 +12,13 @@ console.log(homepagesliderWidget, "sdfffff")
     });
   }, []);
 
-  const items = [
-  <div  className="sliderContainer">
-    {homepagesliderWidget?.content.map((homepageslide,i) => {
+  const items = 
+  // [
+  // <div  className="sliderContainer">
+    homepagesliderWidget?.content.map((homepageslide,i) => {
       return (
         // <a href={homepageslide._id} >
-          <img key={i}
+          <img className = "home_page_slider" key={i}
           src={mediaUrl + homepageslide.imageUrl}         
             // onDragStart={handleDragStart}
             role="presentation"
@@ -25,22 +26,32 @@ console.log(homepagesliderWidget, "sdfffff")
         
         // </a>
       );
-    })}
-    </div>
-  ]
+    })
+  //   </div>
+  // ]
 
   return (
-    <div className="carouselslider">
-    <div className="p-1">
-    <AliceCarousel
-      autoPlay={true}
-      infinite={true}
-      mouseTracking
-      items={items}
-      controlsStrategy="alternate"
-      // responsive={responsive}
-    />
-  </div>
+    <div className = "arrow_centering">
+        <div className="carouselslider">
+          {/* <i class="fa fa-angle-left" onClick = {ArrowLeft} ></i> */}
+            {/* <i class="fa fa-angle-right" onClick = {ArrowRight} ></i> */}
+        </div>
+          <div className="p-1">
+          <AliceCarousel
+            autoPlay={true}
+            infinite={true}
+            mouseTracking
+            items={items}
+            controlsStrategy="alternate"
+            disableButtonsControls={true}
+            disableDotsControls = {true}
+            animationDuration = {1500} 
+            autoPlayInterval = {4000}
+            // responsive={responsive}
+            
+          />
+      </div>
+
   </div>
   )
 }

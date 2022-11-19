@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 </Head>
-<Navbar src = "./logo.png" height = "20%" width = "20%"/>  <Component {...pageProps} />
+<Navbar src = "/logo.png" height = "20%" width = "20%"/>  <Component {...pageProps} />
   <Footer/>
   <Footer_bar/>
   </>)

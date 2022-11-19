@@ -8,7 +8,6 @@ import {
 import { mediaUrl } from "../../services/constants";
 import Footer from "../../components/Footer";
 import Footer_bar from "../../components/Footer_bar";
-import Navbar from "../../components/Navbar";
 
 function TrainingId() {
   const [eachtrainingData, seteachtrainingData] = useState(undefined);
@@ -25,8 +24,7 @@ function TrainingId() {
 
   return (
     <>
-      {/* <Navbar src="./logo.png" height="20%" width="20%" /> */}
-      <Navbar src="./logo.png" height="20%" width="20%"></Navbar>
+ 
       <div className="banner">
         {eachtrainingData?.training?.banner && (
           <img
@@ -147,8 +145,6 @@ function TrainingId() {
         </div>
       </div>
 
-      <Footer></Footer>
-      <Footer_bar></Footer_bar>
     </>
   );
 }

@@ -82,7 +82,7 @@ const getSubmitedformddata = (formdata) => {
 };
 
 const getMenusItem = () => {
-  return menusData.find((d) => d.title == "Navbar main");
+  return menusData.find((d) => d.title == "Navbar main" );
 };
 
 const getFooterMenus = () => {

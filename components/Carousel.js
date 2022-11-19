@@ -31,12 +31,12 @@ function Offerings() {
   const handleDragStart = (e) => e.preventDefault();
 
   const responsive = {
-    0: { items: 1 },
-    568: { items: 2 },
-    1024: { items: 3 },
+    0: { items: 4 },
+    568: { items: 4 },
+    1024: { items: 4 },
   };
 
-  const items = [
+  const items = 
     // <img
     //   src={
     //     "https://image.shutterstock.com/image-photo/mountains-under-mist-morning-amazing-260nw-1725825019.jpg"
@@ -45,10 +45,10 @@ function Offerings() {
     //   role="presentation"
     // />,
 
-<>
-    {trainingData?.map((training,i) => {
+
+    trainingData?.map((training,i) => {
       return (
-        <a key={i} href={training.url} >
+        <a key={i} href={"training/" + training.url} >
           <img
             src={mediaUrl + training.thumbnail}
          
@@ -57,13 +57,11 @@ function Offerings() {
           />
         </a>
       );
-    })}
-    </>
-    
-    
+    })
+
    
    
-  ];
+  
 
   return (
     <div className="carouselslider">
@@ -77,7 +75,7 @@ function Offerings() {
         <AliceCarousel
           autoPlay={true}
           // infinite={true}
-          mouseTracking
+          mouseTracking={true}
           items={items}
           controlsStrategy="alternate"
           responsive={responsive}
