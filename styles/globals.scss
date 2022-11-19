@@ -97,6 +97,7 @@ body {
 
 .navbar-nav {
   margin-bottom: 7px;
+  margin-right: 2%;
 }
 .container-xl,
 .container-lg,
@@ -1510,3 +1511,31 @@ iframe[sandbox] .read-article {
 .breadcrumb{
   color: #000;
 }
+
+#navbarSupportedContent
+{
+  padding-right: 3%;
+}
+// #818081
+
+.home_page_slider
+{
+  width: 100%;
+  height: auto;
+}
+
+// .fa-angle-left, .fa-angle-right
+// {
+//   font-size: 50px;
+// }
+
+// // .carouselslider {
+// //   // position: absolute;
+// //   top: 50%;
+// //   z-index: 10;
+// //   display: flex;
+// //   justify-content: space-between;
+// //   max-width: 100%;
+// //   min-width: 98%;
+// //   margin: 0 1%;
+// // }

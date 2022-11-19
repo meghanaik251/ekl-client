@@ -1,8 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import '../styles/globals.scss'
 import Head from "next/head";
-import "react-alice-carousel/lib/alice-carousel.css";
-import "react-alice-carousel/lib/scss/alice-carousel.scss";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Footer_bar from '../components/Footer_bar';
