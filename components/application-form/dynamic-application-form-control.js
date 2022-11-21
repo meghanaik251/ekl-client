@@ -1,6 +1,8 @@
-import { useEffect } from "react";
-
-function DynamicApplicationFormControl({ applicatonFormDetails,setformdetails }) {
+import React, {useEffect, useState} from 'react';
+function DynamicApplicationFormControl({
+  applicatonFormDetails,
+  setformdetails,
+}) {
   // const [apkFormData, setapkFormData] = useState(undefined)
 
   // useEffect(() => {
@@ -8,7 +10,60 @@ function DynamicApplicationFormControl({ applicatonFormDetails,setformdetails })
   //     setapkFormData(applicatonFormDetails)
   //   })
   // }, [])
+  const [userDetails, setUserDetails] =useState({
+    firstName: "",
+    lastName: "",
+    middletName: "",
+    password: '',
+    confirmPassword: '',
+    gender: '',
+    email: '',
+    contact: '',
+    altContact: '',
+    state: '',
+    district: '',
+    taluk: '',
+    college: '',
+    bplCard: '',
+    bplCardNo: '',
+    qualification: '',
+    specialisation: '',
+    collegeName: '',
+    yearOfPassing: '',
+    universityName:'',
+    sslcPercentage:'',
+    puc1Percentage: '',
+    puc2Percentage: '',
+    puc2PassingYear: '',
+    currentStudy:'',
+    subjectOfCurrentStudy:'',
+    files:'',
+    referredBy:''
+  });
 
+  const onInputFieldChange = (event) => {
+    console.log("onInputFieldChange", event.target.id, event.target.value);
+    let eventId = event.target.id;
+    let tempUserDetails = userDetails;
+    tempUserDetails[eventId] = event.target.value;
+    setUserDetails({
+      ...userDetails,
+      tempUserDetails
+    })
+    console.log(setUserDetails)
+    if (eventId == "contact") {
+      userDetails?.value?.lenght >= 10?"":"{error msg}";
+      console.log("error msg")
+      //check length
+      //>10 errorState true errorMsg='' 
+    }
+    
+  };
+
+
+  useEffect(()=>{
+    console.log("UserDetails", userDetails)
+  },[userDetails])
   useEffect(() => {
     console.log("applicatonFormDetails", applicatonFormDetails, setformdetails);
   }, []);
@@ -32,36 +87,48 @@ function DynamicApplicationFormControl({ applicatonFormDetails,setformdetails })
               {/* <input type={} /> */}
               {controlData.controlType == "textbox" && (
                 <input
-                pattern="[A-Za-z]{3}"
+                  id={controlData.key}
+                  pattern="[A-Za-z]{3}"
                   className="input-md form-control"
                   placeholder={controlData?.title}
                   // {controlData?.required?'*':''}
                   // className="control-group"
                   type={controlData.type}
                   required={controlData?.required}
+                  onChange={onInputFieldChange}
+                  autocomplete="off"
+                  value={userDetails[controlData.key]}
                 />
               )}
               {controlData.controlType == "radio" &&
                 controlData.options.map((radioData, ii) => (
                   <div key={ii}>
-                    <label class="form-check-label" htmlFor={radioData.key}>
+                    <label className="form-check-label" htmlFor={radioData.key}>
                       {radioData.value}
                     </label>
                     <input
-                     pattern="[A-Za-z]{3}"
+                    value={userDetails[controlData.key]}
+                      id={controlData.key}
+                      //  pattern="[A-Za-z]{3}"
                       type="radio"
                       name={radioData.key}
-                      value={radioData.value}
+                      // value={radioData.value}
+                      onChange={onInputFieldChange}
+                      autocomplete="off"
                       // required={controlData?.required}
                     />
                   </div>
                 ))}
               {controlData.controlType == "textarea" && (
                 <input
-                 pattern="[A-Za-z]{3}"
+                value={userDetails[controlData.key]}
+                  id={controlData.key}
+                  pattern="[A-Za-z]{3}"
                   placeholder={control.title}
                   className="control-group"
                   // type={controlData.type}
+                  onChange={onInputFieldChange}
+                  autocomplete="off"
                   required={controlData?.required}
                 />
               )}
@@ -75,7 +142,6 @@ function DynamicApplicationFormControl({ applicatonFormDetails,setformdetails })
                 )
 
                 } */}
-             
             </div>
           ))}
         </div>

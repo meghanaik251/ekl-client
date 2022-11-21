@@ -1,6 +1,5 @@
 @import "react-alice-carousel/lib/scss/alice-carousel.scss";
 
-
 * {
   padding: 0%;
   margin: 0%;
@@ -224,8 +223,8 @@ h4 {
   /* overflow: hidden; */
 }
 
-.description-block{
-  display:flex;
+.description-block {
+  display: flex;
   flex-direction: row;
 }
 
@@ -467,15 +466,13 @@ iframe[sandbox] .read-article {
   height: 100%;
   width: 100%;
   object-fit: unset;
-
   padding-right: 15px;
   padding-left: 15px;
-  // margin-right: auto;
-  // margin-left: auto;
   transition: 1s ease;
 }
 .traininglists {
   margin-top: 40px;
+  margin-top: -427px;
 }
 .row {
   --bs-gutter-x: 1.5rem;
@@ -517,11 +514,12 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-.search {
-  width: 100%;
-  position: relative;
-  display: flex;
-}
+// .search {
+//   width: 100%;
+//   position: relative;
+//   display: flex;
+//   margin-left: 1099px;
+// }
 
 .searchTerm {
   width: 100%;
@@ -563,7 +561,7 @@ body {
   position: relative;
   display: flex;
   margin-bottom: 477px;
-  margin-left: 548px;
+  margin-left: 1106px;
 }
 
 .searchTerm {
@@ -604,10 +602,9 @@ body {
 }
 
 // Home slider.............................
-.sliderContainer{
-  display :flex;
+.sliderContainer {
+  display: flex;
   flex-direction: row;
-
 }
 
 //Training banner
@@ -624,25 +621,24 @@ body {
 }
 
 .banner img {
-  
-  width:100%;
+  width: 100%;
   height: auto;
 }
 //training details
-.trainingdetails{
+.trainingdetails {
   margin: 49px;
 }
-.thumbnail{
+.thumbnail {
   flex: 0 0 auto;
   margin-left: 627px;
   width: 25%;
 }
-.img{
+.img {
   box-sizing: border-box;
 }
 //thumbnail
 
-//Apply button 
+//Apply button
 .btn-orange {
   height: 37px;
   border: none;
@@ -693,7 +689,7 @@ body {
   margin: 8px 0 0;
   cursor: pointer;
 }
-.btn-outline-orange:hover{
+.btn-outline-orange:hover {
   height: 33px;
   line-height: 33px;
   background: 0 0;
@@ -716,31 +712,31 @@ h5.heading {
   margin: 20px auto 30px;
   position: relative;
 }
-h5.heading span{
-  font-family: Montserrat,sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #333;
-    background: #fff;
-    position: relative;
-    z-index: 99;
-    padding: 0 auto;
-    margin: 0 auto;
-    display: table;
+h5.heading span {
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #333;
+  background: #fff;
+  position: relative;
+  z-index: 99;
+  padding: 0 auto;
+  margin: 0 auto;
+  display: table;
 }
 .space-bottom-40 {
   margin-bottom: 40px;
 }
 .text-center {
-  text-align: center!important;
+  text-align: center !important;
 }
 // p {
 //   color: #666;
 //   font-size: 13px;
 //   line-height: 22px;
 // }
-.btn-black{
+.btn-black {
   height: 33px;
   border: none;
   line-height: 33px;
@@ -771,16 +767,15 @@ h5.heading span{
   margin: 8px 0 0;
 }
 
-
 // form controlls in application form
 .errorMessage {
-  color: #d36147
+  color: #d36147;
 }
 
 .invalid {
   select,
   input {
-      border-color: #d36147
+    border-color: #d36147;
   }
 }
 
@@ -788,7 +783,7 @@ h5.heading span{
   width: 100%;
   padding-bottom: 12px;
   .control {
-      width: 100%;
+    width: 100%;
   }
 }
 
@@ -800,23 +795,22 @@ h5.heading span{
   display: flex;
   justify-content: center;
   .status {
-      padding-left: 10px;
-      font-size: 16px;
-      // padding-top: 6px;
-      text-transform: capitalize;
-      color: #d66349;
+    padding-left: 10px;
+    font-size: 16px;
+    // padding-top: 6px;
+    text-transform: capitalize;
+    color: #d66349;
   }
 }
 
-
 //training vdos
 
-.vdoslist{
- display: flex;
- flex-direction: row ;
- cursor: pointer;
+.vdoslist {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
 }
-.videothumbnail{
+.videothumbnail {
   margin-left: 25px;
 }
 
@@ -827,13 +821,13 @@ h5.heading span{
 
 //apk form in trainng
 .errorMessage {
-  color: #d36147
+  color: #d36147;
 }
 
 .invalid {
   select,
   input {
-      border-color: #d36147
+    border-color: #d36147;
   }
 }
 
@@ -841,15 +835,15 @@ h5.heading span{
   width: 100%;
   padding-bottom: 12px;
   .control {
-      width: 100%;
+    width: 100%;
   }
 }
 
-.container{
+.container {
   background-color: #fff;
 }
 
-//contact form 
+//contact form
 
 .media-body {
   -ms-flex: 1;
@@ -882,8 +876,8 @@ h5.heading span{
 
 .media-body a {
   color: #d6644a;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
   text-decoration: none;
   cursor: pointer;
 }
@@ -896,7 +890,7 @@ h5.heading span{
   justify-content: space-between;
 }
 .disabled {
-  opacity: .4;
+  opacity: 0.4;
 }
 
 .name-container {
@@ -1011,7 +1005,6 @@ body {
 .navbar_item {
   margin: 1%;
   padding-left: 3%;
- 
 }
 .navbar .container {
   min-width: 100vw;
@@ -1049,7 +1042,6 @@ dl {
 h1 {
   margin: 6%;
 }
-
 
 .slider_container {
   background-color: rgb(234, 234, 234);
@@ -1168,7 +1160,6 @@ h1 {
   display: flex;
   overflow-x: scroll;
   position: relative;
- 
 }
 
 .slide:nth-of-type(even) {
@@ -1284,7 +1275,6 @@ iframe[sandbox] .read-article {
   transition: 0.5s all ease-in-out;
 }
 
-
 .carouselslides {
   display: flex;
   overflow-x: scroll;
@@ -1346,10 +1336,10 @@ iframe[sandbox] .read-article {
   margin-left: 1032px;
 }
 
-.breadcrumb{
+.breadcrumb {
   background: #f8f8f8;
   padding: 11px 0;
-  margin-bottom: 45px
+  margin-bottom: 45px;
 }
 
 .py-3 {
@@ -1361,27 +1351,21 @@ iframe[sandbox] .read-article {
   --bs-bg-opacity: 1;
   /* background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important; */
 
-
-.navbar-brand
-{
-  display: block;
+  .navbar-brand {
+    display: block;
+  }
 }
 
-}
-
-.about_container
-{
+.about_container {
   margin-left: 8%;
   margin-right: 1%;
 }
 
-.blog_container
-{
+.blog_container {
   margin-left: 8%;
 }
 
-.tablinks
-{
+.tablinks {
   padding: 1%;
   border: white solid 0px;
 }
@@ -1394,26 +1378,22 @@ iframe[sandbox] .read-article {
   color: rgb(147, 147, 147);
 }
 
-.blog_container
-{
+.blog_container {
   display: flex;
   justify-content: space-between;
 }
 
-.category_list
-{
+.category_list {
   width: 30%;
   text-transform: uppercase;
   font-size: 95%;
 }
 
-.tab-container
-{
+.tab-container {
   width: 70%;
 }
 
-.blog_img
-{
+.blog_img {
   // width: 100%;
   // object-fit: contain;
   min-height: 150px;
@@ -1421,35 +1401,30 @@ iframe[sandbox] .read-article {
   object-fit: cover;
 }
 
-.quicklinks
-{
+.quicklinks {
   border: 0.8px solid rgb(199, 197, 197);
   margin: 1%;
-  padding : 2%;
+  padding: 2%;
   color: rgb(112, 110, 110);
   margin-top: 2%;
   text-transform: uppercase;
   font-size: 90%;
 }
 
-.head
-{
+.head {
   margin-bottom: 8%;
 }
 
-.tab-section
-{
+.tab-section {
   font-size: 140%;
   margin-bottom: 4%;
 }
 
-.tablinks
-{
+.tablinks {
   text-transform: uppercase;
 }
 
-.category
-{
+.category {
   margin-left: 4%;
   margin-top: 2%;
   color: #393939;
@@ -1459,8 +1434,7 @@ iframe[sandbox] .read-article {
   text-decoration: none;
 }
 
-.blog_detail
-{
+.blog_detail {
   font-size: 120%;
   text-decoration: none;
 }
@@ -1471,7 +1445,6 @@ iframe[sandbox] .read-article {
   text-decoration: none;
   margin-bottom: 10%;
 }
-
 
 .blog-container h6 {
   text-decoration: none;
@@ -1484,10 +1457,9 @@ iframe[sandbox] .read-article {
 .blog-description-container {
   color: black;
   border: 1px solid #ccc;
-    background-color: #fafafa;
-    padding: 2%;
+  background-color: #fafafa;
+  padding: 2%;
 }
-
 
 .blog-description-container p {
   font-size: 13px;
@@ -1499,27 +1471,25 @@ iframe[sandbox] .read-article {
   justify-content: space-around;
   text-align: center;
 }
-.offerings-heading{
+.offerings-heading {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-right: 26px;
 }
-.alice-carousel__stage-item{
+.alice-carousel__stage-item {
   padding: 17px !important;
 }
-.breadcrumb{
+.breadcrumb {
   color: #000;
 }
 
-#navbarSupportedContent
-{
+#navbarSupportedContent {
   padding-right: 3%;
 }
 // #818081
 
-.home_page_slider
-{
+.home_page_slider {
   width: 100%;
   height: auto;
 }
@@ -1539,3 +1509,18 @@ iframe[sandbox] .read-article {
 // //   min-width: 98%;
 // //   margin: 0 1%;
 // // }
+.bcrumbs {
+  background: #f8f8f8;
+  padding: 17px 46px;
+  margin-bottom: 45px;
+}
+.textdecoration {
+  color: #000;
+  text-decoration: auto;
+}
+.searchbarallignment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 26px;
+}
