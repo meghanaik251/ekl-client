@@ -19,7 +19,7 @@ const getMenusData = () => {
 
 const getwidgetsData = () => {
   console.log("getwidgetsData");
-  return fetch(apiUrl + "widgets?t=" + new Date().getTime())
+  return  fetch(apiUrl + "widgets?t=" + new Date().getTime())
     .then((data) => {
       return data.json();
     })
@@ -109,6 +109,10 @@ const getWidgetsSocialMediaLinks = () => {
   return widgetsData.find((d) => d.title == "Social media links");
 };
 
+const getWidgetHomePagestestimonials = () => {
+  return widgetsData?.find((d) => d.type == "testimonials");
+};
+
 const getTrainingsList = () => {
   return trainingData?.trainingList.map((training, i) => {
     return {
@@ -157,5 +161,6 @@ export {
   getFormdata,
   getTraininginfo,
   getSubmitedformddata,
-  getTrainingData
+  getTrainingData,
+  getWidgetHomePagestestimonials
 };

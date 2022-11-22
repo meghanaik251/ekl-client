@@ -11,6 +11,7 @@ export default function Home() {
       
       <Slider />
       <Carousel/>
+      <span id="testimonial"></span>
       <Testimonials />
      
     </div>
