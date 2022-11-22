@@ -2,6 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/apply/[applyId]": "pages/apply/[applyId].js",
-  "/training/[trainingId]": "pages/training/[trainingId].js"
+  "/training": "pages/training.js",
+  "/contact": "pages/contact.js",
+  "/training/[trainingId]": "pages/training/[trainingId].js",
+  "/apply/[applyId]": "pages/apply/[applyId].js"
 }

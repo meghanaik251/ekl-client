@@ -30,6 +30,16 @@
       "static/chunks/main.js",
       "static/chunks/pages/apply/[applyId].js"
     ],
+    "/contact": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/contact.js"
+    ],
+    "/training": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/training.js"
+    ],
     "/training/[trainingId]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

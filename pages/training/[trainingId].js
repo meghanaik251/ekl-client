@@ -8,6 +8,7 @@ import {
 import { mediaUrl } from "../../services/constants";
 import Footer from "../../components/Footer";
 import Footer_bar from "../../components/Footer_bar";
+import Breadcrumb from "../../components/Breadcrumb";
 
 function TrainingId() {
   const [eachtrainingData, seteachtrainingData] = useState(undefined);
@@ -35,6 +36,7 @@ function TrainingId() {
           ></img>
         )}
       </div>
+      <Breadcrumb></Breadcrumb>
       
       <div className=" container">
         <div>

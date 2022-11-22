@@ -9,10 +9,20 @@ import { useEffect, useState } from 'react';
 
 function MyApp({ Component, pageProps }) {
   const [currentpath, setcurrentpath] = useState("")
-  const legacyPaths = ["/", "/about", "/contact", "/training/"]
+  const [displayBreadCrumb, setdisplayBreadCrumb] = useState(false)
+  const legacyPaths = ["/", "/about", "/contact"]
 
   useEffect(() => {
-    setcurrentpath(location.pathname)
+    const urldata = location.pathname.split("/").filter(d => d.length)
+    setcurrentpath(location.pathname);
+    if (legacyPaths.includes(currentpath)) {
+      setdisplayBreadCrumb(true)
+    } else if (urldata.includes("training")){
+       setdisplayBreadCrumb(!(urldata.length>1))
+    } else {
+      setdisplayBreadCrumb(false)
+    }
+
   },[])
 
 
@@ -24,7 +34,7 @@ function MyApp({ Component, pageProps }) {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 </Head>
 <Navbar src = "/logo.png" height = "20%" width = "20%"/>
-{ !legacyPaths.includes(currentpath) && <Breadcrumb /> }
+{ displayBreadCrumb && <Breadcrumb /> }
 <Component {...pageProps} />
   <Footer/>
   <Footer_bar/>
