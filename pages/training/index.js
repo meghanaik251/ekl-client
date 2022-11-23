@@ -7,28 +7,7 @@ import {  getTrainingData,  getTrainingsList,} from "../../components/http-servi
 import { mediaUrl } from "../../services/constants";
 import { useRouter } from 'next/router';
  
-const breadCrumbs = [
-  {
-    id : "home",
-    path : "/"
-  },
-  {
-    id : "training",
-    path : "/training"
-  },
-  {
-    id : "blog",
-    path : "/blog"
-  },
-  {
-    id : "about",
-    path : "/about"
-  },
-  // {
-  //   id : "home/training/"+routeParams,
-  //   component : "/"
-  // }
-]
+
 
 export default function Training() {
   const [trainingData, settrainingData] = useState(null);
@@ -56,17 +35,14 @@ export default function Training() {
     );
   };
 
-//   const getTrainingInfo=(title)=>{
-// alert(title);
-//   }
-
   return (
     <>
-      <Breadcrumb selectedBreadCrumb={breadCrumbs[selectedBreadCrumb].id} breadCrumbs={breadCrumbs} path={breadCrumbs[selectedBreadCrumb].path}/>
-      <h4 style={{ color: "black", textAlign: "left", margin: "20px" }}>
+      {/* <Breadcrumb selectedBreadCrumb={breadCrumbs[selectedBreadCrumb].id} breadCrumbs={breadCrumbs} path={breadCrumbs[selectedBreadCrumb].path}/> */}
+     <div className="searchbarallignment">
+       <h4 style={{ color: "black", textAlign: "left", margin: "20px" }}>
         TRAINING{" "}
       </h4>
-      <div className="wrap">
+      
         <div className="search">
           <input
             onChange={(e) => setsearch(e.currentTarget.value)}
@@ -76,7 +52,8 @@ export default function Training() {
           />
           
         </div>
-      </div>
+        </div>
+    
       <div className="traininglists">
         <div className="row">
           {trainingData?.map((training) => {

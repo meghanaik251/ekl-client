@@ -135,7 +135,7 @@ function Blog() {
       </div>
 
       <div className="category_list">
-        <h4 className="head">
+        <h4 className="quick_link_head">
           {activeTab.title == "default" ? "Quick Links" : "Categories"}
         </h4>
         <div

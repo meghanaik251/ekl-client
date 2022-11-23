@@ -1,21 +1,103 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-function DynamicApplicationFormControl({ applicatonFormDetails,setformdetails }) {
-  // const [apkFormData, setapkFormData] = useState(undefined)
+function DynamicApplicationFormControl({
+  applicatonFormDetails,
+  setformdetails,
+}) {
+  const [status, setstatus] = useState(undefined)
 
-  // useEffect(() => {
-  //   getFormdata().then(() => {
-  //     setapkFormData(applicatonFormDetails)
+
+  const changeDetected = (e) => {
+    const testPattern = new RegExp(e.target.pattern);
+    // console.log(e.target.value, )
+    document
+      .getElementById(e.target.id)
+      .classList.add(testPattern.test(e.target.value) ? "valid" : "invalid");
+    document.getElementById(e.target.id + "-validation").style.display =
+      testPattern.test(e.target.value) ? "none" : "block";
+    // console.log("changeDetected")
+  };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const data = {
+  //     name: e.target.name.value,
+  //     email: e.target.email.value,
+  //     subject: e.target.subject.value,
+  //     message: e.target.message.value,
+  //   };
+  //   const JSONdata = JSON.stringify(data);
+  
+	// setstatus('processing') 
+  //   submitContactFormdata(data).then(()=>{
+	// 	setstatus("success")
+	// }).catch((error)=>{
+	// 	setstatus("danger")
+	// });
+
+  const [userDetails, setUserDetails] = useState({
+    firstName: "",
+    lastName: "",
+    middletName: "",
+    password: "",
+    confirmPassword: "",
+    gender: "",
+    email: "",
+    contact: "",
+    altContact: "",
+    state: "",
+    district: "",
+    taluk: "",
+    college: "",
+    bplCard: "",
+    bplCardNo: "",
+    qualification: "",
+    specialisation: "",
+    collegeName: "",
+    yearOfPassing: "",
+    universityName: "",
+    sslcPercentage: "",
+    puc1Percentage: "",
+    puc2Percentage: "",
+    puc2PassingYear: "",
+    currentStudy: "",
+    subjectOfCurrentStudy: "",
+    files: "",
+    referredBy: "",
+  });
+
+  // const onInputFieldChange = (event) => {
+  //   console.log("onInputFieldChange", event.target.id, event.target.value);
+  //   let eventId = event.target.id;
+  //   let tempUserDetails = userDetails;
+  //   tempUserDetails[eventId] = event.target.value;
+  //   setUserDetails({
+  //     ...userDetails,
+  //     tempUserDetails
   //   })
-  // }, [])
+  //   console.log(setUserDetails)
+  //   if (eventId == "contact") {
+  //     userDetails?.value?.lenght >= 10?"":"{error msg}";
+  //     console.log("error msg")
+  //     //check length
+  //     //>10 errorState true errorMsg=''
+  //   }
 
+  // };
+
+  useEffect(() => {
+    console.log("UserDetails", userDetails);
+  }, [userDetails]);
   useEffect(() => {
     console.log("applicatonFormDetails", applicatonFormDetails, setformdetails);
   }, []);
 
   return (
     <>
-      <div x className="container">
+    <div>
+      
+
+      <div  className="container">
         <div className="row">
           {applicatonFormDetails?.controls?.map((controlData, i) => (
             <div
@@ -29,41 +111,69 @@ function DynamicApplicationFormControl({ applicatonFormDetails,setformdetails })
                   <small className="text-danger"> - Required</small>
                 )}
               </lable>
-              {/* <input type={} /> */}
               {controlData.controlType == "textbox" && (
+                <div id={controlData.key}>
                 <input
-                pattern="[A-Za-z]{3}"
+                  onChange={changeDetected}
+                  id={controlData.key}
+                  pattern={controlData.validationExp}
                   className="input-md form-control"
                   placeholder={controlData?.title}
                   // {controlData?.required?'*':''}
                   // className="control-group"
                   type={controlData.type}
                   required={controlData?.required}
+                  // onChange={onInputFieldChange}
+                  autocomplete="off"
+                  value={userDetails[controlData.key]}
                 />
+                <div id={controlData.key + "-validation"}>
+                      <div>{controlData.validationMessage}</div>
+                    </div>
+                    </div>
               )}
               {controlData.controlType == "radio" &&
                 controlData.options.map((radioData, ii) => (
-                  <div key={ii}>
-                    <label class="form-check-label" htmlFor={radioData.key}>
+                  <div id={controlData.key} key={ii}>
+                    <label className="form-check-label" htmlFor={radioData.key}>
                       {radioData.value}
                     </label>
                     <input
-                     pattern="[A-Za-z]{3}"
+                      onChange={changeDetected}
+                      value={userDetails[controlData.key]}
+                      id={controlData.key}
+                      //  pattern="[A-Za-z]{3}"
                       type="radio"
                       name={radioData.key}
-                      value={radioData.value}
+                      // value={radioData.value}
+                      // onChange={onInputFieldChange}
+                      autocomplete="off"
                       // required={controlData?.required}
                     />
+
+                    <div>
+                      <div>{controlData.validationMessage}</div>
+                    </div>
                   </div>
                 ))}
               {controlData.controlType == "textarea" && (
-                <input
-                 pattern="[A-Za-z]{3}"
-                  placeholder={control.title}
-                  className="control-group"
-                  // type={controlData.type}
-                  required={controlData?.required}
-                />
+                <div id={controlData.key}>
+                  <input
+                    onChange={changeDetected}
+                    id={controlData.key + "-validation"}
+                    value={userDetails[controlData.key]}
+                    pattern="[A-Za-z]{3}"
+                    placeholder={control.title}
+                    // className="control-group"
+                    // type={controlData.type}
+                    // onChange={onInputFieldChange}
+                    // autocomplete="off"
+                    required={controlData?.required}
+                  />
+                  <div>
+                    <div>{controlData.validationMessage}</div>
+                  </div>
+                </div>
               )}
               {/* {controlData.controlType == "checkbox" &&(
                   controlData.options.map((radioData, iii) => (
@@ -75,10 +185,10 @@ function DynamicApplicationFormControl({ applicatonFormDetails,setformdetails })
                 )
 
                 } */}
-             
             </div>
           ))}
         </div>
+      </div>
       </div>
     </>
   );

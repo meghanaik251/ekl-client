@@ -41,7 +41,7 @@ function Footer() {
        <div className="social_media_links">
        <br />
         {socialMediaLinkWidget?.content.map((d, i) =>d.show &&  (
-          <a key={i} target="__blank" href="https://google.com/" id="FooterSocialMediaLinks" className={d.icon}></a>
+          <a key={i} target="__blank" href={d.link} id="FooterSocialMediaLinks" className={d.icon}></a>
           
         ))}
        </div>

@@ -81,6 +81,36 @@ const getSubmitedformddata = (formdata) => {
     });
 };
 
+// const getTrainingsList = () => {
+//   return trainingData?.trainingList.map((training, i) => {
+//     return {
+//       thumbnail: trainingData?.imagesData[training?.thumbnail]?.imageUrl,
+//       title: training.title,
+//       url: training.url,
+//       description: training.description,
+//       banner: training.banner,
+//     };
+//   });
+// };
+
+const submitContactFormdata =(formdata)=>{
+  return fetch(apiUrl + "contact" + "?t=" + new Date().getTime(), {
+    method: "POST",
+    body: JSON.stringify(formdata),
+    headers : {
+      'Content-Type': 'application/json'
+    },
+  })
+    .then((data) => {
+      return data.json();
+    })
+    .then((data) => {
+      submitedformddata = data;
+      console.log(submitedformddata, "hhhhhhhhhhhhhhhh");
+      return data;
+    });
+}
+
 const getMenusItem = () => {
   return menusData.find((d) => d.title == "Navbar main" );
 };
@@ -162,5 +192,6 @@ export {
   getTraininginfo,
   getSubmitedformddata,
   getTrainingData,
-  getWidgetHomePagestestimonials
+  getWidgetHomePagestestimonials,
+  submitContactFormdata,
 };
