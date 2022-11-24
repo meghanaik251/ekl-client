@@ -26,7 +26,7 @@ function Navbar(props) {
       <div className="navbar_container">
         <nav className="navbar navbar-expand-lg py-3 navbar-light ">
           <div className="container">
-            <a href="#" className="navbar-brand">
+            <a href="/" className="navbar-brand">
               <img
                 src={props.src}
                 height={props.height}

@@ -1,6 +1,6 @@
 // import {DynamicApplicationFormControl } from "../application-form/dynamic-application-form-control";
 import { useEffect, useState } from "react";
-import { getSubmitedformddata } from "../http-service";
+import { getSubmitedformddata,submitDoc } from "../http-service";
 
 import DynamicApplicationFormControl from "./dynamic-application-form-control";
 
@@ -10,15 +10,38 @@ function DynamicApplicationForm({ applicatonForm }) {
   const [displayform, setdisplayform] = useState(true);
   const [formdetails, setformdetails] = useState({});
   const [status, setstatus] = useState(null);
+  const [uploadfile , setuploadfile] =useState({})
 
   useEffect(() => {
-    setformdetails({ formId: applicatonForm?.form?._id });
+    const trainingId =localStorage.getItem("trainingId")
+    setformdetails({ formId: applicatonForm?.form?._id, trainingId });
   }, [applicatonForm]);
 
   const onEditChange = (e) => {
     setformdetails({ ...formdetails, [e.target.name]: e.target.value });
     console.log(formdetails);
+    const files =e.target.files;
+
+    console.log("before the condition",files)
+     if(e.target.type == "file"){
+      const File = e.target.files;
+      console.log("Files after assignin the File",File);
+      var formData = new FormData();
+      console.log("files[0] value ",files[0]);
+      files.length && (formData.append("files",files[0]));
+      formData && console.log(formData,"g")
+      submitDoc(formData,(fileUrl)=>{
+        setformdetails(({...formdetails,"files":fileUrl}))
+        console.log("formdetails",formdetails)
+      });
+  }
   };
+
+  // const onradioChange = (e) => {
+  //   console.log(e.target.name, e.target.value)
+  //   // setradio({ ...formdetails, [e.target.title]: e.target.key });
+  //   // console.log(formdetails, "radiodetails");
+  // };
 
   const onsubmit = (e) => {
     setdisplayform(false);
@@ -47,6 +70,7 @@ function DynamicApplicationForm({ applicatonForm }) {
               <DynamicApplicationFormControl
                 applicatonFormDetails={applicatonForm}
                 onEditChange={onEditChange}
+                
                 setformdetails={setformdetails}
               />
             </div>

@@ -70,6 +70,9 @@ const getSubmitedformddata = (formdetails) => {
   return fetch(apiUrl + "application" + "?t=" + new Date().getTime(), {
     method: "POST",
     body: JSON.stringify(formdetails),
+    headers : {
+      'Content-Type': 'application/json'
+    },
   })
     .then((data) => {
       return data.json();
@@ -113,7 +116,6 @@ const getTrainingsList = () => {
 
 const Privacypolicy = () => {
   return fetch(apiUrl + "pages"+url+ "?t=" + new Date().getTime(), {
-    // https://eklakshya.com/api/pages/privacy-policy?t=1669275618461
     method: "POST",
     body: JSON.stringify(),
   })
@@ -126,6 +128,31 @@ const Privacypolicy = () => {
       return data;
     });
 };
+
+
+const submitDoc =(formData,next)=>{
+  console.log(formData,"api testimnng ")
+  return fetch(apiUrl + "application/files" + "?t=" + new Date().getTime(), {
+    method: "POST",
+    body: formData ,
+    
+  })
+    .then((data) => {
+      return data.json(formData);
+    })
+    .then((data) => {
+      next(data[0].location);
+      return data;
+    });
+}
+// public submitDoc(payload){
+// 	let request = {
+// 		URL: 'application/files',
+// 		method: requestType.POST,
+// 		payload:payload
+// 	}
+// 	return this.serverInterfaceService.executeRequest(request);
+// }
 
 const getMenusItem = () => {
   return menusData.find((d) => d.title == "Navbar main" );
@@ -200,6 +227,7 @@ export {
   getTrainingData,
   getWidgetHomePagestestimonials,
   submitContactFormdata,
-  Privacypolicy
+  Privacypolicy,
+  submitDoc
   
 };
