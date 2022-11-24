@@ -30,15 +30,25 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/apply/[applyId]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/apply/[applyId].js"
+    ],
     "/blog": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/blog.js"
     ],
-    "/blog/[blogUrl]": [
+    "/training": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/blog/[blogUrl].js"
+      "static/chunks/pages/training.js"
+    ],
+    "/training/[trainingId]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/training/[trainingId].js"
     ]
   },
   "ampFirstPages": []

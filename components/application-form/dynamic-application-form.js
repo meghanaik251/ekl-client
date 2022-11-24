@@ -1,26 +1,53 @@
 // import {DynamicApplicationFormControl } from "../application-form/dynamic-application-form-control";
 import { useEffect, useState } from "react";
+import { getSubmitedformddata } from "../http-service";
 
 import DynamicApplicationFormControl from "./dynamic-application-form-control";
 
 function DynamicApplicationForm({ applicatonForm }) {
   // alert(applicatonForm, "jjkkkkkkkkkkkkkkkkkkkkkkkkjjjjjjjjjj")
-  // useEffect(() => {
-  //   alert(applicatonForm)
-  // }, [applicatonForm])
 
   const [displayform, setdisplayform] = useState(true);
-  const [formdetails, setformdetails ]=useState(undefined)
-  const [status, setstatus] = useState(true);
+  const [formdetails, setformdetails] = useState({});
+  const [status, setstatus] = useState(null);
+
+  useEffect(() => {
+    setformdetails({ formId: applicatonForm?.form?._id });
+  }, [applicatonForm]);
+
+  const onEditChange = (e) => {
+    setformdetails({ ...formdetails, [e.target.name]: e.target.value });
+    console.log(formdetails);
+  };
+
+  const onsubmit = (e) => {
+    setdisplayform(false);
+    setstatus("processing");
+    getSubmitedformddata(formdetails)
+      .then(() => {
+        setstatus("success");
+        setTimeout(() => {
+          setdisplayform(true);
+        }, 3000);
+      })
+      .catch((error) => {
+        setstatus("danger");
+        setTimeout(() => {
+          setdisplayform(true);
+        }, 3000);
+      });
+  };
 
   return (
     <div>
       <div>
         {displayform ? (
-          <form>
+          <form onSubmit={onsubmit}>
             <div className="row">
               <DynamicApplicationFormControl
-                applicatonFormDetails={applicatonForm} setformdetails={setformdetails}
+                applicatonFormDetails={applicatonForm}
+                onEditChange={onEditChange}
+                setformdetails={setformdetails}
               />
             </div>
             <div className="row">
@@ -28,12 +55,7 @@ function DynamicApplicationForm({ applicatonForm }) {
                 <button type="reset" className="btn-black">
                   Reset
                 </button>
-
-                <button
-                  type="submit"
-                  className="btn-color"
-                  onClick={() => setdisplayform()}
-                >
+                <button type="submit" className="btn-color" onClick={onsubmit}>
                   Submit
                 </button>
               </div>
@@ -62,39 +84,45 @@ function DynamicApplicationForm({ applicatonForm }) {
           //     Go back to home
           //   </a>
           // </div>
+
           <div>
-          {status == "success" ? (
-            <div className={"alert alert-success text-center"}>
-              <div className="text-center display-center">
-                <h4 style={{ color: "green" }}>
-                  <i class="fa fa-check-circle" aria-hidden="true"></i> Thank you
-                  for contacting us.
-                </h4>
+            {status == "success" ? (
+              <div className={"alert alert-success text-center"}>
+                <div className="text-center display-center">
+                  <h4 style={{ color: "green" }}>
+                    {" "}
+                    <i
+                      className="fa fa-check-circle"
+                      aria-hidden="true"
+                    ></i>{" "}
+                    Application submitted
+                  </h4>
+                </div>
               </div>
-            </div>
-          ) : status == "danger" ? (
-            <div className={"alert alert-danger text-center"}>
-              <div className="text-center display-center">
-                <h4 style={{ color: "#d66349" }}>
-                  {" "}
-                  <i
-                    class="fa fa-exclamation-triangle"
-                    aria-hidden="true"
-                  ></i>{" "}
-                  Please try again.
-                </h4>
+            ) : status == "danger" ? (
+              <div className={"alert alert-danger text-center"}>
+                <div className="text-center display-center">
+                  <h4 style={{ color: "#d66349" }}>
+                    {" "}
+                    <i
+                      className="fa fa-exclamation-triangle"
+                      aria-hidden="true"
+                    ></i>{" "}
+                    We could not submit your application. Please try again.
+                  </h4>
+                </div>
               </div>
-            </div>
-          ) : ((status=="processing") ? (
-        <div className={"alert alert-processing text-center"}>
-          <div className="text-center display-center">
-          <div style={{ color: "processing" }} class="processing"></div>
-          <h5 class="status">processing</h5>
+            ) : status == "processing" ? (
+              <div className={"alert alert-processing text-center"}>
+                <div className="text-center display-center">
+                  <div style={{ color: "processing" }} class="processing"></div>
+                  <h5 class="status">processing</h5>
+                </div>
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
-        </div>
-        ) : (<></>))}
-        </div>
-          
         )}
       </div>
     </div>

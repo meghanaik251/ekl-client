@@ -86,7 +86,7 @@ function WidgetContactForm() {
                 id="name"
                 className="input-md form-control"
                 placeholder="Name *"
-                maxlength="200"
+                // maxlength="200"
                 required=""
                 type="text"
               />
@@ -103,7 +103,7 @@ function WidgetContactForm() {
                 id="email"
                 class="input-md form-control"
                 placeholder="Email *"
-                maxlength="200"
+                // maxlength="200"
                 required=""
                 type="email"
               />
@@ -121,7 +121,7 @@ function WidgetContactForm() {
               id="subject"
               className="input-md form-control"
               placeholder="Subject"
-              maxlength="200"
+              // maxlength="200"
               required=""
               type="text"
             />
@@ -141,7 +141,7 @@ function WidgetContactForm() {
               rows="6"
               placeholder="Message"
               required=""
-              maxlength="400"
+              // maxlength="400"
             ></textarea>
             <div className="text-danger">
               <div id="message-validation">Message is required.</div>

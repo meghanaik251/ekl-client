@@ -66,10 +66,10 @@ const getFormdata = (url) => {
     });
 };
 
-const getSubmitedformddata = (formdata) => {
+const getSubmitedformddata = (formdetails) => {
   return fetch(apiUrl + "application" + "?t=" + new Date().getTime(), {
     method: "POST",
-    body: JSON.stringify(formdata, formId),
+    body: JSON.stringify(formdetails),
   })
     .then((data) => {
       return data.json();
@@ -80,18 +80,6 @@ const getSubmitedformddata = (formdata) => {
       return data;
     });
 };
-
-// const getTrainingsList = () => {
-//   return trainingData?.trainingList.map((training, i) => {
-//     return {
-//       thumbnail: trainingData?.imagesData[training?.thumbnail]?.imageUrl,
-//       title: training.title,
-//       url: training.url,
-//       description: training.description,
-//       banner: training.banner,
-//     };
-//   });
-// };
 
 const submitContactFormdata =(formdata)=>{
   return fetch(apiUrl + "contact" + "?t=" + new Date().getTime(), {
@@ -110,6 +98,34 @@ const submitContactFormdata =(formdata)=>{
       return data;
     });
 }
+
+const getTrainingsList = () => {
+  return trainingData?.trainingList.map((training, i) => {
+    return {
+      thumbnail: trainingData?.imagesData[training?.thumbnail]?.imageUrl,
+      title: training.title,
+      url: training.url,
+      description: training.description,
+      banner: training.banner,
+    };
+  });
+};
+
+const Privacypolicy = () => {
+  return fetch(apiUrl + "pages"+url+ "?t=" + new Date().getTime(), {
+    // https://eklakshya.com/api/pages/privacy-policy?t=1669275618461
+    method: "POST",
+    body: JSON.stringify(),
+  })
+    .then((data) => {
+      return data.json();
+    })
+    .then((data) => {
+      submitedformddata = data;
+      console.log(submitedformddata, "hhhhhhhhhhhhhhhh");
+      return data;
+    });
+};
 
 const getMenusItem = () => {
   return menusData.find((d) => d.title == "Navbar main" );
@@ -143,17 +159,7 @@ const getWidgetHomePagestestimonials = () => {
   return widgetsData?.find((d) => d.type == "testimonials");
 };
 
-const getTrainingsList = () => {
-  return trainingData?.trainingList.map((training, i) => {
-    return {
-      thumbnail: trainingData?.imagesData[training?.thumbnail]?.imageUrl,
-      title: training.title,
-      url: training.url,
-      description: training.description,
-      banner: training.banner,
-    };
-  });
-};
+
 
 
 function getAlltabsCategories() {
@@ -194,4 +200,6 @@ export {
   getTrainingData,
   getWidgetHomePagestestimonials,
   submitContactFormdata,
+  Privacypolicy
+  
 };
