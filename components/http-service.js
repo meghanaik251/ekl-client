@@ -241,11 +241,5 @@ export {
   getTrainingData,
   getWidgetHomePagestestimonials,
   submitContactFormdata,
-<<<<<<< HEAD
   getBlogData,
-=======
-  Privacypolicy,
-  submitDoc
-  
->>>>>>> fde1833b930a7c8701b8ddb75646a2657ee19dc8
 };

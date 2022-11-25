@@ -19,7 +19,7 @@ function TrainingId() {
 
     getTraininginfo(url).then(async (pageData) => {
       seteachtrainingData(pageData);
-      localStorage.setItem("trainingId",pageData.training._id)
+      localStorage.setItem("trainingId",pageData.training?._id)
       setactiveVideoData(pageData.videosData[0]);
     });
   }, []);

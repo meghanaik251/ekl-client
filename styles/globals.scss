@@ -483,7 +483,6 @@ iframe[sandbox] .read-article {
   flex-wrap: wrap;
   margin-top: calc(-1 * var(--bs-gutter-y));
   margin-left: calc(0.5 * var(--bs-gutter-x));
-  margin-bottom: 92px;
   margin-right: calc(0.5 * var(--bs-gutter-x));
   row-gap: 33px;
 }
@@ -493,7 +492,6 @@ iframe[sandbox] .read-article {
   transition: 1s ease;
 }
 
-//offerings....................................................
 .alice-carousel__stage-item {
   position: relative;
   display: flex;
@@ -515,13 +513,6 @@ body {
   background: #e4dfdf;
   font-family: "Open Sans", sans-serif;
 }
-
-// .search {
-//   width: 100%;
-//   position: relative;
-//   display: flex;
-//   margin-left: 1099px;
-// }
 
 .searchTerm {
   width: 100%;
@@ -550,19 +541,17 @@ body {
   font-size: 20px;
 }
 
-/*Resize the wrap to see the search bar change!*/
-// @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
 body {
   background: #f2f2f2;
   font-family: "Open Sans", sans-serif;
 }
 
 .search {
-  width: 100%;
+  //width: 100%;
   position: relative;
-  display: flex;
-  margin-bottom: 477px;
+ // display: flex;
+  margin-bottom: 20px;
+  margin-top: 10px;
   justify-content: flex-end;
 }
 
@@ -1663,4 +1652,76 @@ iframe[sandbox] .read-article {
 {
   color: #6c6c6c;
   font-weight: 400;
+}
+
+
+.related_posts_text
+{
+  color: rgb(59, 59, 59);
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.related_posts
+{
+  padding-left: 2%;
+}
+
+.related_blog_head
+{
+  margin: 1%;
+  padding: 1%;
+}
+
+.related_likes
+{
+  margin: 2%;
+  padding: 2%;
+}
+
+.blog-container h6
+{
+  line-height: 150%;
+}
+
+.view_all_posts
+{
+  color: white;
+  background-color: #d6644a;
+  margin: 1%;
+  padding: 1%;
+  border: none;
+}
+
+.blog-details-container .linkDiv a{
+  height: 33px;
+    border: none;
+    line-height: 33px;
+    background: #D6643C;
+    padding: 0 20px;
+    display: inline-block;
+    font-family: Montserrat;
+    font-size: 11px;
+    border-radius: 3px;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 8px 0 0;
+}
+
+a
+{
+  text-decoration: none;
+}
+
+.search_button
+{
+  border: none;
+}
+
+.tab-tools, input.search {
+  padding: 6px;
+  font-size: 14px;
+  outline: 0;
+  border: 0;
+  background: #f8f8f8;
 }
