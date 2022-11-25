@@ -1622,3 +1622,45 @@ iframe[sandbox] .read-article {
 {
   color: #000;
 }
+
+.blog-banner-container img
+{
+  width: 100%;
+}
+
+.blog-details-container
+{
+  margin-left: 7%;
+  margin-right: 3%;
+}
+
+.author_details_container
+{
+  display: flex;
+}
+
+.author_details_container
+{
+  height: 5%;
+  margin-top: 2%;
+  padding-top: 2%;
+  margin-bottom: 2%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.author_profile
+{
+  size: 2%;height: 130%;
+}
+
+.fa-eye
+{
+  margin-right: 1%;
+}
+
+.author_blog_detail
+{
+  color: #6c6c6c;
+  font-weight: 400;
+}

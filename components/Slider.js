@@ -46,9 +46,7 @@ console.log(homepagesliderWidget, "sdfffff")
             disableButtonsControls={true}
             disableDotsControls = {true}
             animationDuration = {1500} 
-            autoPlayInterval = {4000}
-            // responsive={responsive}
-            
+            autoPlayInterval = {4000}            
           />
       </div>
 
