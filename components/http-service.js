@@ -66,10 +66,13 @@ const getFormdata = (url) => {
     });
 };
 
-const getSubmitedformddata = (formdata) => {
+const getSubmitedformddata = (formdetails) => {
   return fetch(apiUrl + "application" + "?t=" + new Date().getTime(), {
     method: "POST",
-    body: JSON.stringify(formdata, formId),
+    body: JSON.stringify(formdetails),
+    headers : {
+      'Content-Type': 'application/json'
+    },
   })
     .then((data) => {
       return data.json();
@@ -80,18 +83,6 @@ const getSubmitedformddata = (formdata) => {
       return data;
     });
 };
-
-// const getTrainingsList = () => {
-//   return trainingData?.trainingList.map((training, i) => {
-//     return {
-//       thumbnail: trainingData?.imagesData[training?.thumbnail]?.imageUrl,
-//       title: training.title,
-//       url: training.url,
-//       description: training.description,
-//       banner: training.banner,
-//     };
-//   });
-// };
 
 const submitContactFormdata =(formdata)=>{
   return fetch(apiUrl + "contact" + "?t=" + new Date().getTime(), {
@@ -110,6 +101,58 @@ const submitContactFormdata =(formdata)=>{
       return data;
     });
 }
+
+const getTrainingsList = () => {
+  return trainingData?.trainingList.map((training, i) => {
+    return {
+      thumbnail: trainingData?.imagesData[training?.thumbnail]?.imageUrl,
+      title: training.title,
+      url: training.url,
+      description: training.description,
+      banner: training.banner,
+    };
+  });
+};
+
+const Privacypolicy = () => {
+  return fetch(apiUrl + "pages"+url+ "?t=" + new Date().getTime(), {
+    method: "POST",
+    body: JSON.stringify(),
+  })
+    .then((data) => {
+      return data.json();
+    })
+    .then((data) => {
+      submitedformddata = data;
+      console.log(submitedformddata, "hhhhhhhhhhhhhhhh");
+      return data;
+    });
+};
+
+
+const submitDoc =(formData,next)=>{
+  console.log(formData,"api testimnng ")
+  return fetch(apiUrl + "application/files" + "?t=" + new Date().getTime(), {
+    method: "POST",
+    body: formData ,
+    
+  })
+    .then((data) => {
+      return data.json(formData);
+    })
+    .then((data) => {
+      next(data[0].location);
+      return data;
+    });
+}
+// public submitDoc(payload){
+// 	let request = {
+// 		URL: 'application/files',
+// 		method: requestType.POST,
+// 		payload:payload
+// 	}
+// 	return this.serverInterfaceService.executeRequest(request);
+// }
 
 const getMenusItem = () => {
   return menusData.find((d) => d.title == "Navbar main" );
@@ -143,17 +186,7 @@ const getWidgetHomePagestestimonials = () => {
   return widgetsData?.find((d) => d.type == "testimonials");
 };
 
-const getTrainingsList = () => {
-  return trainingData?.trainingList.map((training, i) => {
-    return {
-      thumbnail: trainingData?.imagesData[training?.thumbnail]?.imageUrl,
-      title: training.title,
-      url: training.url,
-      description: training.description,
-      banner: training.banner,
-    };
-  });
-};
+
 
 
 function getAlltabsCategories() {
@@ -208,5 +241,11 @@ export {
   getTrainingData,
   getWidgetHomePagestestimonials,
   submitContactFormdata,
+<<<<<<< HEAD
   getBlogData,
+=======
+  Privacypolicy,
+  submitDoc
+  
+>>>>>>> fde1833b930a7c8701b8ddb75646a2657ee19dc8
 };

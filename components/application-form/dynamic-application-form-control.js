@@ -3,11 +3,14 @@ import React, { useEffect, useState } from "react";
 function DynamicApplicationFormControl({
   applicatonFormDetails,
   setformdetails,
+  onEditChange,
+  
 }) {
-  const [status, setstatus] = useState(undefined)
+  const [status, setstatus] = useState(undefined);
 
 
   const changeDetected = (e) => {
+    console.log(e.target.id);
     const testPattern = new RegExp(e.target.pattern);
     // console.log(e.target.value, )
     document
@@ -18,7 +21,7 @@ function DynamicApplicationFormControl({
     // console.log("changeDetected")
   };
 
-  // const handleSubmit = async (e) => {
+  // const handleformSubmit = async (e) => {
   //   e.preventDefault();
   //   const data = {
   //     name: e.target.name.value,
@@ -27,13 +30,13 @@ function DynamicApplicationFormControl({
   //     message: e.target.message.value,
   //   };
   //   const JSONdata = JSON.stringify(data);
-  
-	// setstatus('processing') 
+
+  // setstatus('processing')
   //   submitContactFormdata(data).then(()=>{
-	// 	setstatus("success")
-	// }).catch((error)=>{
-	// 	setstatus("danger")
-	// });
+  // 	setstatus("success")
+  // }).catch((error)=>{
+  // 	setstatus("danger")
+  // });
 
   const [userDetails, setUserDetails] = useState({
     firstName: "",
@@ -66,24 +69,25 @@ function DynamicApplicationFormControl({
     referredBy: "",
   });
 
-  // const onInputFieldChange = (event) => {
-  //   console.log("onInputFieldChange", event.target.id, event.target.value);
-  //   let eventId = event.target.id;
-  //   let tempUserDetails = userDetails;
-  //   tempUserDetails[eventId] = event.target.value;
-  //   setUserDetails({
-  //     ...userDetails,
-  //     tempUserDetails
-  //   })
-  //   console.log(setUserDetails)
-  //   if (eventId == "contact") {
-  //     userDetails?.value?.lenght >= 10?"":"{error msg}";
-  //     console.log("error msg")
-  //     //check length
-  //     //>10 errorState true errorMsg=''
-  //   }
+  const handleformSubmit = (event) => {
+    console.log("onInputFieldChange", event.target.id, event.target.value);
+    let eventId = event.target.id;
+    let tempUserDetails = userDetails;
+    tempUserDetails[eventId] = event.target.value;
+    setUserDetails({
+      ...userDetails,
+      tempUserDetails,
+    });
+    console.log(setUserDetails);
+    if (eventId == "contact") {
+      userDetails?.value?.lenght >= 10 ? "" : "{error msg}";
+      console.log("error msg");
+      //check length
+      //>10 errorState true errorMsg=''
+    }
+  };
 
-  // };
+ 
 
   useEffect(() => {
     console.log("UserDetails", userDetails);
@@ -94,101 +98,110 @@ function DynamicApplicationFormControl({
 
   return (
     <>
-    <div>
-      
-
-      <div  className="container">
-        <div className="row">
-          {applicatonFormDetails?.controls?.map((controlData, i) => (
-            <div
-              key={i}
-              className={"col-" + 12 / applicatonFormDetails?.form?.displayCol}
-            >
-              <lable>
-                {" "}
-                {controlData?.title}
-                {controlData?.required && (
-                  <small className="text-danger"> - Required</small>
-                )}
-              </lable>
-              {controlData.controlType == "textbox" && (
-                <div id={controlData.key}>
-                <input
-                  onChange={changeDetected}
-                  id={controlData.key}
-                  pattern={controlData.validationExp}
-                  className="input-md form-control"
-                  placeholder={controlData?.title}
-                  // {controlData?.required?'*':''}
-                  // className="control-group"
-                  type={controlData.type}
-                  required={controlData?.required}
-                  // onChange={onInputFieldChange}
-                  autocomplete="off"
-                  value={userDetails[controlData.key]}
-                />
-                <div id={controlData.key + "-validation"}>
+      <div>
+        <div className="container">
+          <div className="row">
+            {applicatonFormDetails?.controls?.map((controlData, i) => (
+              <div
+                key={i}
+                className={
+                  "col-" + 12 / applicatonFormDetails?.form?.displayCol
+                }
+              >
+                <lable>
+                  {" "}
+                  {controlData?.title}
+                  {controlData?.required && (
+                    <small className="text-danger"> - Required</small>
+                  )}
+                </lable>
+                {controlData.controlType == "textbox" && (
+                  <div>
+                    <input
+                      onChange={onEditChange}
+                      id={controlData.key}
+                      name={controlData.key}
+                      pattern={controlData.validationExp}
+                      className="input-md form-control"
+                      placeholder={controlData?.title}
+                      // {controlData?.required?'*':''}
+                      // className="control-group"
+                      type={controlData.type}
+                      required={controlData?.required}
+                      // onChange={onInputFieldChange}
+                      // autocomplete="off"
+                      // value={userDetails[controlData.key]}
+                    />
+                    <div id={controlData.key + "-validation"}>
                       <div>{controlData.validationMessage}</div>
                     </div>
+                  </div>
+                )}
+                {controlData.controlType == "radio" &&
+                  controlData.options.map((radioData, ii) => (
+                    <div id={controlData.key} key={ii}>
+                      <label
+                        className="form-check-label"
+                        htmlFor={radioData.key}
+                      >
+                        {radioData.value}
+                      </label>
+                      <input
+                        onChange={onEditChange}
+                        // value={userDetails[controlData.key]}
+                        id={radioData.key}
+                        value={radioData.key}
+                        type="radio"
+                        name={controlData.key}
+                        // value={radioData.value}
+                        // onChange={onInputFieldChange}
+                        // autocomplete="off"
+                        required={controlData?.required}
+
+                        //     <div class="form-check" *ngFor="let opt of control.options">
+                        //     <input type="radio" [formControlName]="control.key" [value]="opt.key" />
+                        //     <label class="form-check-label">
+                        //        {{opt.value}}
+                        //     </label>
+                        // </div>
+                      />
+
+                      <div>
+                        <div>{controlData.validationMessage}</div>
+                      </div>
                     </div>
-              )}
-              {controlData.controlType == "radio" &&
-                controlData.options.map((radioData, ii) => (
-                  <div id={controlData.key} key={ii}>
-                    <label className="form-check-label" htmlFor={radioData.key}>
-                      {radioData.value}
-                    </label>
+                  ))}
+                {controlData.controlType == "textarea" && (
+                  <div id={controlData.key}>
                     <input
                       onChange={changeDetected}
-                      value={userDetails[controlData.key]}
-                      id={controlData.key}
-                      //  pattern="[A-Za-z]{3}"
-                      type="radio"
-                      name={radioData.key}
-                      // value={radioData.value}
+                      id={controlData.key + "-validation"}
+                      // value={userDetails[controlData.key]}
+                      pattern="^\w{1,}$"
+                      placeholder={control.title}
+                      // className="control-group"
+                      // type={controlData.type}
                       // onChange={onInputFieldChange}
-                      autocomplete="off"
-                      // required={controlData?.required}
+                      // autocomplete="off"
+                      required={controlData?.required}
                     />
-
                     <div>
                       <div>{controlData.validationMessage}</div>
                     </div>
                   </div>
-                ))}
-              {controlData.controlType == "textarea" && (
-                <div id={controlData.key}>
-                  <input
-                    onChange={changeDetected}
-                    id={controlData.key + "-validation"}
-                    value={userDetails[controlData.key]}
-                    pattern="[A-Za-z]{3}"
-                    placeholder={control.title}
-                    // className="control-group"
-                    // type={controlData.type}
-                    // onChange={onInputFieldChange}
-                    // autocomplete="off"
-                    required={controlData?.required}
-                  />
-                  <div>
-                    <div>{controlData.validationMessage}</div>
-                  </div>
-                </div>
-              )}
-              {/* {controlData.controlType == "checkbox" &&(
+                )}
+                {controlData.controlType == "checkbox" &&
                   controlData.options.map((radioData, iii) => (
                     <div key={ii}>
-                    <label htmlFor={radioData.key}>{radioData.value}</label>
-                  name={radioData.key}
-                  value={radioData.value}
-
-                )
-
-                } */}
-            </div>
-          ))}
+                      <label htmlFor={radioData.key}>{radioData.value}</label>
+                      name={radioData.key}
+                      value={radioData.value}
+                    </div>
+                  ))}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
       </div>
     </>
   );
