@@ -207,6 +207,20 @@ function getAllBlogsBySearch(filter) {
   ).then((response) => response.json());
 }
 
+function getBlogData() {
+  const blogUrl = location.pathname.split("/").at(-1)
+  // console.log(blogUrl)
+  return fetch(
+    "https://eklakshya.com/api/posts/" + blogUrl + "?t=" + new Date().getTime()
+  ).then((response) => {
+    return response.json()
+  }).then((resp) => {
+    return resp
+  });
+}
+
+
+
 export {
   getMenusData,
   getMenusItem,
@@ -227,6 +241,7 @@ export {
   getTrainingData,
   getWidgetHomePagestestimonials,
   submitContactFormdata,
+  getBlogData,
   Privacypolicy,
   submitDoc
   
