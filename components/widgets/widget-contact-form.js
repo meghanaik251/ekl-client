@@ -94,6 +94,7 @@ function WidgetContactForm() {
                 <div>Name is required.</div>
               </div>
             </div>
+           <br></br>
             <div className="col-md-5 space-bottom-20 name-container">
               <input
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
