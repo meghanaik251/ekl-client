@@ -26,8 +26,10 @@ function Navbar(props) {
       <div className="navbar_container">
         <nav className="navbar navbar-expand-lg py-3 navbar-light ">
           <div className="container">
-            <a href="/" className="navbar-brand">
+            <div className="navbar-brand">
+            <a   href="/">
               <img
+            
                 src={props.src}
                 height={props.height}
                 width={props.width}
@@ -35,6 +37,7 @@ function Navbar(props) {
                 className="d-inline-block align-middle mr-2"
               />
             </a>
+            </div>
 
             <button
               type="button"

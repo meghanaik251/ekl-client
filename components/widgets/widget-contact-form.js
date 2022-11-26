@@ -76,6 +76,7 @@ function WidgetContactForm() {
           <span>Contact Form</span>
         </h5>
         <form id="form" role="form" onSubmit={handleSubmit} className="form">
+          
           <div className="row row1">
             <div className="col-md-5 space-bottom-20 name-container">
               <input
@@ -94,7 +95,7 @@ function WidgetContactForm() {
                 <div>Name is required.</div>
               </div>
             </div>
-           <br></br>
+         
             <div className="col-md-5 space-bottom-20 name-container">
               <input
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
@@ -113,6 +114,8 @@ function WidgetContactForm() {
               </div>
             </div>
           </div>
+         
+           <br></br>
           <div className="space-bottom-20">
             <input
               formControlName="subject"
@@ -149,7 +152,7 @@ function WidgetContactForm() {
             </div>
           </div>
           <br></br>
-          <button type="submit" className="btn-black btn-black disabled">
+          <button type="submit"  disabled="disabled" className="btn-black btn-black disabled">
             Send a Message
           </button>
         </form>
