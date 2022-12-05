@@ -77,25 +77,25 @@ function TrainingId() {
             )}
             <br></br>
             {eachtrainingData?.training?.applicationFormUrl && (
-              <a
+              <Link
                 href={
                   "/apply/" + eachtrainingData?.training?.applicationFormUrl
                 }
                 className="btn btn-orange btn-block "
               >
                 APPLY
-              </a>
+              </Link>
             )}
             {/* <br></br> */}
             {eachtrainingData?.training?.documentUrl && (
-              <a
+              <Link
                 href={mediaUrl + eachtrainingData?.training?.documentUrl}
                 className="btn btn-outline-orange btn-block"
                 target="_blank"
               >
                 <i aria-hidden="true " className="fa fa-download "></i>
                 Brochure
-              </a>
+              </Link>
             )}
           </div>
         </div>

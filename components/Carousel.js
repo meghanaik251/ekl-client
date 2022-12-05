@@ -8,6 +8,8 @@ import {
   getTrainingsList,
 } from "./../components/http-service";
 import { mediaUrl } from "../services/constants";
+import Link from "next/link";
+
 
 function Offerings() {
   const [trainingData, settrainingData] = useState(null);
@@ -36,7 +38,7 @@ function Offerings() {
 
   const items = trainingData?.map((training, i) => {
     return (
-      
+      // <Link className="view_all_posts view" id="link" href={"/blog"}>VIEW ALL POSTS</Link>
       <a key={i} href={"training/" + training.url}>
         <img 
         width={"100%"}
@@ -55,7 +57,7 @@ function Offerings() {
       <h4 style={{ color: "black", textAlign: "left", margin: "20px" }}>
         OFFERINGS{" "}
         </h4>
-        <a className="viewall" href="/training">
+        <a  className="viewall" href="/training">
           View all
         </a>
         </div>
@@ -63,7 +65,6 @@ function Offerings() {
       <div className="p-3">
         <AliceCarousel
           autoPlay={true}
-          // infinite={true}
           mouseTracking={true}
           items={items}
           controlsStrategy="alternate"

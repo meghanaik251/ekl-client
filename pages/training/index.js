@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import {  getTrainingData,  getTrainingsList,} from "../../components/http-service";
 import { mediaUrl } from "../../services/constants";
 import { useRouter } from 'next/router';
- 
+import Link from "next/link"; 
 
 
 export default function Training() {
@@ -58,14 +58,14 @@ export default function Training() {
         <div className="row">
           {trainingData?.map((training) => {
             return (
-              <a
+              <Link
               // onClick={() => getTrainingInfo(training.url)}
               href={"/training/" + training.url}  className="item col-md-3">
                 <img
                   src={mediaUrl + training.thumbnail}
                   className="training-image"
                 />
-              </a>
+              </Link>
             );
           })}
         </div>

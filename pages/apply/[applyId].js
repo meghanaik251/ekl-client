@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import { useEffect, useState } from "react";
 import { getFormdata } from "../../components/http-service";
 import DynamicApplicationForm  from "../../components/application-form/dynamic-application-form";
+import Link from "next/link";
 
 function ApplyId() {
   const [eachformData, seteachformData] = useState([]);

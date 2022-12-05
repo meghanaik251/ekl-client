@@ -111,29 +111,20 @@ body {
 }
 .sticky-top {
   position: sticky;
+
 }
 .navbar_contact {
   font-size: 70%;
   float: right;
   margin-right: 2%;
-  // padding-top: 0.5%;
   color: rgb(255, 109, 56);
 }
 
 .contact {
   color: rgb(41, 41, 41);
+  font-size: smaller;
 }
-ol,
-ul {
-  // padding-left: 46rem;
-  // padding-top: 1rem;
-}
-ol,
-ul,
-dl {
-  // margin-top: 9px;
-  // margin-bottom: 1rem;
-}
+
 .ekl_logo {
   width: 135px;
 }
@@ -998,11 +989,12 @@ body {
   padding-left: 3%;
 }
 .navbar .container {
-  min-width: 100vw;
+  min-width: 30vw;
 }
 
 .sticky-top {
   position: sticky;
+  max-height: 2%;
 }
 .navbar_contact {
   font-size: 70%;
@@ -1568,20 +1560,11 @@ iframe[sandbox] .read-article {
 {
   max-width: 90%;
 }
-// // .carouselslider {
-// //   // position: absolute;
-// //   top: 50%;
-// //   z-index: 10;
-// //   display: flex;
-// //   justify-content: space-between;
-// //   max-width: 100%;
-// //   min-width: 98%;
-// //   margin: 0 1%;
-// // }
+
 .bcrumbs {
-  background: #f8f8f8;
-  padding: 17px 46px;
-  margin-bottom: 45px;
+  background: #f5f5f5;
+    padding: 0% 1%;
+    margin: 0% 1%;
 }
 .textdecoration {
   color: #000;
@@ -1598,7 +1581,7 @@ iframe[sandbox] .read-article {
   position: relative;
   display: inline-block;
   padding: 0;
-  margin-top: -20px;
+  // margin-top: -20px;
   box-sizing: border-box;
   width: 100%;
   height: 104%;
@@ -1724,4 +1707,9 @@ a
   outline: 0;
   border: 0;
   background: #f8f8f8;
+}
+
+.navbar
+{
+  padding: 10%;
 }

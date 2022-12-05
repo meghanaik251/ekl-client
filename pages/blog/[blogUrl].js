@@ -55,7 +55,7 @@ const app = () => {
                
                 {/* <button className = "view_all_posts" onClick = {window.history.back() } > VIEW ALL POSTS</button> */}
                <div className="linkDiv">
-                <Link className="view_all_posts view" id="link" href={"/blog"}>VIEW ALL POSTS</Link>
+                <a className="view_all_posts view" id="link" href={"/blog"}>VIEW ALL POSTS</a>
                 </div>
             </div>
         </div>

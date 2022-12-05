@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { getFooterMenus, getMenusData } from "./http-service";
+import Link from "next/link";
+
 
 
 // import name from "../services/http-service";

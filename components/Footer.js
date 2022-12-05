@@ -6,6 +6,8 @@ import {
   getWidgetsWebsiteTags,
   getWidgetsSocialMediaLinks
 } from "./http-service";
+import Link from "next/link";
+
 
 function Footer() {
   const [aboutWidget, setAboutWidget] = useState(null);
