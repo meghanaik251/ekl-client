@@ -103,7 +103,6 @@ function Testimonials() {
         disableDotsControls={true}
         animationDuration={1500}
         autoPlayInterval={4000}
-        // responsive={responsive}
       />
     </>
   );

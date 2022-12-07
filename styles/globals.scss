@@ -1001,9 +1001,6 @@ body {
   min-width: 100vw;
 }
 
-.sticky-top {
-  position: sticky;
-}
 .navbar_contact {
   font-size: 70%;
   float: right;
@@ -1453,6 +1450,7 @@ iframe[sandbox] .read-article {
   margin-top: 0;
   font-weight: 400;
   text-transform: uppercase;
+  color: #333;
 }
 
 .blog-description-container {
@@ -1724,4 +1722,86 @@ a
   outline: 0;
   border: 0;
   background: #f8f8f8;
+}
+
+@media only screen and (max-width: 375px) {
+
+*{
+    padding: 0%;
+    margin: 0%;
+    text-align: start;
+    font-size: 100%;
+}
+
+.navbar-toggler
+{
+  max-width: 15%;
+}
+
+.navbar-brand
+{
+  max-width: 80%;
+}
+
+.navbar-light
+{
+  font-size: 100%;
+  align-items: flex-start;
+  background-color: white !important;
+  padding-bottom: 3%;
+}
+
+.bg-light {
+  font-size: 77%;
+  align-items: flex-start;
+}
+
+.sticky-top {
+  position: sticky;
+}
+
+.testimonial-container {
+  display: inline;
+  width: 100%;
+  height: auto;
+}
+
+.testimonial-image
+{
+  align-items: center;
+  justify-content: center;
+  margin-left: 20%;
+  margin-bottom: 5%;
+}
+
+.ReactModal__Overlay
+{
+  max-width: 375px;
+  max-height: 70%;
+}
+
+
+.ReactModal__Overlay--after-open
+{
+  max-width: 375px;
+  max-height: 70%;
+}
+
+.navbar > .container, .navbar > .container-fluid, .navbar > .container-sm, .navbar > .container-md, .navbar > .container-lg, .navbar > .container-xl, .navbar > .container-xxl 
+{
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+}
+
+.d-inline-block {
+  display: inline-block !important;
+  width: 50%;
+}
+
+a
+{
+  color :rgb(34, 34, 34)
+}
+
 }

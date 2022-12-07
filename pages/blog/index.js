@@ -82,10 +82,7 @@ function Blog() {
       <div className="tab-container">
         {/* <input onChange={(e) => onInputChange(e)} /> <button className="search_button"><i class="fa fa-search tab-tools" aria-hidden="true"></i></button> */}
         {/* onChange={(e) => onInputChange(e)} */}
-         <span className="tab-tools"> 
-                    <input  className="search ng-pristine ng-valid ng-touched"  placeholder="Search" type="text"/> 
-                    <i onClick={(e) => onInputChange(e)} style={{height:'20px'}} class="fa fa-search"></i>
-                </span>
+
         <div className="tab-section">
           <button
             className={
@@ -140,6 +137,12 @@ function Blog() {
       </div>
 
       <div className="category_list">
+
+      <span className="tab-tools"> 
+                    <input  className="search ng-pristine ng-valid ng-touched"  placeholder="Search" type="text"/> 
+                    <i onClick={(e) => onInputChange(e)} style={{height:'20px'}} class="fa fa-search"></i>
+          </span>
+          
         <h4 className="quick_link_head">
           {activeTab.title == "default" ? "Quick Links" : "Categories"}
         </h4>
