@@ -23,18 +23,19 @@ function Footer() {
   }, []);
 
   return (
-    <div className="waves">
+  
   
 
     <div className="footer_container">
       
       <div className="about">
         <h5 style={{color:'whitesmoke'}}>{aboutWidget?.title} </h5>
-        {/* <br/> */}
+        <br></br>
+  
         <h4 >eklakshya</h4>
 
         {aboutWidget?.content.map((d, i) =>    !d.show &&  (
-          <p key={i} dangerouslySetInnerHTML={{ __html: d.description }}></p>
+          <p className="ekl-description" key={i} dangerouslySetInnerHTML={{ __html: d.description }}></p>
         ))}
         
         <br />
@@ -50,9 +51,11 @@ function Footer() {
       <div className="latest_news">
         <h5 style={{color:'white'}}>{latestNewsWidget?.title} </h5> <br />
         {latestNewsWidget?.content.map((d, i) => !d.show  &&(
-          <p key={i} dangerouslySetInnerHTML={{ __html: d.description }}></p>
+          <p className="ekl-description" key={i} dangerouslySetInnerHTML={{ __html: d.description }}></p>
         ))}
       </div>
+      <br></br>
+    
       <div className="website_tags">
         <h5 style={{color:'white'}}>{websiteTagsWidget?.title}</h5> <br />
         {websiteTagsWidget?.content.map((d, i) =>  !d.show &&(
@@ -62,7 +65,7 @@ function Footer() {
         ))}
       </div>
     </div>
-    </div>
+  
       
     
   );

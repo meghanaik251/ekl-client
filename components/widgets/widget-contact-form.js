@@ -5,7 +5,11 @@ import { getContactFormdata, submitContactFormdata } from "../http-service";
 
 function WidgetContactForm() {
   const [status, setstatus] = useState(null);
+  const [clickable, setclickable] =useState(true)
+  const [displayform, setdisplayform] = useState(true);
+  const [check , setcheck] = useState(true)
 
+  // document.getElementById("name-validation").style.display = 'none';
   const changeDetected = (e) => {
     const testPattern = new RegExp(e.target.pattern);
 
@@ -17,23 +21,39 @@ function WidgetContactForm() {
   };
 
   const handleSubmit = async (e) => {
+    setcheck(false)
     e.preventDefault();
     const data = {
       name: e.target.name.value,
       email: e.target.email.value,
       subject: e.target.subject.value,
       message: e.target.message.value,
+      
     };
+   
+
     const JSONdata = JSON.stringify(data);
+     setcheck(false)
   
 	setstatus('processing') 
     submitContactFormdata(data).then(()=>{
 		setstatus("success")
+    setTimeout(() => {
+      setdisplayform(true);
+    }, 3000);
 	}).catch((error)=>{
 		setstatus("danger")
+    setTimeout(() => {
+      setdisplayform(true);
+    }, 3000);
 	});
 	
 };
+
+
+
+
+
 
 
   return (
@@ -75,7 +95,7 @@ function WidgetContactForm() {
         <h5 className="heading space40">
           <span>Contact Form</span>
         </h5>
-        <form id="form" role="form" onSubmit={handleSubmit} className="form">
+        <form id="form" role="form"  onSubmit={handleSubmit} className="form">
           
           <div className="row row1">
             <div className="col-md-5 space-bottom-20 name-container">
@@ -91,7 +111,7 @@ function WidgetContactForm() {
                 required=""
                 type="text"
               />
-              <div className="text-danger" id="name-validation">
+              <div className="text-danger" id="name-validation" style={{display:"none"}}>
                 <div>Name is required.</div>
               </div>
             </div>
@@ -108,8 +128,9 @@ function WidgetContactForm() {
                 // maxlength="200"
                 required=""
                 type="email"
+              
               />
-              <div className="text-danger" id="email-validation">
+              <div className="text-danger" id="email-validation" style={{display:"none"}} >
                 <div>Please enter a valid email.</div>
               </div>
             </div>
@@ -128,8 +149,9 @@ function WidgetContactForm() {
               // maxlength="200"
               required=""
               type="text"
+           
             />
-            <div id="subject-validation" class="text-danger">
+            <div id="subject-validation" class="text-danger" style={{display:"none"}}>
               <div>Subject is required.</div>
             </div>
           </div>
@@ -146,13 +168,15 @@ function WidgetContactForm() {
               placeholder="Message"
               required=""
               // maxlength="400"
+          
             ></textarea>
             <div className="text-danger">
-              <div id="message-validation">Message is required.</div>
+              <div id="message-validation" style={{display:"none"}}>Message is required.</div>
             </div>
           </div>
           <br></br>
-          <button type="submit"  disabled="disabled" className="btn-black btn-black disabled">
+          
+          <button type="submit" disabled={check}  className="btn-black">
             Send a Message
           </button>
         </form>

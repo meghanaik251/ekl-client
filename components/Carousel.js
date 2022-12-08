@@ -31,7 +31,7 @@ function Offerings() {
   const responsive = {
     0: { items: 1 },
     568: { items: 2 },
-    1024: { items: 4 },
+    1024: { items: 4},
   };
 
   const items = trainingData?.map((training, i) => {
@@ -70,7 +70,6 @@ function Offerings() {
           responsive={responsive}
           disableDotsControls={true}
           infinite={true}
-          
         />
       </div>
     </div>

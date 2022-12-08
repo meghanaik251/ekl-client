@@ -42,7 +42,7 @@ function TrainingId() {
       <div className=" container">
         <div>
           {eachtrainingData?.training?.title && (
-            <h4 style={{ color: "black" }}>
+            <h4 style={{ color: "black",   margin: "3%" }}>
               {eachtrainingData?.training?.title}
             </h4>
           )}
@@ -101,7 +101,7 @@ function TrainingId() {
         </div>
 
         {eachtrainingData?.videosData?.length && 
-        <div className="row videos">
+        <div className="row-videos">
           <div className="col">
             <h6>Related Videos</h6>
             <div className="player">
@@ -117,10 +117,7 @@ function TrainingId() {
               <h3> {activeVideoData?.title} </h3>
               <p>{activeVideoData?.description}</p>
               {/* </> */}
-            </div>
-
-
-            
+            </div>    
             <div className="">
               <h6>More videos</h6>
 

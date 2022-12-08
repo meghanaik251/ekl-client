@@ -75,6 +75,7 @@ function Testimonials() {
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
+        ariaHideApp={false}
       >
         <div className="close-button-section" onClick={closeModal}><strong>X</strong></div>
         <div className="testimonial-modal-container">

@@ -115,18 +115,42 @@ const getTrainingsList = () => {
 };
 
 const Privacypolicy = () => {
-  return fetch(apiUrl + "pages"+url+ "?t=" + new Date().getTime(), {
-    method: "POST",
+  return fetch(apiUrl + "pages/privacy-policy" + "?t=" + new Date().getTime(), {
+    method: "GET",
     body: JSON.stringify(),
   })
     .then((data) => {
       return data.json();
     })
     .then((data) => {
-      submitedformddata = data;
-      console.log(submitedformddata, "hhhhhhhhhhhhhhhh");
-      return data;
-    });
+          return data;
+    });    
+};
+
+const termsandconditions = () => {
+  return fetch(apiUrl + "pages/terms-and-conditions" + "?t=" + new Date().getTime(), {
+    method: "GET",
+    body: JSON.stringify(),
+  })
+    .then((data) => {
+      return data.json();
+    })
+    .then((data) => {
+          return data;
+    });    
+};
+
+const cancellationandrefund = () => {
+  return fetch(apiUrl + "pages/cancellation-and-refund" + "?t=" + new Date().getTime(), {
+    method: "GET",
+    body: JSON.stringify(),
+  })
+    .then((data) => {
+      return data.json();
+    })
+    .then((data) => {
+          return data;
+    });    
 };
 
 
@@ -145,14 +169,7 @@ const submitDoc =(formData,next)=>{
       return data;
     });
 }
-// public submitDoc(payload){
-// 	let request = {
-// 		URL: 'application/files',
-// 		method: requestType.POST,
-// 		payload:payload
-// 	}
-// 	return this.serverInterfaceService.executeRequest(request);
-// }
+
 
 const getMenusItem = () => {
   return menusData.find((d) => d.title == "Navbar main" );
@@ -243,6 +260,8 @@ export {
   submitContactFormdata,
   getBlogData,
   Privacypolicy,
-  submitDoc
+  submitDoc,
+  termsandconditions,
+  cancellationandrefund
   
 };
