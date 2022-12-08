@@ -14,25 +14,22 @@ const [validate,setvalidate] = useState({
   subject:"",
   email:""
 })
-  // document.getElementById("name-validation").style.display = 'none';
+
+
+useEffect(() => {
+  console.log("validate",validate);
+  if(validate.name && validate.email && validate.subject && validate.message){
+    setcheck(false);
+   }else{
+    setcheck(true);
+   }
+},[validate]);
+
+
   const changeDetected = (e) => {
-    // console.log("----------------------------",e.target.id,e.target.name);
-    let valueForSet = e.target.id;
-    e.target.id=="name" && (validate.name = e.target.value);
-    e.target.id=="email" && (validate.email = e.target.value);
-    e.target.id=="subject" && (validate.subject = e.target.value);
-    e.target.id=="message" && (validate.message = e.target.value);
-    // console.log(kk,"dsafdsfaaaaaaaaaaaaaaaaaaaaaaa")
+  setvalidate({...validate,[e.target.id]:e.target.value});
     const testPattern = new RegExp(e.target.pattern);
     console.log(e.target.value);
-     if(validate.name && validate.email && validate.subject && validate.message){
-      setcheck(false);
-     }else{
-      setcheck(true);
-     }
-   
-
-
     document
       .getElementById(e.target.id)
       .classList.add(testPattern.test(e.target.value) ? "valid" : "invalid");
@@ -41,7 +38,6 @@ const [validate,setvalidate] = useState({
   };
 
   const handleSubmit = async (e) => {
-    if(e.target.name.value && e.target.email.value && e.target.subject.value && e.target.message.value){
       e.preventDefault();
       const data = {
         name: e.target.name.value,
@@ -68,9 +64,6 @@ const [validate,setvalidate] = useState({
             setdisplayform(true);
           }, 3000);
         });
-    }else{
-      setcheck(false);
-    }
   }
   return (
     <div>
