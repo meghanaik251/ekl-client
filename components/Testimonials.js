@@ -15,7 +15,7 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
   },
 };
-Modal.setAppElement('#testimonial');
+// Modal.setAppElement('#testimonial');
 
 function Testimonials() {
   const [testimonials, settestimonials] = useState(undefined);
