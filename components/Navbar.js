@@ -1,9 +1,12 @@
 // import { url } from "inspector";
 import { useEffect, useState } from "react";
 import { getMenusData, getMenusItem } from "./http-service";
+import { useRouter } from 'next/router';
+
 
 function Navbar(props) {
   const [menuItems, setmenuItems] = useState(null);
+  const router = useRouter()
 
   useEffect(() => {
     getMenusData().then(() => {
@@ -27,7 +30,7 @@ function Navbar(props) {
         <nav className="navbar navbar-expand-lg py-3 navbar-light ">
           <div className="container">
             <div className="navbar-brand">
-            <a   href="/">
+            <a   onClick={() => router.push("/")}>
               <img
             
                 src={props.src}
@@ -60,7 +63,7 @@ function Navbar(props) {
                     (d, i) =>
                       !d.hide && (
                         <li key={i} className="nav-item">
-                          <a  className="nav-link" key={i+1} href={d.url}>
+                          <a  className="nav-link" key={i+1}   onClick={() => router.push(d.url)}>
                             {d.title}
                           </a>
                         </li>

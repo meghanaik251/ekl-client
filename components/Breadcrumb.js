@@ -34,22 +34,17 @@ export default function Breadcrumb({children, href}) {
   return (
     <>
       <div className="bcrumbs">
-        <button className="textdecoration" onClick={() => router.push("/")}>
+        <a className="textdecoration" onClick={() => router.push("/")}>
           home
-        </button>
-        {/* {breadcrumbdata.slice(1,).map((bread) => (
-           <span >/<a href={bread} >{bread}</a></span>
-        ))} */}
+        </a>
+       
         {breadcrumbdata.map((bread) => (
           <span>
             {" "}
             /{" "}
-            {/* <a className="textdecoration" href={"/" + bread.url}>
-              {bread.name}
-            </a> */}
-          <button className="textdecoration" onClick={() => router.push("/"+ bread.url)}>{bread.name}</button>
+            
+          <a className="textdecoration" onClick={() => router.push("/"+ bread.url)}>{bread.name}</a>
 
-           {/* { Router.push('/product', '/product/some-product?sortBy=price', { shallow: true })} */}
           </span>
         ))}
       </div>

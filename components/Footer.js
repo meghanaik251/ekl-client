@@ -6,12 +6,15 @@ import {
   getWidgetsWebsiteTags,
   getWidgetsSocialMediaLinks
 } from "./http-service";
+import { useRouter } from 'next/router'
+
 
 function Footer() {
   const [aboutWidget, setAboutWidget] = useState(null);
   const [latestNewsWidget, setlatestNewsWidget] = useState(null);
   const [websiteTagsWidget, setwebsiteTagsWidget] = useState(null);
   const [socialMediaLinkWidget, setsocialMediaLinkWidget] = useState(null);
+  const router = useRouter()
 
   useEffect(() => {
     getwidgetsData().then(() => {
@@ -42,7 +45,7 @@ function Footer() {
        <div className="social_media_links">
        <br />
         {socialMediaLinkWidget?.content.map((d, i) =>d.show &&  (
-          <a key={i} target="__blank" href={d.link} id="FooterSocialMediaLinks" className={d.icon}></a>
+          <a key={i} target="__blank" onClick={() => router.push(d.link)}  id="FooterSocialMediaLinks" className={d.icon}></a>
           
         ))}
        </div>
@@ -59,9 +62,9 @@ function Footer() {
       <div className="website_tags">
         <h5 style={{color:'white'}}>{websiteTagsWidget?.title}</h5> <br />
         {websiteTagsWidget?.content.map((d, i) =>  !d.show &&(
-          <a href={ d.link} className="websitelinks" key={i}>
+          <button onClick={() => router.push(d.link)} className="websitelinks" key={i}>
             {d.title}
-          </a>
+          </button>
         ))}
       </div>
     </div>

@@ -85,7 +85,11 @@ function DynamicApplicationForm({ applicatonForm }) {
                 setformdetails={setformdetails}
               />
             </div>
+
+            <br></br>
+              <br></br>
             <div className="row">
+             
               <div className="col">
                 <button type="reset" className="btn-black">
                   Reset
@@ -95,7 +99,9 @@ function DynamicApplicationForm({ applicatonForm }) {
                 </button>
               </div>
             </div>
+            <br></br>
           </form>
+          
         ) : (
           <div>
             {status == "success" ? (

@@ -176,7 +176,7 @@ function WidgetContactForm() {
           </div>
           <br></br>
           
-          <button type="submit" disabled={check}  className="btn-black">
+          <button type="submit" className="btn-black">
             Send a Message
           </button>
         </form>

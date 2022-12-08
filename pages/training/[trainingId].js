@@ -9,17 +9,19 @@ import { mediaUrl } from "../../services/constants";
 import Footer from "../../components/Footer";
 import Footer_bar from "../../components/Footer_bar";
 import Breadcrumb from "../../components/Breadcrumb";
+import { useRouter } from 'next/router';
 
 function TrainingId() {
   const [eachtrainingData, seteachtrainingData] = useState(undefined);
   const [activeVideoData, setactiveVideoData] = useState(undefined);
+  const router = useRouter()
 
   useEffect(() => {
     const url = location.pathname.split("/").at(-1);
 
     getTraininginfo(url).then(async (pageData) => {
       seteachtrainingData(pageData);
-      localStorage.setItem("trainingId",pageData.training._id)
+      localStorage.setItem("trainingId",pageData.training?._id)
       setactiveVideoData(pageData.videosData[0]);
     });
   }, []);
@@ -78,9 +80,10 @@ function TrainingId() {
             <br></br>
             {eachtrainingData?.training?.applicationFormUrl && (
               <a
-                href={
-                  "/apply/" + eachtrainingData?.training?.applicationFormUrl
-                }
+              onClick={() => router.push( "/apply/" + eachtrainingData?.training?.applicationFormUrl)}
+                // href={
+                //   "/apply/" + eachtrainingData?.training?.applicationFormUrl
+                // }
                 className="btn btn-orange btn-block "
               >
                 APPLY
@@ -146,6 +149,8 @@ function TrainingId() {
                 ))}
               </div>
             </div>
+            <br></br>
+            <br></br>
             
           </div>
         </div>

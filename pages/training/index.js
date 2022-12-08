@@ -47,7 +47,7 @@ export default function Training() {
           <input
             onChange={(e) => setsearch(e.currentTarget.value)}
             placeholder="Search"
-            style={{ height: "40px", width: "280px", borderRadius: "10px" }}
+            
             title="Search bar"
           />
           

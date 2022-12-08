@@ -8,6 +8,8 @@ import {
   getTrainingsList,
 } from "./../components/http-service";
 import { mediaUrl } from "../services/constants";
+import { useRouter } from 'next/router'
+
 
 function Offerings() {
   const [trainingData, settrainingData] = useState(null);
@@ -27,6 +29,7 @@ function Offerings() {
   // };
 
   const handleDragStart = (e) => e.preventDefault();
+  const router = useRouter()
 
   const responsive = {
     0: { items: 1 },
@@ -37,7 +40,7 @@ function Offerings() {
   const items = trainingData?.map((training, i) => {
     return (
       
-      <a key={i} href={"training/" + training.url}>
+      <a key={i} className="offeringsimage" onClick={() => router.push("training/" + training.url)}>
         <img 
         width={"100%"}
           src={mediaUrl + training.thumbnail}
@@ -55,12 +58,12 @@ function Offerings() {
       <h4 style={{ color: "black", textAlign: "left", margin: "20px" }}>
         OFFERINGS{" "}
         </h4>
-        <a className="viewall" href="/training">
+        <button className="viewall"  onClick={() => router.push("/training")}>
           View all
-        </a>
+        </button>
         </div>
       
-      <div className="p-3">
+      <div className="p-3 offeringsimage" >
         <AliceCarousel
           autoPlay={true}
           // infinite={true}
@@ -76,4 +79,4 @@ function Offerings() {
   );
 }
 
-export default Offerings;
+export default Offerings; 
