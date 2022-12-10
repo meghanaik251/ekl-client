@@ -4,14 +4,92 @@ function DynamicApplicationFormControl({
   applicatonFormDetails,
   setformdetails,
   onEditChange,
-  
 }) {
   const [status, setstatus] = useState(undefined);
+  // const[validate, setvalidate] = useState({})
+  const [check, setcheck] = useState(true);
 
+  const [userDetails, setUserDetails] = useState({
+    firstName: "",
+    lastName: "",
+    middletName: "",
+    password: "",
+    confirmPassword: "",
+    gender: "",
+    email: "",
+    contact: "",
+    altContact: "",
+    state: "",
+    district: "",
+    taluk: "",
+    collegeName: "",
+    bplCard: "",
+    bplCardNo: "",
+    qualification: "",
+    specialisation: "",
+    collegeName: "",
+    yearOfPassing: "",
+    universityName: "",
+    sslcPercentage: "",
+    puc1Percentage: "",
+    puc2Percentage: "",
+    puc2PassingYear: "",
+    currentStudy: "",
+    subjectOfCurrentStudy: "",
+    files: "",
+    referredBy: "",
+  });
+
+  // useEffect(() => {
+  //   console.log("userDetails", userDetails);
+  //   if (
+    
+  //     userDetails.firstName &&
+  //     userDetails.lastName &&
+  //     userDetails.middletName
+  //     // userDetails.password &&
+  //     // userDetails.confirmPassword  &&     
+  //     // userDetails. gender &&     
+  //     // userDetails. email &&     
+  //     // userDetails. contact &&     
+  //     // userDetails. altContact &&     
+  //     // userDetails. state &&     
+  //     // userDetails.district  &&     
+  //     // userDetails. taluk &&     
+  //     // userDetails.college  &&     
+  //     // userDetails. bplCard &&     
+  //     // userDetails. bplCardNo &&     
+  //     // userDetails. qualification &&     
+  //     // userDetails. specialisation &&     
+  //     // userDetails.  collegeName&&     
+  //     // userDetails. yearOfPassing &&     
+  //     // userDetails. universityName &&   
+  //     // userDetails. sslcPercentage &&     
+  //     // userDetails. sslcPercentage &&       
+  //     // userDetails. puc1Percentage &&     
+  //     // userDetails.  puc2Percentage &&     
+  //     // userDetails.  currentStudy&&  
+  //     // userDetails. subjectOfCurrentStudy &&     
+  //     // userDetails. files &&     
+  //     // userDetails. referredBy       
+      
+  //   ) {
+  //     setcheck(false);
+  //   } else {
+  //     setcheck(true);
+  //   }
+  // }, [userDetails]);
 
   const changeDetected = (e) => {
     console.log(e.target.id);
+    // const testPattern = new RegExp(e.target.pattern)
+
+    setvalidate({ ...validate, [e.target.id]: e.target.value });
     const testPattern = new RegExp(e.target.pattern);
+    console.log(e.target.required, "requireddddddddddddddddddddddddd");
+    if(e.target.required == true){
+
+    }
     // console.log(e.target.value, )
     document
       .getElementById(e.target.id)
@@ -38,37 +116,6 @@ function DynamicApplicationFormControl({
   // 	setstatus("danger")
   // });
 
-  const [userDetails, setUserDetails] = useState({
-    firstName: "",
-    lastName: "",
-    middletName: "",
-    password: "",
-    confirmPassword: "",
-    gender: "",
-    email: "",
-    contact: "",
-    altContact: "",
-    state: "",
-    district: "",
-    taluk: "",
-    college: "",
-    bplCard: "",
-    bplCardNo: "",
-    qualification: "",
-    specialisation: "",
-    collegeName: "",
-    yearOfPassing: "",
-    universityName: "",
-    sslcPercentage: "",
-    puc1Percentage: "",
-    puc2Percentage: "",
-    puc2PassingYear: "",
-    currentStudy: "",
-    subjectOfCurrentStudy: "",
-    files: "",
-    referredBy: "",
-  });
-
   const handleformSubmit = (event) => {
     console.log("onInputFieldChange", event.target.id, event.target.value);
     let eventId = event.target.id;
@@ -86,8 +133,6 @@ function DynamicApplicationFormControl({
       //>10 errorState true errorMsg=''
     }
   };
-
- 
 
   useEffect(() => {
     console.log("UserDetails", userDetails);

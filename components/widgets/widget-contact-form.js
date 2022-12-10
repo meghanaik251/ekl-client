@@ -30,6 +30,7 @@ useEffect(() => {
   setvalidate({...validate,[e.target.id]:e.target.value});
     const testPattern = new RegExp(e.target.pattern);
     console.log(e.target.value);
+    
     document
       .getElementById(e.target.id)
       .classList.add(testPattern.test(e.target.value) ? "valid" : "invalid");
