@@ -7,8 +7,6 @@ import {
   getAllBlogsBySearch,
 } from "../../components/http-service";
 
-
-
 function Blog() {
   const [activeTab, setActiveTab] = useState({ id: "j" });
   const [tabdata, settabdata] = useState(undefined);
@@ -123,12 +121,15 @@ function Blog() {
                   }
                 />
                 <article className="blog-description-container">
-                <h6 >{blogInfo.title}</h6>
-                <p>{blogInfo.description.slice(0,80)}</p>
-                <div className="blog-like-view-container row">
-                  <div className="col fa fa-thumbs-o-up">  { blogInfo.likes}</div>
-                  <div className="col fa fa-eye"> {blogInfo.views}</div>
-                </div>
+                  <h6 className="limit_text">{blogInfo.title}</h6>
+                  <p className="limit">{blogInfo.description.slice(0, 80)}</p>
+                  <div className="blog-like-view-container row">
+                    <div className="col fa fa-thumbs-o-up">
+                      {" "}
+                      {blogInfo.likes}
+                    </div>
+                    <div className="col fa fa-eye"> {blogInfo.views}</div>
+                  </div>
                 </article>
               </div>
             </Link>
@@ -137,12 +138,19 @@ function Blog() {
       </div>
 
       <div className="category_list">
+        <span className="tab-tools">
+          <input
+            className="search ng-pristine ng-valid ng-touched"
+            placeholder="Search"
+            type="text"
+          />
+          <i
+            onClick={(e) => onInputChange(e)}
+            style={{ height: "20px" }}
+            class="fa fa-search"
+          ></i>
+        </span>
 
-      <span className="tab-tools"> 
-                    <input  className="search ng-pristine ng-valid ng-touched"  placeholder="Search" type="text"/> 
-                    <i onClick={(e) => onInputChange(e)} style={{height:'20px'}} class="fa fa-search"></i>
-          </span>
-          
         <h4 className="quick_link_head">
           {activeTab.title == "default" ? "Quick Links" : "Categories"}
         </h4>

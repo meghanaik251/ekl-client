@@ -167,7 +167,7 @@ function DynamicApplicationFormControl({
                       id={controlData.key}
                       name={controlData.key}
                       pattern={controlData.validationExp}
-                      className="input-md form-control"
+                      className="input-md form-control1"
                       placeholder={controlData?.title}
                       // {controlData?.required?'*':''}
                       // className="control-group"

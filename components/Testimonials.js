@@ -57,7 +57,8 @@ function Testimonials() {
           </div>
           <div className="testimonial-body">
             <h5> {testimonial.name} </h5>
-            <span dangerouslySetInnerHTML={{ __html: testimonial.text }}></span>
+            <span className = "read_more_testi" dangerouslySetInnerHTML={{ __html: testimonial.text }}></span>
+            <br></br>
             <span className = "read_more" onClick = {() => setactiveTestimonialAndOpenModal(testimonial)}>
               Read more
             </span>

@@ -84,7 +84,7 @@ const app = () => {
               </span>
             </div>
 
-            <div className="related_posts col-3">
+            <div className="related_posts col">
               <h4 className="related_posts_text">Related Posts</h4>
               {blogData?.relatedPosts.map((blogRelatedData, i) => (
                 <a key={i} href={blogRelatedData.url}>
