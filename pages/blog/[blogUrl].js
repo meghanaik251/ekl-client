@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Classnames } from "react-alice-carousel";
 import Link from "next/link";
-import { getBlogData } from "../../components/http-service";
+import { claps, getBlogData } from "../../components/http-service";
 import { mediaUrl } from "../../services/constants";
 
 const app = () => {
@@ -16,6 +16,15 @@ const app = () => {
       setblogData(blogData);
     });
   }, []);
+
+const clicked_like = () => {
+  claps(blogData.post._id).then((likes) => {
+    // console.log(likes)
+    const blogData1 = {...blogData}
+    blogData1.post.likes = blogData1.post.likes + 1;
+    setblogData(blogData1)
+  })
+}
 
   return (
     <>
@@ -41,7 +50,7 @@ const app = () => {
                     ? blogData?.post?.authorName
                     : "eklakhya"}
                 </b>
-                <p className="fa fa-heart top-icons icons-font-color">
+                <p className="fa fa-heart top-icons icons-font-color" onClick={clicked_like}>
                   {" "}
                   &nbsp; {blogData?.post?.likes}
                 </p>
