@@ -81,6 +81,14 @@ body {
   margin-inline-end: 0px;
 }
 
+.navbar > .container, .navbar > .container-fluid, .navbar > .container-sm, .navbar > .container-md, .navbar > .container-lg, .navbar > .container-xl, .navbar > .container-xxl {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
 .gs-fotter-left {
   /* text-align: center; */
   justify-content: right;
@@ -2070,15 +2078,5 @@ h6{
   flex: 0 0 auto;
   /* width: 25%; */
 }
-
-
-// b {
-//   font-size: 42%;
-// }
-
-// h3, .h3 {
-//   font-size: calc(1.3rem + 0.6vw);
-//   font-size: 110%;
-// }
 
 }
