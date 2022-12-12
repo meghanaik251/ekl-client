@@ -109,8 +109,9 @@ function TrainingId() {
             <h6>Related Videos</h6>
             <div className="player">
               <iframe
-                width="800"
-                height="500"
+                // width="800"
+                // height="500"
+                className="vdoiframe"
                 src={activeVideoData?.link}
                 title="YouTube video player"
                 frameBorder="0"

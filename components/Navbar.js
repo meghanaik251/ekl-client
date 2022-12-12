@@ -63,7 +63,7 @@ function Navbar(props) {
                     (d, i) =>
                       !d.hide && (
                         <li key={i} className="nav-item">
-                          <a  className="nav-link" key={i+1}   onClick={() => router.push(d.url)}>
+                          <a  className="nav-link" key={i+1}   onClick={() => router.push("/" + d.url)}>
                             {d.title}
                           </a>
                         </li>

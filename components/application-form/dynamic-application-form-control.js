@@ -178,7 +178,7 @@ function DynamicApplicationFormControl({
                       // value={userDetails[controlData.key]}
                     />
                     <div id={controlData.key + "-validation"}>
-                      <div>{controlData.validationMessage}</div>
+                      {/* <div>{controlData.validationMessage}</div> */}
                     </div>
                   </div>
                 )}
@@ -212,7 +212,7 @@ function DynamicApplicationFormControl({
                       />
 
                       <div>
-                        <div>{controlData.validationMessage}</div>
+                        {/* <div>{controlData.validationMessage}</div> */}
                       </div>
                     </div>
                   ))}
@@ -231,7 +231,7 @@ function DynamicApplicationFormControl({
                       required={controlData?.required}
                     />
                     <div>
-                      <div>{controlData.validationMessage}</div>
+                      {/* <div>{controlData.validationMessage}</div> */}
                     </div>
                   </div>
                 )}
