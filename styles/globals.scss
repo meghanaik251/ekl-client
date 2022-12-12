@@ -81,7 +81,13 @@ body {
   margin-inline-end: 0px;
 }
 
-.navbar > .container, .navbar > .container-fluid, .navbar > .container-sm, .navbar > .container-md, .navbar > .container-lg, .navbar > .container-xl, .navbar > .container-xxl {
+.navbar > .container,
+.navbar > .container-fluid,
+.navbar > .container-sm,
+.navbar > .container-md,
+.navbar > .container-lg,
+.navbar > .container-xl,
+.navbar > .container-xxl {
   display: flex;
   flex-wrap: inherit;
   align-items: center;
@@ -1655,7 +1661,7 @@ iframe[sandbox] .read-article {
 .related_posts {
   // padding-left: 2%;
   font-size: 182%;
-    max-width: 119%;
+  max-width: 119%;
 }
 
 .related_blog_head {
@@ -1727,11 +1733,14 @@ row-videos {
   margin-bottom: 2%;
 }
 
-
-
-
-
-
+.limit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
 
 @media only screen and (max-width: 375px) {
   .navbar-toggler {
@@ -1848,22 +1857,22 @@ row-videos {
     padding: 1px ​ !important;
   }
 
-    .footer_container {
-      font-size: 90%;
-      color: #888;
-      line-height: 178%;
-      background-color: rgb(46, 46, 46);
-      display: flex;
-      flex-direction: column;
-      background: #1e1e1e;
-      /* overflow: hidden; */
-    }
-    .vdoslist {
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      align-items: center;
-    }
+  .footer_container {
+    font-size: 90%;
+    color: #888;
+    line-height: 178%;
+    background-color: rgb(46, 46, 46);
+    display: flex;
+    flex-direction: column;
+    background: #1e1e1e;
+    /* overflow: hidden; */
+  }
+  .vdoslist {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    align-items: center;
+  }
   .alice-carousel__stage-item {
     position: relative;
     display: flex;
@@ -1938,25 +1947,18 @@ row-videos {
   .form-control {
     display: block;
     // width: 204%;
-    
-}
-// .form-control1 {
-//   display: block;
-//   width: 204%;
-  
-// }
-.offerings-heading{
-  // margin-bottom: -112px;
-}
-.viewall{
-  margin-left: 102px;
-  display: flex;
-  flex-direction: column;
-}
-h6{
-  margin-top: 52px;
+  }
+ 
+  .viewall {
+    margin-left: 102px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h6 {
+    margin-top: 52px;
     margin-bottom: 1.5rem;
-}
+  }
   .tab-section {
     font-size: 70%;
     margin-bottom: 4%;
@@ -1982,8 +1984,8 @@ h6{
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* number of lines to show */
-    line-clamp: 2;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 3;
     -webkit-box-orient: vertical;
   }
 
@@ -2019,8 +2021,8 @@ h6{
   }
 
   .blog-container h6 {
-    line-height: 150%;
-    font-size: 49%;
+    line-height: 120%;
+    font-size: 80%;
   }
 
   .related_posts_text {
@@ -2041,42 +2043,48 @@ h6{
     height: 10%;
   }
 
-
-  .fa
-  {
+  .fa {
     size: 5%;
   }
 
   .author_profile {
     max-width: 13%;
-}
+  }
 
-.author_details_container {
-  margin-top: 2%;
-  padding-top: 2%;
-  margin-bottom: 2%;
-  justify-content: space-around;
-  align-items: center;
-  justify-content: flex-end;
-}
+  .author_details_container {
+    margin-top: 2%;
+    padding-top: 2%;
+    margin-bottom: 2%;
+    justify-content: space-around;
+    align-items: center;
+    justify-content: flex-end;
+  }
 
-.fa {
-  font-size: 70%;
-  padding-left: 4%;
-}
+  .fa {
+    font-size: 70%;
+    padding-left: 4%;
+  }
 
-.author_details_container {
-  margin-top: 2%;
-  padding-top: 2%;
-  margin-bottom: 2%;
-  justify-content: space-around;
-  align-items: center;
-  justify-content: flex-end;
-  font-size: 85%;
-}
- .col-3 {
-  flex: 0 0 auto;
-  /* width: 25%; */
-}
+  .author_details_container {
+    margin-top: 2%;
+    padding-top: 2%;
+    margin-bottom: 2%;
+    justify-content: space-around;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 85%;
+  }
+  .col-3 {
+    flex: 0 0 auto;
+    /* width: 25%; */
+  }
 
+  .blog-container h6 {
+    line-height: 120%;
+    font-size: 80%;
+  }
+
+  .row_for_blog {
+    flex-direction: row;
+  }
 }

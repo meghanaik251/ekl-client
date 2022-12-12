@@ -123,7 +123,7 @@ function Blog() {
                 <article className="blog-description-container">
                   <h6 className="limit_text">{blogInfo.title}</h6>
                   <p className="limit">{blogInfo.description.slice(0, 80)}</p>
-                  <div className="blog-like-view-container row">
+                  <div className="blog-like-view-container row row_for_blog">
                     <div className="col fa fa-thumbs-o-up">
                       {" "}
                       {blogInfo.likes}

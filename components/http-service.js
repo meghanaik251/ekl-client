@@ -208,19 +208,19 @@ const getWidgetHomePagestestimonials = () => {
 
 function getAlltabsCategories() {
   return fetch(
-    "https://www.eklakshya.com/api/posts/keyWords/?t=1667971013761&type=category"
+    apiUrl + "posts/keyWords/?" + "t=" + new Date().getTime()+"&type=category"
   ).then((response) => response.json());
 }
 
 function getAllBlogs(filter) {
   return fetch(
-    "https://www.eklakshya.com/api/posts/?t=1667979981893" + filter
+    apiUrl + "posts/?t=" + new Date().getTime() + filter
   ).then((response) => response.json());
 }
 
 function getAllBlogsBySearch(filter) {
   return fetch(
-    "https://www.eklakshya.com/api/posts/search/?t=1667979981893" + filter
+    apiUrl + "posts/search/?t=" + new Date().getTime() + filter
   ).then((response) => response.json());
 }
 
@@ -228,7 +228,7 @@ function getBlogData() {
   const blogUrl = location.pathname.split("/").at(-1)
   // console.log(blogUrl)
   return fetch(
-    "https://eklakshya.com/api/posts/" + blogUrl + "?t=" + new Date().getTime()
+    apiUrl + blogUrl + "?t=" + new Date().getTime()
   ).then((response) => {
     return response.json()
   }).then((resp) => {
