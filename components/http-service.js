@@ -1,3 +1,4 @@
+
 import { apiUrl } from "../services/constants";
 
 let menusData = null;
@@ -208,19 +209,19 @@ const getWidgetHomePagestestimonials = () => {
 
 function getAlltabsCategories() {
   return fetch(
-    apiUrl + "posts/keyWords/?" + "t=" + new Date().getTime()+"&type=category"
+    "https://www.eklakshya.com/api/posts/keyWords/?t=1667971013761&type=category"
   ).then((response) => response.json());
 }
 
 function getAllBlogs(filter) {
   return fetch(
-    apiUrl + "posts/?t=" + new Date().getTime() + filter
+    "https://www.eklakshya.com/api/posts/?t=1667979981893" + filter
   ).then((response) => response.json());
 }
 
 function getAllBlogsBySearch(filter) {
   return fetch(
-    apiUrl + "posts/search/?t=" + new Date().getTime() + filter
+    "https://www.eklakshya.com/api/posts/search/?t=1667979981893" + filter
   ).then((response) => response.json());
 }
 
@@ -228,7 +229,7 @@ function getBlogData() {
   const blogUrl = location.pathname.split("/").at(-1)
   // console.log(blogUrl)
   return fetch(
-    apiUrl + blogUrl + "?t=" + new Date().getTime()
+    "https://eklakshya.com/api/posts/" + blogUrl + "?t=" + new Date().getTime()
   ).then((response) => {
     return response.json()
   }).then((resp) => {
@@ -236,15 +237,6 @@ function getBlogData() {
   });
 }
 
-const claps = (id) => {
-  return fetch(apiUrl + "posts/claps" + "?t=" + new Date().getTime(), {
-    method: "PUT",
-    body: JSON.stringify({id}),
-    headers : {
-      'Content-Type': 'application/json'
-    },
-  })
-}
 
 
 export {
@@ -271,6 +263,6 @@ export {
   Privacypolicy,
   submitDoc,
   termsandconditions,
-  cancellationandrefund,
-  claps,  
+  cancellationandrefund
+  
 };

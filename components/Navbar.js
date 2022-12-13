@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { getMenusData, getMenusItem } from "./http-service";
 import { useRouter } from 'next/router';
+import Link from "next/link";
 
 
 function Navbar(props) {
@@ -30,7 +31,8 @@ function Navbar(props) {
         <nav className="navbar navbar-expand-lg py-3 navbar-light ">
           <div className="container">
             <div className="navbar-brand">
-            <a   onClick={() => router.push("/")}>
+            <a   onClick={() => router.push("/blog")}>
+              
               <img
             
                 src={props.src}
@@ -39,6 +41,7 @@ function Navbar(props) {
                 alt=""
                 className="d-inline-block align-middle mr-2"
               />
+
             </a>
             </div>
 
