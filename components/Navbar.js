@@ -37,7 +37,7 @@ function Navbar(props) {
                 height={props.height}
                 width={props.width}
                 alt=""
-                className="d-inline-block align-middle mr-2"
+                className="d-inline-block align-middle mr-2 cursore2"
               />
             </a>
             </div>
@@ -63,7 +63,7 @@ function Navbar(props) {
                     (d, i) =>
                       !d.hide && (
                         <li key={i} className="nav-item">
-                          <a  className="nav-link" key={i+1}   onClick={() => router.push(d.url)}>
+                          <a  className="nav-link" key={i+1}   onClick={() => router.push("/"+d.url)}>
                             {d.title}
                           </a>
                         </li>
