@@ -9,9 +9,9 @@ export default function about () {
     useEffect(()=>{
         fetch(url).then((data) => {
             return data.json()
-        }).then( (data) => {
+        }).then((data) => {
             setAboutdata(data);
-        } )
+        })
     }, [])
     return (
         <div className = "about_container">

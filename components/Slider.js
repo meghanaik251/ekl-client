@@ -1,14 +1,24 @@
 import { useEffect, useState } from "react";
 import AliceCarousel, {ArrowLeft, ArrowRight} from "react-alice-carousel";
-import { getwidgetsData, getWidgetsHomePageSlider } from "./http-service";
+import { getwidgetsData, getWidgetsHomePageSlider ,   getTraininginfo,
+} from "./http-service";
 import { mediaUrl } from "../services/constants";
+import { useRouter } from 'next/router';
 
 function Slider() {
   const [homepagesliderWidget, sethomepagesliderWidget] = useState(null);
+  const [eachtrainingData, seteachtrainingData] = useState(undefined);
+  const router = useRouter()
+
 console.log(homepagesliderWidget, "sdfffff")
   useEffect(() => {
     getwidgetsData().then(() => {
       sethomepagesliderWidget(getWidgetsHomePageSlider());
+    });
+    getTraininginfo().then(async (pageData) => {
+      // console.log(url)
+      seteachtrainingData(pageData);
+      console.log(pageData)
     });
   }, []);
 
@@ -16,18 +26,23 @@ console.log(homepagesliderWidget, "sdfffff")
   // [
   // <div  className="sliderContainer">
     homepagesliderWidget?.content.map((homepageslide,i) => {
+      
       return (
-        // <a href={homepageslide._id} >
+        <div>
+
+        {/* {eachtrainingData?.training?.applicationFormUrl && ( */}
+        <a onClick={() => router.push( "/apply/" + eachtrainingData?.training?.applicationFormUrl)}>
           <img className = "home_page_slider" key={i}
           src={mediaUrl + homepageslide.imageUrl}         
             // onDragStart={handleDragStart}
             role="presentation"
           />
-        
-        // </a>
+          </a>
+        {/* )} */}
+          </div>
       );
     })
-  //   </div>
+  
   // ]
 
   return (

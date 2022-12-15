@@ -52,6 +52,7 @@ const getTraininginfo = (url) => {
     });
 };
 
+
 const getFormdata = (url) => {
   return fetch(
     apiUrl + "application-form/" + url + "?t=" + new Date().getTime()
