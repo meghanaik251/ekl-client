@@ -526,6 +526,11 @@ iframe[sandbox] .read-article {
   transition: 1s ease;
 }
 
+.vdoiframe{
+  width:800px;
+ height:500px;
+}
+
 .alice-carousel__stage-item {
   position: relative;
   display: flex;
@@ -2086,5 +2091,9 @@ row-videos {
 
   .row_for_blog {
     flex-direction: row;
+  }
+  .vdoiframe{
+    width:98%;
+    height:300px;
   }
 }
