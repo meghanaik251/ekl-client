@@ -2072,7 +2072,7 @@ h6{
   justify-content: space-around;
   align-items: center;
   justify-content: flex-end;
-  font-size: 85%;
+  font-size: 60%;
 }
  .col-3 {
   flex: 0 0 auto;
@@ -2083,13 +2083,16 @@ h6{
   width:98%;
   height:300px;
 }
-// b {
-//   font-size: 42%;
-// }
 
-// h3, .h3 {
-//   font-size: calc(1.3rem + 0.6vw);
-//   font-size: 110%;
-// }
+.by_author
+{
+  font-size: 60%;
+}
+
+.fa-copy
+{
+  margin: 0;
+  padding: 0;
+}
 
 }

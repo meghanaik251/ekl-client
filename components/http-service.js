@@ -236,6 +236,15 @@ function getBlogData() {
   });
 }
 
+const claps = (id) => {
+  return fetch(apiUrl + "posts/claps" + "?t=" + new Date().getTime(), {
+    method: "PUT",
+    body: JSON.stringify({id}),
+    headers : {
+      'Content-Type': 'application/json'
+    },
+  })
+}
 
 
 export {
@@ -262,6 +271,6 @@ export {
   Privacypolicy,
   submitDoc,
   termsandconditions,
-  cancellationandrefund
-  
+  cancellationandrefund,
+  claps,  
 };
