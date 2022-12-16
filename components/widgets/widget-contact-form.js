@@ -73,8 +73,7 @@ useEffect(() => {
           <div className={"alert alert-success text-center"}>
             <div className="text-center display-center">
               <h4 style={{ color: "green" }}>
-                <i class="fa fa-check-circle" aria-hidden="true"></i> Thank you
-                for contacting us.
+                <i class="fa fa-check-circle" aria-hidden="true"></i> We will get back to you soon.
               </h4>
             </div>
           </div>
@@ -117,7 +116,7 @@ useEffect(() => {
                 name="name"
                 id="name"
                 className="input-md form-control"
-                placeholder="Name *"
+                placeholder="Name "
                 // maxlength="200"
                 required=""
                 type="text"
@@ -139,7 +138,7 @@ useEffect(() => {
                 name="email"
                 id="email"
                 class="input-md form-control"
-                placeholder="Email *"
+                placeholder="Email "
                 // maxlength="200"
                 required=""
                 type="email"
