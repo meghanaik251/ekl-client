@@ -59,6 +59,7 @@ export default function Training() {
           {trainingData?.map((training) => {
             return (
               <a
+              // {widgetNavigation: "form"
               // onClick={() => getTrainingInfo(training.url)}
               href={"/training/" + training.url}  className="item col-md-3">
                 <img
