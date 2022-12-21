@@ -45,7 +45,7 @@ const clicked_like = () => {
                   className="author_profile"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR81iX4Mo49Z3oCPSx-GtgiMAkdDop2uVmVvw&usqp=CAU"
                 />
-                <b classNam = "by_author">
+                <b className = "by_author">
                   {blogData?.post?.showAuthorName
                     ? blogData?.post?.authorName
                     : "eklakhya"}

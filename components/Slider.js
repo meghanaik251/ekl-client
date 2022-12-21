@@ -17,14 +17,12 @@ console.log(homepagesliderWidget, "sdfffff")
   // <div  className="sliderContainer">
     homepagesliderWidget?.content.map((homepageslide,i) => {
       return (
-        // <a href={homepageslide._id} >
+         <a href={homepageslide.link} >
           <img className = "home_page_slider" key={i}
-          src={mediaUrl + homepageslide.imageUrl}         
-            // onDragStart={handleDragStart}
+          src={mediaUrl + homepageslide.imageUrl}
             role="presentation"
           />
-        
-        // </a>
+         </a>
       );
     })
   //   </div>
@@ -33,8 +31,6 @@ console.log(homepagesliderWidget, "sdfffff")
   return (
     <div className = "arrow_centering">
         <div className="carouselslider">
-          {/* <i class="fa fa-angle-left" onClick = {ArrowLeft} ></i> */}
-            {/* <i class="fa fa-angle-right" onClick = {ArrowRight} ></i> */}
         </div>
           <div className="p-1">
           <AliceCarousel
@@ -45,7 +41,7 @@ console.log(homepagesliderWidget, "sdfffff")
             controlsStrategy="alternate"
             disableButtonsControls={true}
             disableDotsControls = {true}
-            animationDuration = {1500} 
+            animationDuration = {1500}
             autoPlayInterval = {4000}            
           />
       </div>

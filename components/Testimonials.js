@@ -88,7 +88,7 @@ function Testimonials() {
 />
             </div>
             <div className="testimonial-modal-body">
-                <h5>
+                <h5 classNme = "testi_name">
                     {activeTestimonial?.name}
                 </h5>
 <span dangerouslySetInnerHTML={{ __html: activeTestimonial?.text }}></span>
