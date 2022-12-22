@@ -6,18 +6,27 @@ import { useEffect, useState } from "react";
 import {
   getTrainingData,
   getTrainingsList,
+  getTraininginfo
 } from "./../components/http-service";
 import { mediaUrl } from "../services/constants";
 import { useRouter } from 'next/router'
 
 
 function Offerings() {
+  // const url = location.pathname.split("/").at(-1);
   const [trainingData, settrainingData] = useState(null);
+  const [eachtrainingData, seteachtrainingData] = useState(undefined);
+
 
   useEffect(() => {
     getTrainingData().then(() => {
       settrainingData(getTrainingsList());
     });
+    // getTraininginfo(url).then(async (pageData) => {
+    //   seteachtrainingData(pageData);
+    //   // localStorage.setItem("trainingId",pageData.training?._id)
+    //   // setactiveVideoData(pageData.videosData[0]);
+    // });
   }, []);
 
   // var settings = {
@@ -40,7 +49,7 @@ function Offerings() {
   const items = trainingData?.map((training, i) => {
     return (
       
-      <a key={i} className="offeringsimage" onClick={() => router.push("training/" + training.url)}>
+      <a key={i} className="offeringsimage" onClick={() => router.push( training.url)}>
         <img 
         width={"100%"}
           src={mediaUrl + training.thumbnail}

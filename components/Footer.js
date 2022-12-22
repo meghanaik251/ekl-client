@@ -32,10 +32,10 @@ function Footer() {
     <div className="footer_container">
       
       <div className="about">
-        <h5 style={{color:'whitesmoke'}}>{aboutWidget?.title} </h5>
+        <h5 className ="titleA" style={{color:'whitesmoke'}}>{aboutWidget?.title} </h5>
         <br></br>
   
-        <h4 >eklakshya</h4>
+        <h4 className="eklf">eklakshya</h4>
 
         {aboutWidget?.content.map((d, i) =>    !d.show &&  (
           <p className="ekl-description" key={i} dangerouslySetInnerHTML={{ __html: d.description }}></p>
@@ -52,7 +52,7 @@ function Footer() {
         
       </div>
       <div className="latest_news">
-        <h5 style={{color:'white'}}>{latestNewsWidget?.title} </h5> <br />
+        <h5 className ="titleA" style={{color:'white'}}>{latestNewsWidget?.title} </h5> <br />
         {latestNewsWidget?.content.map((d, i) => !d.show  &&(
           <p className="ekl-description" key={i} dangerouslySetInnerHTML={{ __html: d.description }}></p>
         ))}
@@ -60,7 +60,7 @@ function Footer() {
       <br></br>
     
       <div className="website_tags">
-        <h5 style={{color:'white'}}>{websiteTagsWidget?.title}</h5> <br />
+        <h5 className ="titleA" style={{color:'white'}}>{websiteTagsWidget?.title}</h5> <br />
         {websiteTagsWidget?.content.map((d, i) =>  !d.show &&(
           <button onClick={() => router.push(d.link)} className="websitelinks" key={i}>
             {d.title}

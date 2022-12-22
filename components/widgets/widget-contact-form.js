@@ -157,7 +157,7 @@ useEffect(() => {
           <div className="space-bottom-20">
             <input
               formControlName="subject"
-              pattern="^\w{1,}$"
+              pattern="[^'\x22]+"
               onChange={changeDetected}
               name="subject"
               id="subject"

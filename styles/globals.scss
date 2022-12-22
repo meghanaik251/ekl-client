@@ -11,6 +11,15 @@
   max-width: 5%;
 }
 
+.about_title{
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #333;
+    background: #fff;
+    position: relative;
+    font-size: 1.25rem;
+}
+
 b {
   font-size: 100%;
 }
@@ -40,6 +49,8 @@ body {
   margin: 1%;
   padding: 1%;
   width: 33.3%;
+  padding-left: 10%;
+
   /* height: 200px; */
 }
 
@@ -59,6 +70,7 @@ body {
   padding: 1%;
   width: 33.3%;
   height: 200px;
+  padding-right: 10%;
 }
 
 .footer_bar_container {
@@ -70,8 +82,9 @@ body {
   padding: 25px 0;
   position: relative;
   width: 100%;
-  padding-right: 40px;
-  padding-left: 41px;
+  padding-right: 196px;
+  padding-left: 149px;
+  padding-top: 3%;
 }
 .footer_bar_items_copyright {
   font-size: 100%;
@@ -196,13 +209,16 @@ h4 {
   border-radius: 9px;
 }
 
-.about {
-  padding-left: 3%;
-}
+// .about {
+//   padding-left:  10%;
+//   ;
+// }
 
 .websitelinks {
   height: 30px;
   border: 1px solid #393939;
+
+ 
   font-size: 13px;
   color: #888;
   line-height: 28px;
@@ -217,7 +233,7 @@ h4 {
   margin-right: 7px;
   margin-bottom: 9px;
   background: none;
-  border: none;
+
   /* transition: 0.5s; */
 }
 .websitelinks:hover {
@@ -233,19 +249,39 @@ h4 {
   text-decoration: none;
   transition: 0.5s;
 }
+.titleA{
+  // margin: 0 0 22px;
+  font-size: 16px;
+  color:'whitesmoke';
+  text-transform: uppercase;
+  color: #eee;
+
+    margin: 0 0 16px;
+}
+.about_description{
+  flex-basis: 0;
+  -ms-flex-positive: 1;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
 
 #FooterSocialMediaLinks:hover {
   color: white;
   transform: translateY(-10px);
+  cursor: pointer;
 }
 .footer_container {
   font-size: 90%;
-  color: #888;
+  background: #1e1e1e;
+  padding: 45px 0 35px;
+  color: #bbb;
   line-height: 178%;
-  background-color: rgb(46, 46, 46);
+  // background-color: rgb(46, 46, 46);
   display: flex;
   flex-direction: row;
-  background: #1e1e1e;
+ 
   /* overflow: hidden; */
 }
 
@@ -502,6 +538,8 @@ iframe[sandbox] .read-article {
 .traininglists {
   margin-top: 40px;
   margin-bottom: 53px;
+  margin-right: 10%;
+  margin-left: 9%;
 }
 .row {
   --bs-gutter-x: 1.5rem;
@@ -938,12 +976,12 @@ body {
   background: #fcfcfc;
 }
 
-.about {
-  margin: 1%;
-  padding: 1%;
-  width: 33.3%;
-  /* height: 200px; */
-}
+// .about {
+//   margin: 1%;
+//   padding: 1%;
+//   width: 33.3%;
+//   /* height: 200px; */
+// }
 
 .latest_news {
   margin: 1%;
@@ -952,25 +990,25 @@ body {
   height: 200px;
 }
 
-.website_tags {
-  margin: 1%;
-  padding: 1%;
-  width: 33.3%;
-  height: 200px;
-}
+// .website_tags {
+//   margin: 1%;
+//   padding: 1%;
+//   width: 33.3%;
+//   height: 200px;
+// }
 
-.footer_bar_container {
-  font-size: 70%;
-  background-color: rgb(34, 34, 34);
-  padding: 1%;
-  color: rgb(211, 211, 211);
-  background: #131313;
-  padding: 25px 0;
-  position: relative;
-  width: 100%;
-  padding-right: 40px;
-  padding-left: 41px;
-}
+// .footer_bar_container {
+//   font-size: 70%;
+//   background-color: rgb(34, 34, 34);
+//   padding: 1%;
+//   color: rgb(211, 211, 211);
+//   background: #131313;
+//   padding: 25px 0;
+//   position: relative;
+//   width: 100%;
+//   padding-right: 40px;
+//   padding-left: 41px;
+// }
 .footer_bar_items_copyright {
   font-size: 100%;
   background-color: rgb(34, 34, 34);
@@ -1094,9 +1132,9 @@ h1 {
   border-radius: 9px;
 }
 
-.about {
-  padding-left: 3%;
-}
+// .about {
+//   padding-left: 3%;
+// }
 
 #FooterSocialMediaLinks {
   font-size: 30px;
@@ -1360,10 +1398,17 @@ iframe[sandbox] .read-article {
 .navbar-light {
   background-color: white !important;
 }
+.eklf h4{
+  margin-top: 0;
+  font-weight: 400;
+  font-family: Montserrat;
+}
 
 .about_container {
-  margin-left: 8%;
-  margin-right: 1%;
+  margin-left: 11%;
+  margin-right: 13%;
+  color: #666;
+  background-color: white;
 }
 
 .blog_container {
@@ -1827,7 +1872,7 @@ row-videos {
   }
   .websitelinks {
     height: 30px;
-    border: 1px solid #393939;
+    border: 1px solid #7d7878;
     font-size: 13px;
     color: #888;
     line-height: 28px;
@@ -1850,9 +1895,11 @@ row-videos {
 
     .footer_container {
       font-size: 90%;
-      color: #888;
+      background: #1e1e1e;
+      padding: 45px 0 35px;
+      color: #bbb;
       line-height: 178%;
-      background-color: rgb(46, 46, 46);
+      // background-color: rgb(46, 46, 46);
       display: flex;
       flex-direction: column;
       background: #1e1e1e;
@@ -1906,9 +1953,10 @@ row-videos {
 
   .footer_container {
     font-size: 90%;
-    color: #888;
+    padding: 45px 0 35px;
+    color: #bbb;
     line-height: 178%;
-    background-color: rgb(46, 46, 46);
+    // background-color: rgb(46, 46, 46);
     display: flex;
     flex-direction: column;
     background: #1e1e1e;
@@ -1937,7 +1985,7 @@ row-videos {
   }
   .form-control {
     display: block;
-    // width: 204%;
+    width: 200%;
     
 }
 // .form-control1 {
@@ -2093,6 +2141,37 @@ h6{
 {
   margin: 0;
   padding: 0;
+}
+.about {
+  margin: 1%;
+  padding: 1%;
+  width: 33.3%;
+  // padding-left: 10%;
+
+  /* height: 200px; */
+}
+
+.footer_bar_container {
+  font-size: 70%;
+  background-color: rgb(34, 34, 34);
+  padding: 1%;
+  color: rgb(211, 211, 211);
+  background: #131313;
+  padding: 25px 0;
+  position: relative;
+  width: 100%;
+  padding-right: 40px;
+  padding-left: 41px;
+}
+.about_container {
+  margin-left: 4%;
+  margin-right: 4%;
+  color: #666;
+  background-color: white;
+}
+.traininglists {
+  margin-top: 40px;
+  margin-bottom: 53px;
 }
 
 }

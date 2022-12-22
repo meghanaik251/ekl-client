@@ -79,6 +79,7 @@ function TrainingId() {
             )}
             <br></br>
             {eachtrainingData?.training?.applicationFormUrl && (
+              
               <a
               onClick={() => router.push( "/apply/" + eachtrainingData?.training?.applicationFormUrl)}
                 // href={

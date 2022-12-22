@@ -15,8 +15,12 @@ export default function about () {
     }, [])
     return (
         <div className = "about_container">
-            <h2>{aboutdata?.title}</h2>
+            <br></br>
+            <h2 className = "about_title">{aboutdata?.title}</h2>
+            <br></br>
             <p  dangerouslySetInnerHTML={{ __html: aboutdata?.content[0] }}></p>
+        <br></br>
+        <br></br>
         </div>
     )
 }

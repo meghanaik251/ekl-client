@@ -8,7 +8,6 @@ function DynamicApplicationFormControl({
   const [status, setstatus] = useState(undefined);
   // const[validate, setvalidate] = useState({})
   const [check, setcheck] = useState(true);
-
   const [userDetails, setUserDetails] = useState({
     firstName: "",
     lastName: "",
@@ -153,21 +152,21 @@ function DynamicApplicationFormControl({
                   "col-" + 12 / applicatonFormDetails?.form?.displayCol
                 }
               >
-                <lable>
+                <label>
                   {" "}
                   {controlData?.title}
                   {controlData?.required && (
                     <small className="text-danger"> - Required</small>
                   )}
-                </lable>
+               </label>
                 {controlData.controlType == "textbox" && (
                   <div>
                     <input
-                      onChange={onEditChange}
+                      onInput={onEditChange}
                       id={controlData.key}
                       name={controlData.key}
                       pattern={controlData.validationExp}
-                      className="input-md form-control1"
+                      className="input-md form-control"
                       placeholder={controlData?.title}
                       // {controlData?.required?'*':''}
                       // className="control-group"
@@ -178,7 +177,7 @@ function DynamicApplicationFormControl({
                       // value={userDetails[controlData.key]}
                     />
                     <div id={controlData.key + "-validation"}>
-                      <div>{controlData.validationMessage}</div>
+                      {/* <div>{controlData.validationMessage}</div> */}
                     </div>
                   </div>
                 )}
@@ -192,7 +191,7 @@ function DynamicApplicationFormControl({
                         {radioData.value}
                       </label>
                       <input
-                        onChange={onEditChange}
+                        onInput={onEditChange}
                         // value={userDetails[controlData.key]}
                         id={radioData.key}
                         value={radioData.key}
@@ -212,14 +211,14 @@ function DynamicApplicationFormControl({
                       />
 
                       <div>
-                        <div>{controlData.validationMessage}</div>
+                        {/* <div>{controlData.validationMessage}</div> */}
                       </div>
                     </div>
                   ))}
                 {controlData.controlType == "textarea" && (
                   <div id={controlData.key}>
                     <input
-                      onChange={changeDetected}
+                      onInput={changeDetected}
                       id={controlData.key + "-validation"}
                       // value={userDetails[controlData.key]}
                       pattern="^\w{1,}$"
@@ -231,7 +230,7 @@ function DynamicApplicationFormControl({
                       required={controlData?.required}
                     />
                     <div>
-                      <div>{controlData.validationMessage}</div>
+                      {/* <div>{controlData.validationMessage}</div> */}
                     </div>
                   </div>
                 )}

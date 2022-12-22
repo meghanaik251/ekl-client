@@ -23,6 +23,8 @@ function Navbar(props) {
           <span className="contact"> Contact Numbers : </span> +91 8050050183
           +91 8050050185 +91 8050050186
         </span>{" "}
+
+        
         <br />
       </div>
 

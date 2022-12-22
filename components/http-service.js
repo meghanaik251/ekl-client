@@ -1,3 +1,4 @@
+import Training from "../pages/training";
 import { apiUrl } from "../services/constants";
 
 let menusData = null;
@@ -6,6 +7,7 @@ let trainingData = null;
 let trainingInfo = null;
 let formData = null;
 let submitedformddata = null;
+
 
 const getMenusData = () => {
   return fetch(apiUrl + "menus?t=" + new Date().getTime())
@@ -107,7 +109,9 @@ const getTrainingsList = () => {
     return {
       thumbnail: trainingData?.imagesData[training?.thumbnail]?.imageUrl,
       title: training.title,
-      url: training.url,
+      widgetNavigation:training.widgetNavigation,
+      url: training.widgetNavigation== "form"? ("/apply/" + training.applicationFormUrl):("/training/" + training.url),
+    // url: training.url,
       description: training.description,
       banner: training.banner,
     };

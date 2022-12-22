@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import {  getTrainingData,  getTrainingsList,} from "../../components/http-service";
 import { mediaUrl } from "../../services/constants";
 import { useRouter } from 'next/router';
+import WidgetContactForm from "../../components/widgets/widget-contact-form";
  
 
 
@@ -56,19 +57,26 @@ export default function Training() {
     
       <div className="traininglists">
         <div className="row">
+      
           {trainingData?.map((training) => {
+          
             return (
               <a
               // {widgetNavigation: "form"
               // onClick={() => getTrainingInfo(training.url)}
-              href={"/training/" + training.url}  className="item col-md-3">
+              href= {training.url } className="item col-md-3">
                 <img
                   src={mediaUrl + training.thumbnail}
                   className="training-image"
                 />
+                <b></b>
+                {/* <p>{training.widgetNavigation}</p> */}
+               
               </a>
+              
             );
           })}
+      
         </div>
       </div>
      

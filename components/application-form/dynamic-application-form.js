@@ -24,22 +24,23 @@ function DynamicApplicationForm({ applicatonForm }) {
   const onEditChange = (e) => {
     !(!(e.target.value)) && setresetcheck(!true);
    
-    console.log({[e.target.name]: e.target.value })
+    console.log({[e.target.name]: e.target.value },"valueeeeeeeeeeeeeeeeeeemgn")
       setformdetails({ ...formdetails, [e.target.name]: e.target.value });
       const requirredItems = applicatonForm.controls.map((controlData) => controlData.key);
       const existingItems = Object.keys(formdetails)
       setcheck(!requirredItems.map((item) => existingItems.includes(item) && Boolean(formdetails[item])).reduce((a,b)=> a&&b))
-
-    
+ 
   
     const files = e.target.files;
 
    
     if (e.target.type == "file") {
       const File = e.target.files;
+      console.log(e.target.files,"hiii file")
       var formData = new FormData();
       files.length && formData.append("files", files[0]);
       formData && console.log(formData, "g");
+      console.log(formData,"hii formdata")
       submitDoc(formData, (fileUrl) => {
         setformdetails({ ...formdetails, files: fileUrl });
       });
@@ -138,8 +139,8 @@ function DynamicApplicationForm({ applicatonForm }) {
             ) : status == "processing" ? (
               <div className={"alert alert-processing text-center"}>
                 <div className="text-center display-center">
-                  <div style={{ color: "processing" }} class="processing"></div>
-                  <h5 class="status">processing</h5>
+                  <div style={{ color: "processing" }} className="processing"></div>
+                  <h5 className="status">processing</h5>
                 </div>
               </div>
             ) : (
