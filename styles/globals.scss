@@ -18,12 +18,14 @@ b {
 .cursore2{
   cursor: pointer;
 }
-.vdoiframe{
+
+.vdoiframe
+{
   width:800px;
- height:500px;
+  height:500px;
 }
-a,
-u {
+
+a, u {
   text-decoration: none;
 }
 
@@ -36,15 +38,16 @@ body {
   font-family: Raleway, sans-serif;
 }
 
+.brown_color
+{
+  background-color: #dedddd;
+}
+
 .about {
   margin: 1%;
   padding: 1%;
   width: 33.3%;
-  /* height: 200px; */
 }
-
-.testimonial-modal-container
-{}
 
 .latest_news {
   margin: 1%;
@@ -55,6 +58,10 @@ body {
 
 .read_more {
   margin-top: 3%;
+  float: right;
+  max-width: 7%;
+  float: right;
+  padding: 7%;
 }
 
 .website_tags {
@@ -184,14 +191,6 @@ h4 {
 }
 
 .offerings_container {
-  background-color: rgb(234, 234, 234);
-  text-align: center;
-  margin: 1%;
-  padding: 2%;
-  border-radius: 9px;
-}
-
-.testimonials_container {
   background-color: rgb(234, 234, 234);
   text-align: center;
   margin: 1%;
@@ -417,11 +416,7 @@ iframe[sandbox] .read-article {
 .carouselslides {
   display: flex;
   overflow-x: scroll;
-  // position: relative;
-  /* scroll-behavior: smooth; */
-  /* scroll-snap-type: x mandatory; */
   $scrollbarHeight: 4px;
-  // $scrollbarColor : #D82B6A;
   $carouselHeight: 333px;
   $fadeWidth: 50px;
   $padding: 8px;
@@ -1089,14 +1084,6 @@ h1 {
   border-radius: 9px;
 }
 
-.testimonials_container {
-  background-color: rgb(234, 234, 234);
-  text-align: center;
-  margin: 1%;
-  padding: 2%;
-  border-radius: 9px;
-}
-
 .about {
   padding-left: 3%;
 }
@@ -1520,9 +1507,34 @@ iframe[sandbox] .read-article {
 }
 
 .testimonial-container {
+  padding: 3%;
   display: flex;
   width: 100%;
   height: auto;
+  position: relative;
+}
+
+.read_more {
+  color: white;
+  background-color: #000;
+  margin-top: 2%;
+  height: 42px;
+  padding: 1%;
+  justify-content: center;
+  font-size: 90%;
+  align-items: center;
+  width: 320px;
+  padding: 10px;
+  float: inline-end;
+  width: 320px;
+  padding: 10px;
+  margin: 0;
+  max-width: 8%;
+  position: absolute;
+  bottom: 0;
+  float: right;
+  display: block;
+  margin-bottom: 1%;
 }
 
 .testimonial-modal-image img {
@@ -1536,14 +1548,13 @@ iframe[sandbox] .read-article {
 
 .testimonial-body {
   margin-left: 3%;
-  margin-right: 2%;
+  width: 75%;
 }
 
-.read_more {
-  color: white;
-  background-color: #000;
-  padding: 1%;
-  margin-top: 2%;
+
+.read_more:hover
+{
+  background-color: #d6644a;
 }
 
 .close-button-section {
@@ -1713,10 +1724,28 @@ row-videos {
   height: 100%;
 }
 
+
 .read_more_testi {
+  max-width: 92%;
   margin-bottom: 2%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // display: -webkit-box;
+  // -webkit-line-clamp: 8; /* number of lines to show */
+  // line-clamp: 8;
+  // -webkit-box-orient: vertical;
 }
 
+.carousel__wrapper
+{
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  background:#fcfcfc;
+}
 
 @media only screen and (max-width: 375px) {
   .navbar-toggler {
@@ -1990,12 +2019,13 @@ h6{
   }
 
   .read_more_testi {
+    max-width: 92%;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 8; /* number of lines to show */
-    line-clamp: 8;
-    -webkit-box-orient: vertical;
+    // display: -webkit-box;
+    // -webkit-line-clamp: 8; /* number of lines to show */
+    // line-clamp: 8;
+    // -webkit-box-orient: vertical;
   }
 
   .ReactModal__Content {
@@ -2072,7 +2102,6 @@ h6{
 
  .col-3 {
   flex: 0 0 auto;
-  /* width: 25%; */
 }
 
 .vdoiframe{
@@ -2095,6 +2124,21 @@ h6{
 .testi_name
 {
   justify-content: center;
+  list-style-type: none;
+}
+
+.nav-link-mobile
+{
+  list-style: none;
+}
+
+.nav-link-mobile{
+  list-style: none;
+}
+
+.nav-link-mobile
+{
+  list-style: none;
 }
 
 }

@@ -5,14 +5,16 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from 'next/router'
 
-import Breadcrumbs from "nextjs-breadcrumbs";
+// import Breadcrumbs from "nextjs-breadcrumbs";
 
 export default function Breadcrumb({children, href}) {
   
   const router = useRouter()
 
   const [breadcrumbdata, setbreadcrumbdata] = useState([]);
-  useEffect(() => {
+
+  const BreadcrumbUpdate = (e='') => {
+    
     const breadcrumbs = location.pathname
       .split("/")
       .filter((b) => b.length)
@@ -27,8 +29,15 @@ export default function Breadcrumb({children, href}) {
         };
       });
     setbreadcrumbdata(breadcrumbs);
-    
+  }
+
+  useEffect(() => {
+    BreadcrumbUpdate()
   }, []);
+  
+  useEffect(() => {
+    router.events.on('routeChangeComplete', BreadcrumbUpdate)
+  }, [router.events]);
 
   return (
     <>

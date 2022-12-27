@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 function Navbar(props) {
   const [menuItems, setmenuItems] = useState(null);
   const router = useRouter()
+  const [ displaySidebar, setdisplaySidebar ] = useState(false);
 
   useEffect(() => {
     getMenusData().then(() => {
@@ -51,7 +52,19 @@ function Navbar(props) {
               aria-label="Toggle navigation"
               className="navbar-toggler"
             >
-              <span className="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon" onClick={() => setdisplaySidebar(!displaySidebar)}></span>
+              <div  className="navbar-sidebar" hidden={!displaySidebar} style={{display:"flex", flexDirection : "column", position : "fixed"}}>
+              {menuItems?.items.map(
+                    (d, i) =>
+                      !d.hide && (
+                        <li key={i} className="nav-item nav_items_for_mobile">
+                          <a  className="nav-link nav-link-mobile" key={i+1}   onClick={() => router.push("/"+d.url)}>
+                            {d.title}
+                          </a>
+                        </li>
+                      )
+                  )}
+              </div>
             </button>
 
             <div
