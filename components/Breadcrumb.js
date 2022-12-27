@@ -1,18 +1,12 @@
-// import { useEffect, useState } from "react";
-// import {
-
-// } from "./http-service";
 import React, { useEffect, useState } from "react";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
-import Breadcrumbs from "nextjs-breadcrumbs";
-
-export default function Breadcrumb({children, href}) {
-  
-  const router = useRouter()
+export default function Breadcrumb({ children, href }) {
+  const router = useRouter();
 
   const [breadcrumbdata, setbreadcrumbdata] = useState([]);
-  useEffect(() => {
+
+  const BreadcrumbUpdate = (e = "") => {
     const breadcrumbs = location.pathname
       .split("/")
       .filter((b) => b.length)
@@ -27,23 +21,33 @@ export default function Breadcrumb({children, href}) {
         };
       });
     setbreadcrumbdata(breadcrumbs);
-    
+  };
+
+  useEffect(() => {
+    BreadcrumbUpdate();
   }, []);
+
+  useEffect(() => {
+    router.events.on("routeChangeComplete", BreadcrumbUpdate);
+  }, [router.events]);
 
   return (
     <>
       <div className="bcrumbs">
         <a className="textdecoration" onClick={() => router.push("/")}>
-          home
+          Home
         </a>
-       
+
         {breadcrumbdata.map((bread) => (
           <span>
             {" "}
             /{" "}
-            
-          <a className="textdecoration" onClick={() => router.push("/"+ bread.url)}>{bread.name}</a>
-
+            <a
+              className="textdecoration"
+              onClick={() => router.push("/" + bread.url)}
+            >
+              {bread.name}
+            </a>
           </span>
         ))}
       </div>

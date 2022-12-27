@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react";
 import { cancellationandrefund } from "../components/http-service";
 
+function cancellationandrefundd() {
+  const [cancellation, setcancellation] = useState(null);
 
-
-function cancellationandrefundd(){
-    const [cancellation, setcancellation] = useState(null);
-
-    useEffect(() => {
-        cancellationandrefund().then((pageData) => {
-            setcancellation(pageData);
-      });
-    }, []);
-    return(
-        <div>
-           <div className="container">
+  useEffect(() => {
+    cancellationandrefund().then((pageData) => {
+      setcancellation(pageData);
+    });
+  }, []);
+  return (
+    <div>
+      <div className="container">
         <div className="row">
           <div className="col">
             {cancellation?.title && (
@@ -21,7 +19,6 @@ function cancellationandrefundd(){
                 {cancellation?.title}
               </h5>
             )}
-            {/* <h5 ><span class='active'>{{commonUtilsService.curentPage.data?.title}}</span></h5> */}
           </div>
         </div>
         <div className="row">
@@ -36,7 +33,7 @@ function cancellationandrefundd(){
           </div>
         </div>
       </div>
-        </div>
-    )
+    </div>
+  );
 }
 export default cancellationandrefundd;

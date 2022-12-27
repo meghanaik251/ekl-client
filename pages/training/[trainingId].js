@@ -9,19 +9,19 @@ import { mediaUrl } from "../../services/constants";
 import Footer from "../../components/Footer";
 import Footer_bar from "../../components/Footer_bar";
 import Breadcrumb from "../../components/Breadcrumb";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 function TrainingId() {
   const [eachtrainingData, seteachtrainingData] = useState(undefined);
   const [activeVideoData, setactiveVideoData] = useState(undefined);
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     const url = location.pathname.split("/").at(-1);
 
     getTraininginfo(url).then(async (pageData) => {
       seteachtrainingData(pageData);
-      localStorage.setItem("trainingId",pageData.training?._id)
+      localStorage.setItem("trainingId", pageData.training?._id);
       setactiveVideoData(pageData.videosData[0]);
     });
   }, []);
@@ -40,11 +40,11 @@ function TrainingId() {
         )}
       </div>
       <Breadcrumb></Breadcrumb>
-      
-      <div className=" container">
+
+      <div className=" container headoftrainng">
         <div>
           {eachtrainingData?.training?.title && (
-            <h4 style={{ color: "black",   margin: "3%" }}>
+            <h4 style={{ color: "black", margin: "2%" }}>
               {eachtrainingData?.training?.title}
             </h4>
           )}
@@ -79,9 +79,12 @@ function TrainingId() {
             )}
             <br></br>
             {eachtrainingData?.training?.applicationFormUrl && (
-              
               <a
-              onClick={() => router.push( "/apply/" + eachtrainingData?.training?.applicationFormUrl)}
+                onClick={() =>
+                  router.push(
+                    "/apply/" + eachtrainingData?.training?.applicationFormUrl
+                  )
+                }
                 // href={
                 //   "/apply/" + eachtrainingData?.training?.applicationFormUrl
                 // }
@@ -104,59 +107,64 @@ function TrainingId() {
           </div>
         </div>
 
-        {eachtrainingData?.videosData?.length && 
-        <div className="row-videos">
-          <div className="col">
-            <h6>Related Videos</h6>
-            <div className="player">
-              <iframe
-                // width="800"
-                // height="500"
-                className="vdoiframe"
-                src={activeVideoData?.link}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-              <h3> {activeVideoData?.title} </h3>
-              <p>{activeVideoData?.description}</p>
-              {/* </> */}
-            </div>    
-            <div className="">
-              <h6>More videos</h6>
-
-              <div className="col col-md-4 padding-bottom vdoslist">
-                {eachtrainingData?.videosData?.map((d, i) => (
-                  <>
-                    {eachtrainingData?.imagesData[d.thumbnail] && (
-                      <img
-                        style={{
-                          height: "200px",
-                          width: "200px",
-                          display: "flex",
-                          flexDirection: "row",
-                        }}
-                        key={i}
-                        src={
-                          mediaUrl +
-                          eachtrainingData?.imagesData[d.thumbnail].imageUrl
-                        }
-                        className="videothumbnail"
-                        alt=" "
-                        onClick={() => setactiveVideoData(d)}
-                      />
-                    )}
-                  </>
-                ))}
+        {eachtrainingData?.videosData?.length ? (
+          <div className="row-videos">
+            <div className="col">
+              <h6>Related Videos</h6>
+              <div className="player">
+                <iframe
+                  // width="800"
+                  // height="500"
+                  className="vdoiframe"
+                  src={activeVideoData?.link}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+                <h3> {activeVideoData?.title} </h3>
+                <p>{activeVideoData?.description}</p>
+                {/* </> */}
               </div>
+              <div className="">
+                <h6>More videos</h6>
+
+                <div className="col col-md-4 padding-bottom vdoslist">
+                  {eachtrainingData?.videosData?.map((d, i) => (
+                    <>
+                      {eachtrainingData?.imagesData[d.thumbnail] ? (
+                        <img
+                          style={{
+                            height: "200px",
+                            width: "200px",
+                            display: "flex",
+                            flexDirection: "row",
+                          }}
+                          key={i}
+                          src={
+                            mediaUrl +
+                            eachtrainingData?.imagesData[d.thumbnail].imageUrl
+                          }
+                          className="videothumbnail"
+                          alt=" "
+                          onClick={() => setactiveVideoData(d)}
+                        />
+                      ) : (
+                        <></>
+                      )}
+                    </>
+                  ))}
+                </div>
+              </div>
+              <br></br>
+              <br></br>
             </div>
-            <br></br>
-            <br></br>
-            
           </div>
-        </div>
-        }
+        ) : (
+          <></>
+        )}
+        <br></br>
+        <br></br>
       </div>
     </>
   );

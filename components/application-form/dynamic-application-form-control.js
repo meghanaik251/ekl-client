@@ -6,7 +6,6 @@ function DynamicApplicationFormControl({
   onEditChange,
 }) {
   const [status, setstatus] = useState(undefined);
-  // const[validate, setvalidate] = useState({})
   const [check, setcheck] = useState(true);
   const [userDetails, setUserDetails] = useState({
     firstName: "",
@@ -42,36 +41,36 @@ function DynamicApplicationFormControl({
   // useEffect(() => {
   //   console.log("userDetails", userDetails);
   //   if (
-    
+
   //     userDetails.firstName &&
   //     userDetails.lastName &&
   //     userDetails.middletName
   //     // userDetails.password &&
-  //     // userDetails.confirmPassword  &&     
-  //     // userDetails. gender &&     
-  //     // userDetails. email &&     
-  //     // userDetails. contact &&     
-  //     // userDetails. altContact &&     
-  //     // userDetails. state &&     
-  //     // userDetails.district  &&     
-  //     // userDetails. taluk &&     
-  //     // userDetails.college  &&     
-  //     // userDetails. bplCard &&     
-  //     // userDetails. bplCardNo &&     
-  //     // userDetails. qualification &&     
-  //     // userDetails. specialisation &&     
-  //     // userDetails.  collegeName&&     
-  //     // userDetails. yearOfPassing &&     
-  //     // userDetails. universityName &&   
-  //     // userDetails. sslcPercentage &&     
-  //     // userDetails. sslcPercentage &&       
-  //     // userDetails. puc1Percentage &&     
-  //     // userDetails.  puc2Percentage &&     
-  //     // userDetails.  currentStudy&&  
-  //     // userDetails. subjectOfCurrentStudy &&     
-  //     // userDetails. files &&     
-  //     // userDetails. referredBy       
-      
+  //     // userDetails.confirmPassword  &&
+  //     // userDetails. gender &&
+  //     // userDetails. email &&
+  //     // userDetails. contact &&
+  //     // userDetails. altContact &&
+  //     // userDetails. state &&
+  //     // userDetails.district  &&
+  //     // userDetails. taluk &&
+  //     // userDetails.college  &&
+  //     // userDetails. bplCard &&
+  //     // userDetails. bplCardNo &&
+  //     // userDetails. qualification &&
+  //     // userDetails. specialisation &&
+  //     // userDetails.  collegeName&&
+  //     // userDetails. yearOfPassing &&
+  //     // userDetails. universityName &&
+  //     // userDetails. sslcPercentage &&
+  //     // userDetails. sslcPercentage &&
+  //     // userDetails. puc1Percentage &&
+  //     // userDetails.  puc2Percentage &&
+  //     // userDetails.  currentStudy&&
+  //     // userDetails. subjectOfCurrentStudy &&
+  //     // userDetails. files &&
+  //     // userDetails. referredBy
+
   //   ) {
   //     setcheck(false);
   //   } else {
@@ -86,8 +85,7 @@ function DynamicApplicationFormControl({
     setvalidate({ ...validate, [e.target.id]: e.target.value });
     const testPattern = new RegExp(e.target.pattern);
     console.log(e.target.required, "requireddddddddddddddddddddddddd");
-    if(e.target.required == true){
-
+    if (e.target.required == true) {
     }
     // console.log(e.target.value, )
     document
@@ -158,7 +156,7 @@ function DynamicApplicationFormControl({
                   {controlData?.required && (
                     <small className="text-danger"> - Required</small>
                   )}
-               </label>
+                </label>
                 {controlData.controlType == "textbox" && (
                   <div>
                     <input

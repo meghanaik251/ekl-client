@@ -8,29 +8,32 @@ function WidgetContactForm() {
   const [clickable, setclickable] = useState(true);
   const [displayform, setdisplayform] = useState(true);
   const [check, setcheck] = useState(true);
-const [validate,setvalidate] = useState({
-  name:"",
-  message:"",
-  subject:"",
-  email:""
-})
+  const [validate, setvalidate] = useState({
+    name: "",
+    message: "",
+    subject: "",
+    email: "",
+  });
 
-
-useEffect(() => {
-  console.log("validate",validate);
-  if(validate.name && validate.email && validate.subject && validate.message){
-    setcheck(false);
-   }else{
-    setcheck(true);
-   }
-},[validate]);
-
+  useEffect(() => {
+    console.log("validate", validate);
+    if (
+      validate.name &&
+      validate.email &&
+      validate.subject &&
+      validate.message
+    ) {
+      setcheck(false);
+    } else {
+      setcheck(true);
+    }
+  }, [validate]);
 
   const changeDetected = (e) => {
-  setvalidate({...validate,[e.target.id]:e.target.value});
+    setvalidate({ ...validate, [e.target.id]: e.target.value });
     const testPattern = new RegExp(e.target.pattern);
     console.log(e.target.value);
-    
+
     document
       .getElementById(e.target.id)
       .classList.add(testPattern.test(e.target.value) ? "valid" : "invalid");
@@ -39,33 +42,33 @@ useEffect(() => {
   };
 
   const handleSubmit = async (e) => {
-      e.preventDefault();
-      const data = {
-        name: e.target.name.value,
-        email: e.target.email.value,
-        subject: e.target.subject.value,
-        message: e.target.message.value,
-      };
-      console.log(data, "meghanaganaik");
-      // this.setcheck(data)
-      // setcheck(false)
-      const JSONdata = JSON.stringify(data);
-  
-      setstatus("processing");
-      submitContactFormdata(data)
-        .then(() => {
-          setstatus("success");
-          setTimeout(() => {
-            setdisplayform(true);
-          }, 3000);
-        })
-        .catch((error) => {
-          setstatus("danger");
-          setTimeout(() => {
-            setdisplayform(true);
-          }, 3000);
-        });
-  }
+    e.preventDefault();
+    const data = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      subject: e.target.subject.value,
+      message: e.target.message.value,
+    };
+    console.log(data, "meghanaganaik");
+    // this.setcheck(data)
+    // setcheck(false)
+    const JSONdata = JSON.stringify(data);
+
+    setstatus("processing");
+    submitContactFormdata(data)
+      .then(() => {
+        setstatus("success");
+        setTimeout(() => {
+          setdisplayform(true);
+        }, 3000);
+      })
+      .catch((error) => {
+        setstatus("danger");
+        setTimeout(() => {
+          setdisplayform(true);
+        }, 3000);
+      });
+  };
   return (
     <div>
       <div>
@@ -73,7 +76,8 @@ useEffect(() => {
           <div className={"alert alert-success text-center"}>
             <div className="text-center display-center">
               <h4 style={{ color: "green" }}>
-                <i className="fa fa-check-circle" aria-hidden="true"></i> We will get back to you soon.
+                <i className="fa fa-check-circle" aria-hidden="true"></i> We
+                will get back to you soon.
               </h4>
             </div>
           </div>

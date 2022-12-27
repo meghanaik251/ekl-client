@@ -7,9 +7,7 @@ import { mediaUrl } from "../../services/constants";
 const app = () => {
   const [blogData, setblogData] = useState(undefined);
 
-  function increment() {
-    // console.log("Hello..");
-  }
+  function increment() {}
 
   useEffect(() => {
     getBlogData().then((blogData) => {
@@ -47,100 +45,90 @@ const app = () => {
               {/*                 
                 <div className="adetails"> */}
 
+              <div className="authorandsmlinks">
+                <div className="author_details_container">
+                  {!blogData?.post?.profile ? (
+                    <img
+                      className="author_profile"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR81iX4Mo49Z3oCPSx-GtgiMAkdDop2uVmVvw&usqp=CAU"
+                    />
+                  ) : (
+                    <img
+                      className="author_profile"
+                      src={
+                        mediaUrl +
+                        blogData?.imagesData[blogData?.post?.profile]?.imageUrl
+                      }
+                      alt="image is loading"
+                    />
+                  )}
 
+                  <div className="authorND">
+                    <b className="by_author">
+                      {blogData?.post?.showAuthorName
+                        ? blogData?.post?.authorName.substring(0, 30)
+                        : "eklakhya"}
+                    </b>
 
-<div className="authorandsmlinks">
+                    <a
+                      target="_blank"
+                      className="authorDescription"
+                      href={
+                        blogData?.post?.showAuthorName
+                          ? blogData?.post?.authorDescription.substring(0, 30)
+                          : ""
+                      }
+                    >
+                      {blogData?.post?.showAuthorName
+                        ? blogData?.post?.authorDescription.substring(0, 30)
+                        : ""}
+                    </a>
+                  </div>
+                  {/* </div> */}
+                </div>
 
-
-              <div className="author_details_container">
-                {!(blogData?.post?.profile)? (<img
-                  className="author_profile"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR81iX4Mo49Z3oCPSx-GtgiMAkdDop2uVmVvw&usqp=CAU"
-                />) : (
-                  <img
-                    className="author_profile"
-                    src={
-                      mediaUrl +
-                      blogData?.imagesData[blogData?.post?.profile]?.imageUrl
+                <div className="author_details_container_lvs">
+                  <p
+                    className="fa fa-heart top-icons icons-font-color"
+                    onClick={clicked_like}
+                  >
+                    {" "}
+                    &nbsp; {blogData?.post?.likes}
+                  </p>
+                  <p className="fa fa-eye top-icons icons-font-color">
+                    {" "}
+                    &nbsp; {blogData?.post?.views}
+                  </p>
+                  <Link
+                    href={
+                      "https://www.facebook.com/dialog/share?app_id=715740538932855&display=popup&href=https://eklakshya.com/blog/goal-setting-the-4-secrets-of-world-class-achievers"
                     }
-                    alt="image is loading"
-                  />
-                )}
-
-             <div className="authorND">
-                <b className="by_author">
-                  {blogData?.post?.showAuthorName
-                    ? blogData?.post?.authorName.substring(0, 30)
-                    : "eklakhya"}
-                </b>
-               
-                <a target="_blank"
-                  className="authorDescription"
-                  href={
-                    blogData?.post?.showAuthorName
-                      ? blogData?.post?.authorDescription.substring(0, 30)
-                      : ""
-                  }
-                >
-                  {blogData?.post?.showAuthorName
-                    ? blogData?.post?.authorDescription.substring(0, 30)
-                    : ""}
-                </a>
-                </div> 
-                {/* </div> */}
+                  >
+                    <p className="fa fa-facebook"></p>
+                  </Link>
+                  <Link
+                    href={
+                      "https://twitter.com/intent/tweet?url=https://eklakshya.com/blog/goal-setting-the-4-secrets-of-world-class-achievers"
+                    }
+                  >
+                    <p className="fa fa-twitter"></p>
+                  </Link>
+                  <Link
+                    href={
+                      "https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Feklakshya.com%2Fblog%2Fgoal-setting-the-4-secrets-of-world-class-achievers"
+                    }
+                  >
+                    <p className="fa fa-linkedin"></p>
+                  </Link>
+                  <span
+                    className="fa fa-copy"
+                    onClick={() => {
+                      navigator.clipboard.writeText(location.href);
+                    }}
+                  ></span>
+                  {/* </div> */}
+                </div>
               </div>
-
-
-
-
-              <div className="author_details_container_lvs">
-                {/* <div className="lvftl"> */}
-                <p
-                  className="fa fa-heart top-icons icons-font-color"
-                  onClick={clicked_like}
-                >
-                  {" "}
-                  &nbsp; {blogData?.post?.likes}
-                </p>
-                <p className="fa fa-eye top-icons icons-font-color">
-                  {" "}
-                  &nbsp; {blogData?.post?.views}
-                </p>
-                <Link
-                  href={
-                    "https://www.facebook.com/dialog/share?app_id=715740538932855&display=popup&href=https://eklakshya.com/blog/goal-setting-the-4-secrets-of-world-class-achievers"
-                  }
-                >
-                  <p className="fa fa-facebook"></p>
-                </Link>
-                <Link
-                  href={
-                    "https://twitter.com/intent/tweet?url=https://eklakshya.com/blog/goal-setting-the-4-secrets-of-world-class-achievers"
-                  }
-                >
-                  <p className="fa fa-twitter"></p>
-                </Link>
-                <Link
-                  href={
-                    "https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Feklakshya.com%2Fblog%2Fgoal-setting-the-4-secrets-of-world-class-achievers"
-                  }
-                >
-                  <p className="fa fa-linkedin"></p>
-                </Link>
-                <span
-                  className="fa fa-copy"
-                  onClick={() => {
-                    navigator.clipboard.writeText(location.href);
-                  }}
-                ></span>
-                {/* </div> */}
-              </div>
-              </div>
-
-
-
-
-
 
               <span className="author_blog_detail">
                 {blogData?.post?.content[0].body.map((bodyData) => (

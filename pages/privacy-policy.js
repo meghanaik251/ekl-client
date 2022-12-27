@@ -20,7 +20,6 @@ function Privacypolicyy() {
                 {privacypolicydeails?.title}
               </h5>
             )}
-            {/* <h5 ><span class='active'>{{commonUtilsService.curentPage.data?.title}}</span></h5> */}
           </div>
         </div>
         <div className="row">

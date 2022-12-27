@@ -6,52 +6,39 @@ import { useEffect, useState } from "react";
 import {
   getTrainingData,
   getTrainingsList,
-  getTraininginfo
+  getTraininginfo,
 } from "./../components/http-service";
 import { mediaUrl } from "../services/constants";
-import { useRouter } from 'next/router'
-
+import { useRouter } from "next/router";
 
 function Offerings() {
-  // const url = location.pathname.split("/").at(-1);
   const [trainingData, settrainingData] = useState(null);
   const [eachtrainingData, seteachtrainingData] = useState(undefined);
-
 
   useEffect(() => {
     getTrainingData().then(() => {
       settrainingData(getTrainingsList());
     });
-    // getTraininginfo(url).then(async (pageData) => {
-    //   seteachtrainingData(pageData);
-    //   // localStorage.setItem("trainingId",pageData.training?._id)
-    //   // setactiveVideoData(pageData.videosData[0]);
-    // });
   }, []);
 
-  // var settings = {
-  //   dots: false,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 4,
-  //   slidesToScroll: 1,
-  // };
-
   const handleDragStart = (e) => e.preventDefault();
-  const router = useRouter()
+  const router = useRouter();
 
   const responsive = {
     0: { items: 1 },
     568: { items: 2 },
-    1024: { items: 4},
+    1024: { items: 4 },
   };
 
   const items = trainingData?.map((training, i) => {
     return (
-      
-      <a key={i} className="offeringsimage" onClick={() => router.push( training.url)}>
-        <img 
-        width={"100%"}
+      <a
+        key={i}
+        className="offeringsimage"
+        onClick={() => router.push(training.url)}
+      >
+        <img
+          width={"100%"}
           src={mediaUrl + training.thumbnail}
           onDragStart={handleDragStart}
           role="presentation"
@@ -63,16 +50,15 @@ function Offerings() {
   return (
     <div className="carouselslider">
       <div className="offerings-heading">
-       
-      <h4 style={{ color: "black", textAlign: "left", margin: "20px" }}>
-        OFFERINGS{" "}
+        <h4 style={{ color: "black", textAlign: "left", margin: "20px" }}>
+          OFFERINGS{" "}
         </h4>
-        <button className="viewall"  onClick={() => router.push("/training")}>
+        <button className="viewall" onClick={() => router.push("/training")}>
           View all
         </button>
-        </div>
-      
-      <div className="p-3 offeringsimage" >
+      </div>
+
+      <div className="p-3 offeringsimage">
         <AliceCarousel
           autoPlay={true}
           // infinite={true}
@@ -88,4 +74,4 @@ function Offerings() {
   );
 }
 
-export default Offerings; 
+export default Offerings;

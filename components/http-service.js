@@ -8,7 +8,6 @@ let trainingInfo = null;
 let formData = null;
 let submitedformddata = null;
 
-
 const getMenusData = () => {
   return fetch(apiUrl + "menus?t=" + new Date().getTime())
     .then((data) => {
@@ -21,7 +20,7 @@ const getMenusData = () => {
 
 const getwidgetsData = () => {
   console.log("getwidgetsData");
-  return  fetch(apiUrl + "widgets?t=" + new Date().getTime())
+  return fetch(apiUrl + "widgets?t=" + new Date().getTime())
     .then((data) => {
       return data.json();
     })
@@ -72,8 +71,8 @@ const getSubmitedformddata = (formdetails) => {
   return fetch(apiUrl + "application" + "?t=" + new Date().getTime(), {
     method: "POST",
     body: JSON.stringify(formdetails),
-    headers : {
-      'Content-Type': 'application/json'
+    headers: {
+      "Content-Type": "application/json",
     },
   })
     .then((data) => {
@@ -86,12 +85,12 @@ const getSubmitedformddata = (formdetails) => {
     });
 };
 
-const submitContactFormdata =(formdata)=>{
+const submitContactFormdata = (formdata) => {
   return fetch(apiUrl + "contact" + "?t=" + new Date().getTime(), {
     method: "POST",
     body: JSON.stringify(formdata),
-    headers : {
-      'Content-Type': 'application/json'
+    headers: {
+      "Content-Type": "application/json",
     },
   })
     .then((data) => {
@@ -102,16 +101,19 @@ const submitContactFormdata =(formdata)=>{
       console.log(submitedformddata, "hhhhhhhhhhhhhhhh");
       return data;
     });
-}
+};
 
 const getTrainingsList = () => {
   return trainingData?.trainingList.map((training, i) => {
     return {
       thumbnail: trainingData?.imagesData[training?.thumbnail]?.imageUrl,
       title: training.title,
-      widgetNavigation:training.widgetNavigation,
-      url: training.widgetNavigation== "form"? ("/apply/" + training.applicationFormUrl):("/training/" + training.url),
-    // url: training.url,
+      widgetNavigation: training.widgetNavigation,
+      url:
+        training.widgetNavigation == "form"
+          ? "/apply/" + training.applicationFormUrl
+          : "/training/" + training.url,
+      // url: training.url,
       description: training.description,
       banner: training.banner,
     };
@@ -127,43 +129,47 @@ const Privacypolicy = () => {
       return data.json();
     })
     .then((data) => {
-          return data;
-    });    
+      return data;
+    });
 };
 
 const termsandconditions = () => {
-  return fetch(apiUrl + "pages/terms-and-conditions" + "?t=" + new Date().getTime(), {
-    method: "GET",
-    body: JSON.stringify(),
-  })
+  return fetch(
+    apiUrl + "pages/terms-and-conditions" + "?t=" + new Date().getTime(),
+    {
+      method: "GET",
+      body: JSON.stringify(),
+    }
+  )
     .then((data) => {
       return data.json();
     })
     .then((data) => {
-          return data;
-    });    
+      return data;
+    });
 };
 
 const cancellationandrefund = () => {
-  return fetch(apiUrl + "pages/cancellation-and-refund" + "?t=" + new Date().getTime(), {
-    method: "GET",
-    body: JSON.stringify(),
-  })
+  return fetch(
+    apiUrl + "pages/cancellation-and-refund" + "?t=" + new Date().getTime(),
+    {
+      method: "GET",
+      body: JSON.stringify(),
+    }
+  )
     .then((data) => {
       return data.json();
     })
     .then((data) => {
-          return data;
-    });    
+      return data;
+    });
 };
 
-
-const submitDoc =(formData,next)=>{
-  console.log(formData,"api testimnng ")
+const submitDoc = (formData, next) => {
+  console.log(formData, "api testimnng ");
   return fetch(apiUrl + "application/files" + "?t=" + new Date().getTime(), {
     method: "POST",
-    body: formData ,
-    
+    body: formData,
   })
     .then((data) => {
       return data.json(formData);
@@ -172,11 +178,10 @@ const submitDoc =(formData,next)=>{
       next(data[0].location);
       return data;
     });
-}
-
+};
 
 const getMenusItem = () => {
-  return menusData.find((d) => d.title == "Navbar main" );
+  return menusData.find((d) => d.title == "Navbar main");
 };
 
 const getFooterMenus = () => {
@@ -207,18 +212,7 @@ const getWidgetHomePagestestimonials = () => {
   return widgetsData?.find((d) => d.type == "testimonials");
 };
 
-
-
-
-// function getAlltabsCategories() {
-//   return fetch(
-//     "https://www.eklakshya.com/api/posts/keyWords/?t=1667971013761&type=category"
-//   ).then((response) => response.json());
-// }
-
 const getAlltabsCategories = () => {
-  // const blogUrl = location.pathname.split("/").at(-1)
-
   return fetch(apiUrl + "posts/keyWords/?t=" + new Date().getTime(), {
     method: "GET",
     body: JSON.stringify(),
@@ -227,21 +221,14 @@ const getAlltabsCategories = () => {
       return response.json();
     })
     .then((resp) => {
-          return resp;
-    });    
+      return resp;
+    });
 };
 
-// function getAllBlogs(filter) {
-//   return fetch(
-//     "https://www.eklakshya.com/api/posts/?t=1667979981893" + filter
-//   ).then((response) => response.json());
-// }
-
-
 const getAllBlogs = (filter) => {
-  const blogUrl = location.pathname.split("/").at(-1)
+  const blogUrl = location.pathname.split("/").at(-1);
 
-  return fetch(apiUrl + "posts/?t=" + new Date().getTime()+ filter, {
+  return fetch(apiUrl + "posts/?t=" + new Date().getTime() + filter, {
     method: "GET",
     body: JSON.stringify(),
   })
@@ -249,19 +236,11 @@ const getAllBlogs = (filter) => {
       return response.json();
     })
     .then((resp) => {
-          return resp;
-    });    
+      return resp;
+    });
 };
 
-// function getAllBlogsBySearch(filter) {
-//   return fetch(
-//     "https://www.eklakshya.com/api/posts/search/?t=1667979981893" + filter
-//   ).then((response) => response.json());
-// }
-
 const getAllBlogsBySearch = (filter) => {
-  // const blogUrl = location.pathname.split("/").at(-1)
-
   return fetch(apiUrl + "posts/search/?t=" + new Date().getTime(), {
     method: "GET",
     body: JSON.stringify(),
@@ -270,29 +249,14 @@ const getAllBlogsBySearch = (filter) => {
       return response.json();
     })
     .then((resp) => {
-          return resp;
-    });    
+      return resp;
+    });
 };
 
-// function getBlogData() {
-//   const blogUrl = location.pathname.split("/").at(-1)
-//   // console.log(blogUrl)
-//   return fetch(
-//     "https://eklakshya.com/api/posts/" + blogUrl + "?t=" + new Date().getTime()
-//   ).then((response) => {
-//     return response.json()
-//   }).then((resp) => {
-//     return resp
-//   });
-// }
-
-
 const getBlogData = () => {
-  const blogUrl = location.pathname.split("/").at(-1)
-  // return trainingData?.trainingList.map((training, i) => {
+  const blogUrl = location.pathname.split("/").at(-1);
 
-
-  return fetch(apiUrl + "posts/"+ blogUrl+"?t=" + new Date().getTime(), {
+  return fetch(apiUrl + "posts/" + blogUrl + "?t=" + new Date().getTime(), {
     method: "GET",
     body: JSON.stringify(),
   })
@@ -300,20 +264,19 @@ const getBlogData = () => {
       return response.json();
     })
     .then((resp) => {
-          return resp;
-    });    
+      return resp;
+    });
 };
 
 const claps = (id) => {
   return fetch(apiUrl + "posts/claps" + "?t=" + new Date().getTime(), {
     method: "PUT",
-    body: JSON.stringify({id}),
-    headers : {
-      'Content-Type': 'application/json'
+    body: JSON.stringify({ id }),
+    headers: {
+      "Content-Type": "application/json",
     },
-  })
-}
-
+  });
+};
 
 export {
   getMenusData,
@@ -340,5 +303,5 @@ export {
   submitDoc,
   termsandconditions,
   cancellationandrefund,
-  claps,  
+  claps,
 };

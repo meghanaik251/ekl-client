@@ -12,38 +12,43 @@ function DynamicApplicationForm({ applicatonForm }) {
   const [reset, setreset] = useState({});
 
   const [check, setcheck] = useState(true);
- const [resetcheck, setresetcheck] = useState(true);
-
+  const [resetcheck, setresetcheck] = useState(true);
 
   useEffect(() => {
     const trainingId = localStorage.getItem("trainingId");
-    console.log(applicatonForm,"dsds")
+    console.log(applicatonForm, "dsds");
     setformdetails({ formId: applicatonForm?.form?._id, trainingId });
   }, [applicatonForm]);
 
   const onEditChange = (e) => {
-    !(!(e.target.value)) && setresetcheck(!true);
-   
+    !!e.target.value && setresetcheck(!true);
+
     setformdetails({ ...formdetails, [e.target.name]: e.target.value });
-      const requirredItems = applicatonForm.controls.map((controlData) => controlData.key);
-      const currentValues = { ...formdetails, [e.target.name]: e.target.value };
-      const existingItems = Object.keys(currentValues)
-      setcheck(!requirredItems.map((item) => existingItems.includes(item) && Boolean(currentValues[item])).reduce((a,b)=> a&&b))
+    const requirredItems = applicatonForm.controls.map(
+      (controlData) => controlData.key
+    );
+    const currentValues = { ...formdetails, [e.target.name]: e.target.value };
+    const existingItems = Object.keys(currentValues);
+    setcheck(
+      !requirredItems
+        .map(
+          (item) => existingItems.includes(item) && Boolean(currentValues[item])
+        )
+        .reduce((a, b) => a && b)
+    );
 
     const files = e.target.files;
 
-   
     if (e.target.type == "file") {
       const File = e.target.files;
-      console.log(e.target.files,"hiii file")
+      console.log(e.target.files, "hiii file");
       var formData = new FormData();
       files.length && formData.append("files", files[0]);
       formData && console.log(formData, "g");
-      console.log(formData,"hii formdata")
+      console.log(formData, "hii formdata");
       submitDoc(formData, (fileUrl) => {
         setformdetails({ ...formdetails, files: fileUrl });
       });
-    
     }
   };
 
@@ -65,12 +70,12 @@ function DynamicApplicationForm({ applicatonForm }) {
       });
   };
 
-  const resetfun=(e)=>{
-    getSubmitedformddata(formdetails)
+  const resetfun = (e) => {
+    getSubmitedformddata(formdetails);
     setformdetails({ ...formdetails, [e.target.name]: e.target.value });
- console.log( formdetails,"hohihooooooooooooooooooo")
-  setresetcheck(false)
-  }
+    console.log(formdetails, "hohihooooooooooooooooooo");
+    setresetcheck(false);
+  };
 
   return (
     <div>
@@ -89,10 +94,12 @@ function DynamicApplicationForm({ applicatonForm }) {
             <br></br>
             <div className="row">
               <div className="col">
-                <button type="reset"
-                 className="btn-black" 
-                 onClick={resetfun}
-                 disabled={resetcheck}>
+                <button
+                  type="reset"
+                  className="btn-black"
+                  onClick={resetfun}
+                  disabled={resetcheck}
+                >
                   Reset
                 </button>
                 <button
@@ -138,7 +145,10 @@ function DynamicApplicationForm({ applicatonForm }) {
             ) : status == "processing" ? (
               <div className={"alert alert-processing text-center"}>
                 <div className="text-center display-center">
-                  <div style={{ color: "processing" }} className="processing"></div>
+                  <div
+                    style={{ color: "processing" }}
+                    className="processing"
+                  ></div>
                   <h5 className="status">processing</h5>
                 </div>
               </div>
