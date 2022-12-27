@@ -6,6 +6,8 @@ import {
   getAlltabsCategories,
   getAllBlogsBySearch,
 } from "../../components/http-service";
+import { mediaUrl } from "../../services/constants";
+
 
 function Blog() {
   const [activeTab, setActiveTab] = useState({ id: "j" });
@@ -54,7 +56,7 @@ function Blog() {
       (filter?.tab ? "&tab=" + filter.tab : "") +
       (filter?.category ? "&category=" + filter.category : "");
     getAllBlogs(fileterstring).then((data) => {
-      console.log(data);
+      console.log(data,"get blogsssssssssss");
       setblogList(data);
     });
   };
@@ -65,7 +67,7 @@ function Blog() {
       (filter?.tab ? "&tab=" + filter.tab : "") +
       (filter?.category ? "&category=" + filter.category : "");
     getAllBlogsBySearch(fileterstring).then((data) => {
-      console.log(data);
+      console.log(data,"lists of blog");
       setblogList(data);
     });
   };
@@ -113,15 +115,23 @@ function Blog() {
               className="blogData col-md-4 col-sm-6 col-xs-12"
             >
               <div className="blog-container blogData col-md-4 col-sm-6 col-xs-12">
+               {blogInfo.bannerId &&(
                 <img
                   className="blog_img"
+                 
+                  // src={
+                  //   "https://s3.ap-south-1.amazonaws.com/eklakshya.com/" +
+                  //   blogList?.imagesData[blogInfo.bannerId].imageUrl
+                  // }
                   src={
-                    "https://s3.ap-south-1.amazonaws.com/eklakshya.com/" +
-                    blogList?.imagesData[blogInfo.bannerId].imageUrl
+                    mediaUrl +
+                    blogList?.imagesData[blogInfo.bannerId]?.imageUrl  
                   }
+                 
                 />
+                )}
                 <article className="blog-description-container">
-                  <h6 className="limit_text">{blogInfo.title}</h6>
+                  <h6 className="limit_text">{blogInfo.title} </h6>
                   <p className="limit">{blogInfo.description.slice(0, 80)}</p>
                   <div className="blog-like-view-container row">
                     <div className="col fa fa-thumbs-o-up">
@@ -147,7 +157,7 @@ function Blog() {
           <i
             onClick={(e) => onInputChange(e)}
             style={{ height: "20px" }}
-            class="fa fa-search"
+            className="fa fa-search"
           ></i>
         </span>
 

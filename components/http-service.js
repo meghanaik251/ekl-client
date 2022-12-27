@@ -210,35 +210,99 @@ const getWidgetHomePagestestimonials = () => {
 
 
 
-function getAlltabsCategories() {
-  return fetch(
-    "https://www.eklakshya.com/api/posts/keyWords/?t=1667971013761&type=category"
-  ).then((response) => response.json());
-}
+// function getAlltabsCategories() {
+//   return fetch(
+//     "https://www.eklakshya.com/api/posts/keyWords/?t=1667971013761&type=category"
+//   ).then((response) => response.json());
+// }
 
-function getAllBlogs(filter) {
-  return fetch(
-    "https://www.eklakshya.com/api/posts/?t=1667979981893" + filter
-  ).then((response) => response.json());
-}
+const getAlltabsCategories = () => {
+  // const blogUrl = location.pathname.split("/").at(-1)
 
-function getAllBlogsBySearch(filter) {
-  return fetch(
-    "https://www.eklakshya.com/api/posts/search/?t=1667979981893" + filter
-  ).then((response) => response.json());
-}
+  return fetch(apiUrl + "posts/keyWords/?t=" + new Date().getTime(), {
+    method: "GET",
+    body: JSON.stringify(),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((resp) => {
+          return resp;
+    });    
+};
 
-function getBlogData() {
+// function getAllBlogs(filter) {
+//   return fetch(
+//     "https://www.eklakshya.com/api/posts/?t=1667979981893" + filter
+//   ).then((response) => response.json());
+// }
+
+
+const getAllBlogs = (filter) => {
   const blogUrl = location.pathname.split("/").at(-1)
-  // console.log(blogUrl)
-  return fetch(
-    "https://eklakshya.com/api/posts/" + blogUrl + "?t=" + new Date().getTime()
-  ).then((response) => {
-    return response.json()
-  }).then((resp) => {
-    return resp
-  });
-}
+
+  return fetch(apiUrl + "posts/?t=" + new Date().getTime()+ filter, {
+    method: "GET",
+    body: JSON.stringify(),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((resp) => {
+          return resp;
+    });    
+};
+
+// function getAllBlogsBySearch(filter) {
+//   return fetch(
+//     "https://www.eklakshya.com/api/posts/search/?t=1667979981893" + filter
+//   ).then((response) => response.json());
+// }
+
+const getAllBlogsBySearch = (filter) => {
+  // const blogUrl = location.pathname.split("/").at(-1)
+
+  return fetch(apiUrl + "posts/search/?t=" + new Date().getTime(), {
+    method: "GET",
+    body: JSON.stringify(),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((resp) => {
+          return resp;
+    });    
+};
+
+// function getBlogData() {
+//   const blogUrl = location.pathname.split("/").at(-1)
+//   // console.log(blogUrl)
+//   return fetch(
+//     "https://eklakshya.com/api/posts/" + blogUrl + "?t=" + new Date().getTime()
+//   ).then((response) => {
+//     return response.json()
+//   }).then((resp) => {
+//     return resp
+//   });
+// }
+
+
+const getBlogData = () => {
+  const blogUrl = location.pathname.split("/").at(-1)
+  // return trainingData?.trainingList.map((training, i) => {
+
+
+  return fetch(apiUrl + "posts/"+ blogUrl+"?t=" + new Date().getTime(), {
+    method: "GET",
+    body: JSON.stringify(),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((resp) => {
+          return resp;
+    });    
+};
 
 const claps = (id) => {
   return fetch(apiUrl + "posts/claps" + "?t=" + new Date().getTime(), {

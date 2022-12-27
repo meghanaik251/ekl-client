@@ -73,7 +73,7 @@ useEffect(() => {
           <div className={"alert alert-success text-center"}>
             <div className="text-center display-center">
               <h4 style={{ color: "green" }}>
-                <i class="fa fa-check-circle" aria-hidden="true"></i> We will get back to you soon.
+                <i className="fa fa-check-circle" aria-hidden="true"></i> We will get back to you soon.
               </h4>
             </div>
           </div>
@@ -83,7 +83,7 @@ useEffect(() => {
               <h4 style={{ color: "#d66349" }}>
                 {" "}
                 <i
-                  class="fa fa-exclamation-triangle"
+                  className="fa fa-exclamation-triangle"
                   aria-hidden="true"
                 ></i>{" "}
                 Please try again.
@@ -94,7 +94,7 @@ useEffect(() => {
           <div className={"alert alert-processing text-center"}>
             <div className="text-center display-center">
               <div style={{ color: "processing" }} class="processing"></div>
-              <h5 class="status">processing</h5>
+              <h5 className="status">processing</h5>
             </div>
           </div>
         ) : (
@@ -137,7 +137,7 @@ useEffect(() => {
                 onChange={changeDetected}
                 name="email"
                 id="email"
-                class="input-md form-control"
+                className="input-md form-control"
                 placeholder="Email "
                 // maxlength="200"
                 required=""
@@ -169,7 +169,7 @@ useEffect(() => {
             />
             <div
               id="subject-validation"
-              class="text-danger"
+              className="text-danger"
               style={{ display: "none" }}
             >
               <div>Subject is required.</div>

@@ -163,6 +163,7 @@ function DynamicApplicationFormControl({
                   <div>
                     <input
                       onInput={onEditChange}
+                      onChange={(e) => console.log(e.currentTarget.value)}
                       id={controlData.key}
                       name={controlData.key}
                       pattern={controlData.validationExp}

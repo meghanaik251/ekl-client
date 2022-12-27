@@ -5,8 +5,8 @@ function WidgetsContact(){
     <h5 className="heading space40"><span>Contact Us</span></h5>
     <div className="media-list">
         <div className="media">
-        <i class="pull-left fa fa-home"></i>
-            <div class="media-body">
+        <i className="pull-left fa fa-home"></i>
+            <div className="media-body">
                 <strong>Address:</strong><br/> C Lite Building, KLE Tech University Compound, <br/>
                 BVB College Campus, Vidyanagar,<br/>Hubli Dharwad,Karnataka 5800031
             </div>

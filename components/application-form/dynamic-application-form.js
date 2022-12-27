@@ -24,13 +24,12 @@ function DynamicApplicationForm({ applicatonForm }) {
   const onEditChange = (e) => {
     !(!(e.target.value)) && setresetcheck(!true);
    
-    console.log({[e.target.name]: e.target.value },"valueeeeeeeeeeeeeeeeeeemgn")
-      setformdetails({ ...formdetails, [e.target.name]: e.target.value });
+    setformdetails({ ...formdetails, [e.target.name]: e.target.value });
       const requirredItems = applicatonForm.controls.map((controlData) => controlData.key);
-      const existingItems = Object.keys(formdetails)
-      setcheck(!requirredItems.map((item) => existingItems.includes(item) && Boolean(formdetails[item])).reduce((a,b)=> a&&b))
- 
-  
+      const currentValues = { ...formdetails, [e.target.name]: e.target.value };
+      const existingItems = Object.keys(currentValues)
+      setcheck(!requirredItems.map((item) => existingItems.includes(item) && Boolean(currentValues[item])).reduce((a,b)=> a&&b))
+
     const files = e.target.files;
 
    

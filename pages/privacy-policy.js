@@ -12,19 +12,19 @@ function Privacypolicyy() {
 
   return (
     <div>
-      <div class="container">
-        <div class="row">
-          <div class="col">
+      <div className="container">
+        <div className="row">
+          <div className="col">
             {privacypolicydeails?.title && (
-              <h5 class="heading-left" style={{ color: "black" }}>
+              <h5 className="heading-left" style={{ color: "black" }}>
                 {privacypolicydeails?.title}
               </h5>
             )}
             {/* <h5 ><span class='active'>{{commonUtilsService.curentPage.data?.title}}</span></h5> */}
           </div>
         </div>
-        <div class="row">
-          <div class="col">
+        <div className="row">
+          <div className="col">
             {privacypolicydeails?.content && (
               <p
                 dangerouslySetInnerHTML={{

@@ -14,43 +14,91 @@ const app = () => {
   useEffect(() => {
     getBlogData().then((blogData) => {
       setblogData(blogData);
+      console.log(blogData, "hi bloggggggu");
     });
   }, []);
 
-const clicked_like = () => {
-  claps(blogData.post._id).then((likes) => {
-    // console.log(likes)
-    const blogData1 = {...blogData}
-    blogData1.post.likes = blogData1.post.likes + 1;
-    setblogData(blogData1)
-  })
-}
+  const clicked_like = () => {
+    claps(blogData.post._id).then((likes) => {
+      // console.log(likes)
+      const blogData1 = { ...blogData };
+      blogData1.post.likes = blogData1.post.likes + 1;
+      setblogData(blogData1);
+    });
+  };
 
   return (
     <>
       <div className="blog-container">
         <div className="blog-banner-container">
-          <img
-            src={
-              mediaUrl + blogData?.imagesData[blogData?.post.bannerId].imageUrl
-            }
-            alt=""
-          />
+          {blogData?.post?.bannerId && (
+            <img
+              src={
+                mediaUrl +
+                blogData?.imagesData[blogData?.post?.bannerId]?.imageUrl
+              }
+              alt="image is loading"
+            />
+          )}
         </div>
         <div className="blog-details-container">
           <div className="row">
             <div className="col-9">
+              {/*                 
+                <div className="adetails"> */}
+
+
+
+<div className="authorandsmlinks">
+
+
               <div className="author_details_container">
-                <img
+                {!(blogData?.post?.profile)? (<img
                   className="author_profile"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR81iX4Mo49Z3oCPSx-GtgiMAkdDop2uVmVvw&usqp=CAU"
-                />
-                <b classNam = "by_author">
+                />) : (
+                  <img
+                    className="author_profile"
+                    src={
+                      mediaUrl +
+                      blogData?.imagesData[blogData?.post?.profile]?.imageUrl
+                    }
+                    alt="image is loading"
+                  />
+                )}
+
+             <div className="authorND">
+                <b className="by_author">
                   {blogData?.post?.showAuthorName
-                    ? blogData?.post?.authorName
+                    ? blogData?.post?.authorName.substring(0, 30)
                     : "eklakhya"}
                 </b>
-                <p className="fa fa-heart top-icons icons-font-color" onClick={clicked_like}>
+               
+                <a target="_blank"
+                  className="authorDescription"
+                  href={
+                    blogData?.post?.showAuthorName
+                      ? blogData?.post?.authorDescription.substring(0, 30)
+                      : ""
+                  }
+                >
+                  {blogData?.post?.showAuthorName
+                    ? blogData?.post?.authorDescription.substring(0, 30)
+                    : ""}
+                </a>
+                </div> 
+                {/* </div> */}
+              </div>
+
+
+
+
+              <div className="author_details_container_lvs">
+                {/* <div className="lvftl"> */}
+                <p
+                  className="fa fa-heart top-icons icons-font-color"
+                  onClick={clicked_like}
+                >
                   {" "}
                   &nbsp; {blogData?.post?.likes}
                 </p>
@@ -85,7 +133,15 @@ const clicked_like = () => {
                     navigator.clipboard.writeText(location.href);
                   }}
                 ></span>
+                {/* </div> */}
               </div>
+              </div>
+
+
+
+
+
+
               <span className="author_blog_detail">
                 {blogData?.post?.content[0].body.map((bodyData) => (
                   <p dangerouslySetInnerHTML={{ __html: bodyData.data }}></p>
@@ -95,7 +151,7 @@ const clicked_like = () => {
 
             <div className="related_posts col">
               <h4 className="related_posts_text">Related Posts</h4>
-              {blogData?.relatedPosts.map((blogRelatedData, i) => (
+              {blogData?.relatedPosts?.map((blogRelatedData, i) => (
                 <a key={i} href={blogRelatedData.url}>
                   <h6 className="related_blog_head">
                     {blogRelatedData.description}

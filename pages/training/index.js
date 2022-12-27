@@ -40,7 +40,10 @@ export default function Training() {
     <>
       {/* <Breadcrumb selectedBreadCrumb={breadCrumbs[selectedBreadCrumb].id} breadCrumbs={breadCrumbs} path={breadCrumbs[selectedBreadCrumb].path}/> */}
      <div className="searchbarallignment">
-       <h4 style={{ color: "black", textAlign: "left", margin: "20px" }}>
+       {/* <h4 style={{ color: "black", textAlign: "left", margin: "20px",  margin-left: "13%" }}> */}
+       
+       <h4 className="HofT">
+
         TRAINING{" "}
       </h4>
       
