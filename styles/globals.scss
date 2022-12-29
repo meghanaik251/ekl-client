@@ -376,6 +376,47 @@ h4 {
   background-color: rgb(250, 246, 212);
 }
 
+.alice-carousel__prev-btn
+{
+  position: absolute;
+  top: 45%;
+  right: 95%;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  max-width: 4%;
+  padding: 5px 17px;
+}
+
+.alice-carousel__prev-btn:hover
+{
+  background-color: #989999;
+  border: 1px solid #989999;
+  span {
+    color: white;
+  }
+}
+
+.alice-carousel__next-btn
+{
+  position: absolute;
+  top: 45%;
+  left: 95%;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  span {
+    color: rgb(0, 0, 0);
+  }
+  max-width: 4%;
+}
+
+.alice-carousel__next-btn:hover
+{
+  background-color: #989999;
+  border: 1px solid #989999;
+  span {
+    color: rgb(255, 255, 255);
+  }
+}
 .slide {
   display: flex;
   justify-content: center;
@@ -655,8 +696,15 @@ body {
 .search {
   position: relative;
   margin-bottom: 13px;
+  margin-top: 19%;
+  justify-content: flex-end;
+}
+.searchT{
+  position: relative;
+  margin-bottom: 13px;
   margin-top: 7%;
   justify-content: flex-end;
+
 }
 
 .searchTerm {
@@ -1567,7 +1615,8 @@ iframe[sandbox] .read-article {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-right: 26px;
+  margin-right: 9%;
+  margin-left: 9%;
 }
 .alice-carousel__stage-item {
   padding: 17px !important;
@@ -1817,6 +1866,8 @@ iframe[sandbox] .read-article {
 .offeringsimage {
   background: none;
   border: none;
+  margin-left: 9%;
+  margin-right: 9%;
 }
 
 .search_button {

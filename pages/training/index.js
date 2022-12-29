@@ -42,7 +42,7 @@ export default function Training() {
       <div className="searchbarallignment">
         <h4 className="HofT">TRAINING </h4>
 
-        <div className="search">
+        <div className="searchT">
           <input
             onChange={(e) => setsearch(e.currentTarget.value)}
             placeholder="Search"

@@ -50,7 +50,7 @@ function Offerings() {
   return (
     <div className="carouselslider">
       <div className="offerings-heading">
-        <h4 style={{ color: "black", textAlign: "left", margin: "20px" }}>
+        <h4 style={{ color: "black", textAlign: "left", margin: "20px" , marginLeft: "8"}}>
           OFFERINGS{" "}
         </h4>
         <button className="viewall" onClick={() => router.push("/training")}>
@@ -60,14 +60,14 @@ function Offerings() {
 
       <div className="p-3 offeringsimage">
         <AliceCarousel
-          autoPlay={true}
+          // autoPlay={true}
           // infinite={true}
           mouseTracking={true}
           items={items}
           controlsStrategy="alternate"
           responsive={responsive}
           disableDotsControls={true}
-          infinite={true}
+          // infinite={true}
         />
       </div>
     </div>

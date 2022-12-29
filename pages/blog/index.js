@@ -108,12 +108,12 @@ function Blog() {
         </div>
         <div className="blog-list-section  row">
           {blogList?.posts.map((blogInfo, i) => (
-            <Link
+            <a
               href={"blog/" + blogInfo?.url}
               key={i}
               className="blogData col-md-4 col-sm-6 col-xs-12"
             >
-              <div className="blog-container blogData col-md-4 col-sm-6 col-xs-12">
+              <div className="blog-container">
                 {blogInfo.bannerId && (
                   <img
                     className="blog_img"
@@ -139,7 +139,7 @@ function Blog() {
                   </div>
                 </article>
               </div>
-            </Link>
+            </a>
           ))}
         </div>
       </div>
