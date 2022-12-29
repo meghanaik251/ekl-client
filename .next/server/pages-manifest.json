@@ -2,9 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/apply/[applyId]": "pages/apply/[applyId].js",
+  "/blog": "pages/blog.js",
   "/about": "pages/about.js",
-  "/training": "pages/training.js",
-  "/contact": "pages/contact.js",
-  "/blog": "pages/blog.js"
+  "/training": "pages/training.js"
 }

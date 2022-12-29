@@ -30,20 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/about.js"
     ],
-    "/apply/[applyId]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/apply/[applyId].js"
-    ],
     "/blog": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/blog.js"
-    ],
-    "/contact": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/contact.js"
     ],
     "/training": [
       "static/chunks/webpack.js",

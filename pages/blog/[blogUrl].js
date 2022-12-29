@@ -66,7 +66,7 @@ const app = () => {
                   <div className="authorND">
                     <b className="by_author">
                       {blogData?.post?.showAuthorName
-                        ? blogData?.post?.authorName.substring(0, 30)
+                        ? blogData?.post?.authorName.substring(0, 25)
                         : "eklakhya"}
                     </b>
 
@@ -75,12 +75,12 @@ const app = () => {
                       className="authorDescription"
                       href={
                         blogData?.post?.showAuthorName
-                          ? blogData?.post?.authorDescription.substring(0, 30)
+                          ? blogData?.post?.authorDescription.substring(0, 25)
                           : ""
                       }
                     >
                       {blogData?.post?.showAuthorName
-                        ? blogData?.post?.authorDescription.substring(0, 30)
+                        ? blogData?.post?.authorDescription.substring(0, 25)
                         : ""}
                     </a>
                   </div>
@@ -132,7 +132,7 @@ const app = () => {
 
               <span className="author_blog_detail">
                 {blogData?.post?.content[0].body.map((bodyData) => (
-                  <p dangerouslySetInnerHTML={{ __html: bodyData.data }}></p>
+                  <p className="blogDetails" dangerouslySetInnerHTML={{ __html: bodyData.data }}></p>
                 ))}
               </span>
             </div>
