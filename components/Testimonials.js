@@ -54,6 +54,7 @@ function Testimonials() {
         </div>
         <div className="testimonial-body my_alice-carousel__wrapper">
           <h5> {testimonial.name} </h5>
+          <br></br>
           <span
             className="read_more_testi"
             dangerouslySetInnerHTML={{ __html: testimonial.text }}
@@ -90,8 +91,10 @@ function Testimonials() {
               role="presentation"
             />
           </div>
+
           <div className="testimonial-modal-body">
             <h5 classNme="testi_name">{activeTestimonial?.name}</h5>
+            <br></br>
             <span
               dangerouslySetInnerHTML={{ __html: activeTestimonial?.text }}
             ></span>
@@ -99,7 +102,7 @@ function Testimonials() {
         </div>
       </Modal>
       <AliceCarousel
-        autoPlay={true}
+        // autoPlay={true}
         infinite={true}
         mouseTracking
         items={items}
