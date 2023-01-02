@@ -28,14 +28,13 @@ function Slider() {
   return (
     <div className="arrow_centering">
       <div className="carouselslider"></div>
-      <div className="p-1">
+      <div className="p-1 home_page_slide">
         <AliceCarousel
           autoPlay={true}
           infinite={true}
           mouseTracking
           items={items}
           controlsStrategy="alternate"
-          disableButtonsControls={true}
           disableDotsControls={true}
           animationDuration={1500}
           autoPlayInterval={4000}

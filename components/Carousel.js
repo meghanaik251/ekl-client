@@ -60,8 +60,7 @@ function Offerings() {
 
       <div className="p-3 offeringsimage">
         <AliceCarousel
-          autoPlay={true}
-          // infinite={true}
+          // autoPlay={true}
           mouseTracking={true}
           items={items}
           controlsStrategy="alternate"
