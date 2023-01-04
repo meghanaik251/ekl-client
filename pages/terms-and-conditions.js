@@ -17,14 +17,14 @@ function termsandconditionss() {
         <div className="row">
           <div className="col">
             {terms?.title && (
-              <h5 className="heading-left" style={{ color: "black" }}>
+              <h5 className="heading-left terms_column" style={{ color: "black" }}>
                 {terms?.title}
               </h5>
             )}
           </div>
         </div>
         <div className="row">
-          <div className="col">
+          <div className="col terms_content">
             {terms?.content && (
               <p
                 dangerouslySetInnerHTML={{

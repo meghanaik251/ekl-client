@@ -40,7 +40,7 @@ const app = () => {
           )}
         </div>
         <div className="blog-details-container">
-          <div className="row">
+          <div className="row justify-text">
             <div className="col-9">
               {/*                 
                 <div className="adetails"> */}
@@ -163,9 +163,9 @@ const app = () => {
 
           {/* <button className = "view_all_posts" onClick = {window.history.back() } > VIEW ALL POSTS</button> */}
           <div className="linkDiv">
-            <Link className="view_all_posts view" id="link" href={"/blog"}>
+            <a className="view_all_posts view" id="link" href={"/blog"}>
               VIEW ALL POSTS
-            </Link>
+            </a>
           </div>
         </div>
       </div>

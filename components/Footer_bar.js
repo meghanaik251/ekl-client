@@ -27,7 +27,7 @@ function Footer_bar() {
             </span>
           )
       )}
-      <span className="gs-fotter-left">
+      <span className="gs-fotter-left footer_part">
         Copyright 2018· Designed & Developed by{" "}
         <span className="eklakshya">
           {" "}

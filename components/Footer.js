@@ -32,7 +32,7 @@ function Footer() {
         </h5>
         <br></br>
 
-        <h4 className="eklf">eklakshya</h4>
+        <h4 className="eklf">ekLakshya</h4>
 
         {aboutWidget?.content.map(
           (d, i) =>
@@ -67,15 +67,16 @@ function Footer() {
           {latestNewsWidget?.title}{" "}
         </h5>{" "}
         <br />
-        {latestNewsWidget?.content.map(
-          (d, i) =>
-            !d.show && (
+          {latestNewsWidget?.content.map(
+            (d, i) =>
+              !d.show && (
               <p
                 className="ekl-description"
                 key={i}
-                dangerouslySetInnerHTML={{ __html: d.description }}
-              ></p>
-            )
+                dangerouslySetInnerHTML={{ __html: d.description }}>
+              </p>
+        )
+
         )}
       </div>
       <br></br>

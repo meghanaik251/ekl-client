@@ -15,13 +15,13 @@ function cancellationandrefundd() {
         <div className="row">
           <div className="col">
             {cancellation?.title && (
-              <h5 className="heading-left" style={{ color: "black" }}>
+              <h5 className="heading-left cancelation_title" style={{ color: "black" }}>
                 {cancellation?.title}
               </h5>
             )}
           </div>
         </div>
-        <div className="row">
+        <div className="row cancel_content">
           <div className="col">
             {cancellation?.content && (
               <p
