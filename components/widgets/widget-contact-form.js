@@ -60,13 +60,14 @@ function WidgetContactForm() {
         setstatus("success");
         setTimeout(() => {
           setdisplayform(true);
-        }, 3000);
+          
+        }, 4000);
       })
       .catch((error) => {
         setstatus("danger");
         setTimeout(() => {
           setdisplayform(true);
-        }, 3000);
+        }, 4000);
       });
   };
   return (
@@ -114,7 +115,8 @@ function WidgetContactForm() {
           <div className="row row1">
             <div className="col-md-5 space-bottom-20 name-container">
               <input
-                pattern="^\w{1,}$"
+                // pattern="^\w{1,}$"
+                pattern=	"^[a-zA-Z ]{1,200}$"
                 onChange={changeDetected}
                 formControlName="name"
                 name="name"
@@ -130,7 +132,7 @@ function WidgetContactForm() {
                 id="name-validation"
                 style={{ display: "none" }}
               >
-                <div>Name is required.</div>
+                <div>Name should be valid</div>
               </div>
             </div>
 

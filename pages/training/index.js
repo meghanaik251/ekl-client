@@ -44,10 +44,12 @@ export default function Training() {
 
         <div className="searchT">
           <input
+          className="search ng-pristine ng-valid ng-touched"
             onChange={(e) => setsearch(e.currentTarget.value)}
             placeholder="Search"
             title="Search bar"
           />
+          <i className="fa fa-search"></i>
         </div>
       </div>
 

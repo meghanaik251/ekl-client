@@ -44,7 +44,7 @@ function TrainingId() {
       <div className=" container headoftrainng">
         <div>
           {eachtrainingData?.training?.title && (
-            <h4 style={{ color: "black", margin: "2%" }}>
+            <h4 className="heading4">
               {eachtrainingData?.training?.title}
             </h4>
           )}
@@ -108,7 +108,7 @@ function TrainingId() {
         </div>
 
         {eachtrainingData?.videosData?.length ? (
-          <div className="row-videos">
+          <div className="row">
             <div className="col">
               <h6>Related Videos</h6>
               <div className="player">

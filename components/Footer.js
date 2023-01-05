@@ -53,7 +53,7 @@ function Footer() {
               d.show && (
                 <a
                   key={i}
-                  target="__blank"
+                  target="_blank"
                   onClick={() => router.push(d.link)}
                   id="FooterSocialMediaLinks"
                   className={d.icon}
@@ -71,7 +71,7 @@ function Footer() {
           (d, i) =>
             !d.show && (
               <p
-                className="ekl-description"
+                className="ekldescription"
                 key={i}
                 dangerouslySetInnerHTML={{ __html: d.description }}
               ></p>

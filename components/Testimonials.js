@@ -2,19 +2,20 @@ import { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import { mediaUrl } from "../services/constants";
 import { getWidgetHomePagestestimonials, getwidgetsData } from "./http-service";
+import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 
-import Modal from "react-modal";
+// import Modal from "react-modal";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
+// const customStyles = {
+//   // content: {
+//   //   top: "60%",
+//   //   left: "50%",
+//   //   right: "1%",
+//   //   bottom: "1%",
+//   //   marginRight: "-50%",
+//   //   // transform: "translate(-50%, -50%)",
+//   // },
+// };
 
 function Testimonials() {
   const [testimonials, settestimonials] = useState(undefined);
@@ -43,7 +44,34 @@ function Testimonials() {
 
   const items = testimonials?.content.map((testimonial, i) => {
     return (
+      // <div className="testimonial-container brown_color">
+      //   <div className="testimonial-image">
+      //     <img
+      //       className="home_page_slider_testmonial"
+      //       key={i}
+      //       src={mediaUrl + testimonial.avatar}
+      //       role="presentation"
+      //     />
+      //   </div>
+      //   <div className="testimonial-body my_alice-carousel__wrapper">
+      //     <h5> {testimonial.name} </h5>
+      //     <br></br>
+      //     <span
+      //       className="read_more_testi"
+      //       dangerouslySetInnerHTML={{ __html: testimonial.text }}
+      //     ></span>
+      //   </div>
+      //   <div>
+      //     <span
+      //       className="read_more"
+      //       onClick={() => setactiveTestimonialAndOpenModal(testimonial)}
+      //     >
+      //       Read more
+      //     </span>
+      //   </div>
+      // </div>
       <div className="testimonial-container brown_color">
+     
         <div className="testimonial-image">
           <img
             className="home_page_slider_testmonial"
@@ -54,7 +82,6 @@ function Testimonials() {
         </div>
         <div className="testimonial-body my_alice-carousel__wrapper">
           <h5> {testimonial.name} </h5>
-          <br></br>
           <span
             className="read_more_testi"
             dangerouslySetInnerHTML={{ __html: testimonial.text }}
@@ -67,25 +94,21 @@ function Testimonials() {
           >
             Read more
           </span>
+          </div>
         </div>
-      </div>
+      
     );
   });
 
   return (
-    <>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-        ariaHideApp={false}
-      >
+    <> 
+
+<Modal onClick={closeModal} isOpen={modalIsOpen}>
         <div className="close-button-section" onClick={closeModal}>
-          <strong>X</strong>
+          <strong className="strong">X</strong>
         </div>
         <div className="testimonial-modal-container">
-          <div className="testimonial-modal-image">
+          <div >
             <img
               src={mediaUrl + activeTestimonial?.avatar}
               role="presentation"
@@ -99,18 +122,26 @@ function Testimonials() {
               dangerouslySetInnerHTML={{ __html: activeTestimonial?.text }}
             ></span>
           </div>
+        {/* </div> */}
+          
         </div>
+       
+      
+    
       </Modal>
+
+
       <AliceCarousel
         // autoPlay={true}
-        infinite={true}
+        // infinite={true}
         mouseTracking
         items={items}
         controlsStrategy="alternate"
-        disableButtonsControls={true}
+        // disableButtonsControls={true}
         disableDotsControls={true}
         animationDuration={1500}
         autoPlayInterval={4000}
+        
       />
     </>
   );
