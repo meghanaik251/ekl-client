@@ -58,6 +58,7 @@ function Offerings() {
         </button>
       </div>
 
+
       <div className="p-3 offeringsimage">
         <AliceCarousel
           // autoPlay={true}
@@ -70,6 +71,7 @@ function Offerings() {
           // infinite={true}
         />
       </div>
+     
     </div>
   );
 }

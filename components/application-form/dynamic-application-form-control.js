@@ -176,7 +176,7 @@ function DynamicApplicationFormControl({
                       // value={userDetails[controlData.key]}
                     />
                     <div id={controlData.key + "-validation"}>
-                      {/* <div>{controlData.validationMessage}</div> */}
+                      <div className="vmsg" >{controlData.validationMessage}</div>
                     </div>
                   </div>
                 )}

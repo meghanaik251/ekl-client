@@ -17,10 +17,11 @@ function Navbar(props) {
   return (
     <div className="sticky-top">
       <div className="navbar-light bg-light">
-        <span className="navbar_contact"> hello@eklakshya.com</span>
+        <span className="navbar_contact"> <i className = "fa fa-envelope-o"></i> hello@eklakshya.com</span>
         <span className="navbar_contact">
           {" "}
-          <span className="contact"> Contact Numbers : </span> +91 8050050183
+          <i className = "fa fa-phone"></i>
+          <span className="contact">  Contact Numbers : </span> +91 8050050183
           +91 8050050185 +91 8050050186
         </span>{" "}
         <br />
@@ -90,7 +91,7 @@ function Navbar(props) {
                     !d.hide && (
                       <li key={i} className="nav-item">
                         <a
-                          className="nav-link"
+                          className="nav-link navlink"
                           key={i + 1}
                           onClick={() => router.push("/" + d.url)}
                         >

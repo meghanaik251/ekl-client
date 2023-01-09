@@ -22,9 +22,7 @@ function cancellationandrefundd() {
           </div>
   
         </div>
-        <br></br>
-        <br></br>
-        <div className="row">
+        <div className="row cancel_content">
           <div className="col">
             {cancellation?.content && (
               <p

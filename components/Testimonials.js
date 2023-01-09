@@ -129,8 +129,11 @@ function Testimonials() {
       
     
       </Modal>
+      <div className="row">
+<div className="col-1">
 
-
+</div>
+      <div className="col-8">
       <AliceCarousel
         // autoPlay={true}
         // infinite={true}
@@ -143,6 +146,11 @@ function Testimonials() {
         autoPlayInterval={4000}
         
       />
+      <div className="col">
+
+      </div>
+      </div>
+      </div>
     </>
   );
 }

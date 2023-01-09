@@ -14,7 +14,7 @@ function Privacypolicyy() {
     <div>
       <div className="container">
         <div className="row">
-          <div className="col">
+          <div className="col privacy_title">
             {privacypolicydeails?.title && (
               <h5 className="heading-left" style={{ color: "black" }}>
                 {privacypolicydeails?.title}
@@ -22,7 +22,7 @@ function Privacypolicyy() {
             )}
           </div>
         </div>
-        <div className="row">
+        <div className="row privacy_content">
           <div className="col">
             {privacypolicydeails?.content && (
               <p

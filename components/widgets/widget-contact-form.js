@@ -58,8 +58,13 @@ function WidgetContactForm() {
     submitContactFormdata(data)
       .then(() => {
         setstatus("success");
+        document.getElementById("email").value = ''
+        document.getElementById("name").value = ''
+        document.getElementById("subject").value = ''
+        document.getElementById("message").value = ''
         setTimeout(() => {
           setdisplayform(true);
+          setstatus(null)
           
         }, 4000);
       })
@@ -67,6 +72,7 @@ function WidgetContactForm() {
         setstatus("danger");
         setTimeout(() => {
           setdisplayform(true);
+          setstatus(null)
         }, 4000);
       });
   };

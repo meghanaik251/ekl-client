@@ -79,9 +79,6 @@ function Blog() {
   return (
     <div className="blog_container">
       <div className="tab-container">
-        {/* <input onChange={(e) => onInputChange(e)} /> <button className="search_button"><i class="fa fa-search tab-tools" aria-hidden="true"></i></button> */}
-        {/* onChange={(e) => onInputChange(e)} */}
-
         <div className="tab-section">
           <button
             className={
@@ -111,7 +108,7 @@ function Blog() {
             <a
               href={"blog/" + blogInfo?.url}
               key={i}
-              className="blogData col-md-4 col-sm-6 col-xs-12"
+              className="blogData col-md-4 colblog  col-sm-6 col-xs-12"
             >
               <div className="blog-container">
                 {blogInfo.bannerId && (
@@ -168,6 +165,7 @@ function Blog() {
           }}
         >
           {categoryData.map((category, i) => (
+            
             <span
               className={
                 activeTab.title == "default" ? "quicklinks" : "category"
@@ -175,8 +173,10 @@ function Blog() {
               key={i}
               onClick={() => onCategoryClick(category)}
             >
+              <div className = "category_title">
               {" "}
               {category.title}{" "}
+              </div>
             </span>
           ))}
         </div>

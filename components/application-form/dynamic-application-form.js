@@ -24,6 +24,15 @@ function DynamicApplicationForm({ applicatonForm }) {
     !!e.target.value && setresetcheck(!true);
 
     setformdetails({ ...formdetails, [e.target.name]: e.target.value });
+        // const testPattern = new RegExp(e.target.pattern);
+
+        // document
+        //     .getElementById(e.target.id)
+        //     .classList.add(testPattern.test(e.target.value) ? "valid" : "invalid");
+        //     document.getElementById(e.target.id + "-validation").style.display =
+        //         testPattern.test(e.target.value) ? "none" : "block";
+
+                
     const requirredItems = applicatonForm.controls.map(
       (controlData) => controlData.key
     );
@@ -51,6 +60,20 @@ function DynamicApplicationForm({ applicatonForm }) {
       });
     }
   };
+
+  // const changeDetected = (e) => {
+  //   setvalidate({ ...validate, [e.target.id]: e.target.value });
+  //   const testPattern = new RegExp(e.target.pattern);
+  //   console.log(e.target.value);
+
+  //   document
+  //     .getElementById(e.target.id)
+  //     .classList.add(testPattern.test(e.target.value) ? "valid" : "invalid");
+  //   document.getElementById(e.target.id + "-validation").style.display =
+  //     testPattern.test(e.target.value) ? "none" : "block";
+  // };
+
+
 
   const onsubmit = (e) => {
     setdisplayform(false);

@@ -31,6 +31,11 @@ function MyApp({ Component, pageProps }) {
   }, [router.events]);
 
 
+  useEffect(() => {
+    checkBreadcrumbvisibility();
+  }, []);
+
+
   return( 
   <>
   <Head>
