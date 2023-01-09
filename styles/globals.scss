@@ -8,6 +8,35 @@
  
 }
 
+.graycolor{
+  background-color: #dedddd;
+}
+
+.blog-container {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  margin-bottom: 10%;
+}
+// .blog-container {
+//   background: #fff;
+//   border-radius: 2px;
+//   display: inline-block;
+//   height: 300px;
+//   margin: 1rem;
+//   position: relative;
+//   width: 300px;
+// }
+
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
 .vmsg{
   color:#cc0041;
   display: none;
@@ -737,7 +766,7 @@ iframe[sandbox] .read-article {
   position: relative;
   display: flex;
   flex-direction: row;
-  padding: 16px;
+  padding: 15px;
   margin: -10;
   box-sizing: border-box;
   width: 100%;
@@ -1744,12 +1773,7 @@ iframe[sandbox] .read-article {
   text-decoration: none;
 }
 
-.blog-container {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  margin-bottom: 10%;
-}
+
 
 .blog-container h6 {
   text-decoration: none;
@@ -1816,11 +1840,13 @@ iframe[sandbox] .read-article {
 
 .home_page_slider_testmonial {
   margin-left: 10%;
-  width: 100%;
+  // width: 100%;
+  width: auto;
   height: auto;
   display: inline-block;
-  width: 60%;
-  height: 100%;
+  // width: 60%;
+  max-height: 200px;
+  max-width: 200px;
   border-radius: 50%;
 
   background-repeat: no-repeat;
@@ -1830,11 +1856,11 @@ iframe[sandbox] .read-article {
 
 .testimonial-container {
   padding: 3%;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 4%;
+  padding-right: 4%;
   display: flex;
   width: 100%;
-  height: auto;
+  // height: 50vh;
   position: relative;
 }
 
@@ -1984,7 +2010,7 @@ iframe[sandbox] .read-article {
 .alice-carousel__stage-item {
   position: relative;
   display: inline-block;
-  padding: 16px;
+  padding: 15px;
   margin-top: -20px;
   box-sizing: border-box;
   width: 100%;
@@ -2318,11 +2344,12 @@ row-videos {
     cursor: pointer;
     align-items: center;
   }
+
   .alice-carousel__stage-item {
     position: relative;
     display: flex;
     flex-direction: row;
-    padding: 16px;
+    padding: 1px;
     margin: 0;
     box-sizing: border-box;
 
@@ -2392,7 +2419,7 @@ row-videos {
   }
   .form-control {
     display: block;
-    width: 200%;
+    width: 100%;
   }
   // .form-control1 {
   //   display: block;
