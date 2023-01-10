@@ -5,7 +5,7 @@ function DynamicApplicationFormControl({
   setformdetails,
   onEditChange,
 }) {
-  const [status, setstatus] = useState(undefined);
+  const [status, setstatus] = useState(null);
   const [check, setcheck] = useState(true);
   const [userDetails, setUserDetails] = useState({
     firstName: "",
@@ -38,62 +38,23 @@ function DynamicApplicationFormControl({
     referredBy: "",
   });
 
-  // useEffect(() => {
-  //   console.log("userDetails", userDetails);
-  //   if (
-
-  //     userDetails.firstName &&
-  //     userDetails.lastName &&
-  //     userDetails.middletName
-  //     // userDetails.password &&
-  //     // userDetails.confirmPassword  &&
-  //     // userDetails. gender &&
-  //     // userDetails. email &&
-  //     // userDetails. contact &&
-  //     // userDetails. altContact &&
-  //     // userDetails. state &&
-  //     // userDetails.district  &&
-  //     // userDetails. taluk &&
-  //     // userDetails.college  &&
-  //     // userDetails. bplCard &&
-  //     // userDetails. bplCardNo &&
-  //     // userDetails. qualification &&
-  //     // userDetails. specialisation &&
-  //     // userDetails.  collegeName&&
-  //     // userDetails. yearOfPassing &&
-  //     // userDetails. universityName &&
-  //     // userDetails. sslcPercentage &&
-  //     // userDetails. sslcPercentage &&
-  //     // userDetails. puc1Percentage &&
-  //     // userDetails.  puc2Percentage &&
-  //     // userDetails.  currentStudy&&
-  //     // userDetails. subjectOfCurrentStudy &&
-  //     // userDetails. files &&
-  //     // userDetails. referredBy
-
-  //   ) {
-  //     setcheck(false);
-  //   } else {
-  //     setcheck(true);
-  //   }
-  // }, [userDetails]);
-
   const changeDetected = (e) => {
-    console.log(e.target.id);
-    // const testPattern = new RegExp(e.target.pattern)
+    console.log(e.target.id,"gfgfhfghfhfghfghfg");
 
-    setvalidate({ ...validate, [e.target.id]: e.target.value });
+    setUserDetails({ ...userDetails, [e.target.id]: e.target.value });
     const testPattern = new RegExp(e.target.pattern);
     console.log(e.target.required, "requireddddddddddddddddddddddddd");
     if (e.target.required == true) {
+      // setstatus(none)
     }
     // console.log(e.target.value, )
     document
       .getElementById(e.target.id)
       .classList.add(testPattern.test(e.target.value) ? "valid" : "invalid");
+      console.log(e.target.id,"ggggggggg")
     document.getElementById(e.target.id + "-validation").style.display =
       testPattern.test(e.target.value) ? "none" : "block";
-    // console.log("changeDetected")
+    console.log(e.target.id,"changeDetected.............ddd")
   };
 
   // const handleformSubmit = async (e) => {
@@ -161,7 +122,8 @@ function DynamicApplicationFormControl({
                   <div>
                     <input
                       onInput={onEditChange}
-                      onChange={(e) => console.log(e.currentTarget.value)}
+                      // onChange={(e) => console.log(e.currentTarget.value)}
+                      onChange={changeDetected}
                       id={controlData.key}
                       name={controlData.key}
                       pattern={controlData.validationExp}
@@ -176,7 +138,7 @@ function DynamicApplicationFormControl({
                       // value={userDetails[controlData.key]}
                     />
                     <div id={controlData.key + "-validation"}>
-                      <div className="vmsg" >{controlData.validationMessage}</div>
+                      <div className="vmsg" style={{ display: "none" }} >{controlData.validationMessage}</div>
                     </div>
                   </div>
                 )}

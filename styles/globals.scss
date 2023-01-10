@@ -15,8 +15,13 @@
 .blog-container {
   display: flex;
   flex-direction: column;
-  text-decoration: none;
+  // text-decoration: none;
   margin-bottom: 10%;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 0;
+  font-weight: 400;
+  color: #333;
 }
 // .blog-container {
 //   background: #fff;
@@ -39,7 +44,7 @@
 
 .vmsg{
   color:#cc0041;
-  display: none;
+  
 }
 
 .processing{
@@ -544,6 +549,9 @@ h4 {
   border: 1px solid #989999;
   span {
     color: rgb(255, 255, 255);
+    height: 5%;
+    width: 5%;
+
   }
 }
 .slide {
@@ -1775,13 +1783,13 @@ iframe[sandbox] .read-article {
 
 
 
-.blog-container h6 {
-  text-decoration: none;
-  font-size: 1rem;
-  margin-top: 0;
-  font-weight: 400;
-  color: #333;
-}
+// .blog-container h6 {
+//   text-decoration: none;
+//   font-size: 1rem;
+//   margin-top: 0;
+//   font-weight: 400;
+//   color: #333;
+// }
 
 .blog-description-container {
   color: black;
@@ -2225,7 +2233,7 @@ row-videos {
   .testimonial-image {
     align-items: center;
     justify-content: center;
-    margin-left: 20%;
+    margin-left: 17%;
     margin-bottom: 5%;
   }
 
