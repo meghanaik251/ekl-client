@@ -38,7 +38,7 @@ function Offerings() {
         onClick={() => router.push(training.url)}
       >
         <img
-          width={"100%"}
+          width={"292.5px"}
           src={mediaUrl + training.thumbnail}
           onDragStart={handleDragStart}
           role="presentation"
@@ -50,9 +50,9 @@ function Offerings() {
   return (
     <div className="carouselslider">
       <div className="offerings-heading">
-        <h4 style={{ color: "black", textAlign: "left", margin: "20px" , marginLeft: "8"}}>
+        <h5 style={{ color: "black", textAlign: "left", margin: "44px" , marginLeft: "8"}}>
           OFFERINGS{" "}
-        </h4>
+        </h5>
         <button className="viewall" onClick={() => router.push("/training")}>
           View all
         </button>
