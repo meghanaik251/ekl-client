@@ -38,7 +38,7 @@ function Offerings() {
         onClick={() => router.push(training.url)}
       >
         <img
-          width={"292.5px"}
+          width={"91%"}
           src={mediaUrl + training.thumbnail}
           onDragStart={handleDragStart}
           role="presentation"

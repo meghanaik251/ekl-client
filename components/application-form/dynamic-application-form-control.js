@@ -43,15 +43,16 @@ function DynamicApplicationFormControl({
 
     setUserDetails({ ...userDetails, [e.target.id]: e.target.value });
     const testPattern = new RegExp(e.target.pattern);
-    console.log(e.target.required, "requireddddddddddddddddddddddddd");
     if (e.target.required == true) {
       // setstatus(none)
+      document.getElementById(e.target.id + "-validation").style.display =
+      e.target.value.length ? "none" : "block";
     }
     // console.log(e.target.value, )
     document
       .getElementById(e.target.id)
       .classList.add(testPattern.test(e.target.value) ? "valid" : "invalid");
-      console.log(e.target.id,"ggggggggg")
+      console.log(e.target.id,"ggggggggg",testPattern.test(e.target.value))
     document.getElementById(e.target.id + "-validation").style.display =
       testPattern.test(e.target.value) ? "none" : "block";
     console.log(e.target.id,"changeDetected.............ddd")

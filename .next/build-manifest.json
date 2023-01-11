@@ -29,16 +29,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/blog.js"
-    ],
-    "/blog/[blogUrl]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/blog/[blogUrl].js"
-    ],
-    "/training": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/training.js"
     ]
   },
   "ampFirstPages": []

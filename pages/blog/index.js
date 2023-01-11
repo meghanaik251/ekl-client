@@ -108,7 +108,7 @@ function Blog() {
             <a
               href={"blog/" + blogInfo?.url}
               key={i}
-              className="blogData col-md-4 colblog  col-sm-6 col-xs-12"
+              className="blogData col-md-6 colblog col-lg-4 col-sm-12 col-xs-3"
             >
               <div className="blog-container">
                 {blogInfo.bannerId && (
@@ -126,7 +126,7 @@ function Blog() {
                 )}
                 <article className="blog-description-container">
                   <h6 className="limit_text">{blogInfo.title} </h6>
-                  <p className="limit">{blogInfo.description.slice(0, 80)}</p>
+                  <p className="limit">{blogInfo.description}</p>
                   <div className="blog-like-view-container row">
                     <div className="col fa fa-thumbs-o-up">
                       {" "}

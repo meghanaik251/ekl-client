@@ -4,7 +4,7 @@ import { mediaUrl } from "../services/constants";
 import { getWidgetHomePagestestimonials, getwidgetsData } from "./http-service";
 import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 
-// import Modal from "react-modal";
+import Modal from "react-modal";
 
 // const customStyles = {
 //   // content: {
